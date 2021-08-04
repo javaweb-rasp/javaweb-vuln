@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <filter>
+        <filter-name>TestFilter</filter-name>
+        <filter-class>TestFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>TestFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>TestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/TestServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InputStream</servlet-name>
+        <servlet-class>InputStreamServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>InputStream</servlet-name>
+        <url-pattern>/InputStreamServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Reader</servlet-name>
+        <servlet-class>ReaderServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Reader</servlet-name>
+        <url-pattern>/ReaderServlet</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.do</welcome-file>
+    </welcome-file-list>
+
+</web-app>

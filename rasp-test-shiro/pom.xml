@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<parent>
+    <groupId>org.javaweb.vuls</groupId>
+    <artifactId>javaweb-vuls</artifactId>
+    <version>1.0.0</version>
+</parent>
+
+<modelVersion>4.0.0</modelVersion>
+<artifactId>rasp-test-shiro</artifactId>
+<packaging>war</packaging>
+
+<dependencies>
+
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+    </dependency>
+    <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>jsp-api</artifactId>
+        <version>2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+        <version>3.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>3.2.6.RELEASE</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.shiro</groupId>
+        <artifactId>shiro-spring</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+
+</dependencies>
+
+<build>
+    <finalName>rasp-test-shiro</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven-compiler-plugin.version}</version>
+            <configuration>
+                <source>6</source>
+                <target>6</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+</project>
