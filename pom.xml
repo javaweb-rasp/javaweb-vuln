@@ -69,7 +69,6 @@
         <module>rasp-test-core</module>
         <module>rasp-test-springboot</module>
         <module>rasp-test-struts2</module>
-        <module>rasp-test-api</module>
         <module>rasp-test-servlet</module>
         <module>rasp-test-jakarta-servlet</module>
         <module>rasp-test-shiro</module>
