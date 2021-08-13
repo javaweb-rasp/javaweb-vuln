@@ -22,15 +22,14 @@
                     <#list articleList ! as a>
                         <li>
                             <a href="user/home.html" class="fly-avatar">
-                                <img src="${a.sysUser.userAvatar!!}"
-                                     onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
+                                <img src="${request.contextPath}/res/images/avatar/default.png">
                             </a>
                             <h2>
                                 <a href="${request.contextPath}/getArticle.do?articleId=${a.id?c}">${a.title!!}</a>
                             </h2>
                             <div class="fly-list-info">
-                                <a href="${request.contextPath}/getUserById.do?id=${a.sysUser.id!!}" link>
-                                    <cite>${a.sysUser.username!!}</cite>
+                                <a href="#" link>
+                                    <cite>yzmm</cite>
                                     <!--
                                     <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
                                     <i class="layui-badge fly-badge-vip">VIP3</i>

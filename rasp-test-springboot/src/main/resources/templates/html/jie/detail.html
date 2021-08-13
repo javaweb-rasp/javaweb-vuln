@@ -22,16 +22,8 @@
                     </div>
                     <div class="detail-about">
                         <a class="fly-avatar" href="../user/home.html">
-                            <img src="${article.sysUser.userAvatar!!}"
-                                 onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
+                            <img src="${request.contextPath}/res/images/avatar/default.png">
                         </a>
-                        <div class="fly-detail-user">
-                            <a href="${request.contextPath}/getUserById.do?id=${article.sysUser.id!!}" class="fly-link">
-                                <cite>${article.sysUser.username!!}</cite>
-                                <i class="layui-badge fly-badge-vip">VIP3</i>
-                            </a>
-                            <span>${article.publishDate!!}</span>
-                        </div>
 
                         <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
                             <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="add.html">编辑此贴</a></span>
