@@ -41,21 +41,22 @@
         <commons-io.version>2.4</commons-io.version>
         <freemarker.version>2.3.23</freemarker.version>
         <httpclient.version>4.5.12</httpclient.version>
+        <ascii-table.version>1.2.0</ascii-table.version>
         <servlet-api.version>3.0.1</servlet-api.version>
         <hibernate.version>5.3.9.Final</hibernate.version>
         <commons-proxy.version>1.0</commons-proxy.version>
         <xbean-reflect.version>4.16</xbean-reflect.version>
         <commons-codec.version>1.11</commons-codec.version>
         <commons-jelly.version>1.0.1</commons-jelly.version>
-        <aspectjweaver.version>1.9.5</aspectjweaver.version>
+        <aspectjweaver.version>1.9.7</aspectjweaver.version>
         <activemq-pool.version>5.15.12</activemq-pool.version>
-        <spring-boot.version>1.3.0.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <spring-data.version>1.9.1.RELEASE</spring-data.version>
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
         <mssql-jdbc.version>6.3.6.jre7-preview</mssql-jdbc.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
-        <springframework.version>4.2.3.RELEASE</springframework.version>
+        <springframework.version>5.2.15.RELEASE</springframework.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mysql-connector-java.version>5.1.45</mysql-connector-java.version>
