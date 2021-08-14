@@ -38,18 +38,18 @@ public class SQLInjectionController {
 		// 退出登陆
 		if (sessionUser != null && "exit".equals(action)) {
 			session.removeAttribute(sessionKey);
-			responseHTML(response, "<script>alert('再见!');location.reload();</script>");
+			responseHTML(response, "<script>alert('Bye!');location.reload();</script>");
 			return;
 		}
 
-		Map<String, String> userInfo = null;
+		Map<String, String> userInfo;
 
 		// 检查用户是否已经登陆成功
 		if (sessionUser instanceof Map) {
 			userInfo = (Map<String, String>) sessionUser;
 			responseHTML(response,
-					"<p>欢迎回来:" + userInfo.get("username") + ",ID:" +
-							userInfo.get("id") + " \r<a href='?action=exit'>退出登陆</a></p>"
+					"<p>Welcome:" + userInfo.get("username") + ",ID:" +
+							userInfo.get("id") + " \r<a href='?action=exit'>Logout</a></p>"
 			);
 
 			return;
@@ -57,7 +57,7 @@ public class SQLInjectionController {
 
 		// 处理用户登陆逻辑
 		if (username != null && password != null) {
-			userInfo = new HashMap<String, String>();
+			userInfo = new HashMap<>();
 
 			try {
 				String sql = "select id,username,password from sys_user where username = '" +
@@ -75,10 +75,10 @@ public class SQLInjectionController {
 					// 跳转到登陆成功页面
 					response.sendRedirect(request.getServletPath());
 				} else {
-					responseHTML(response, "<script>alert('登陆失败，账号或密码错误!');history.back(-1)</script>");
+					responseHTML(response, "<script>alert('Login failed, username or password is wrong!');history.back(-1)</script>");
 				}
 			} catch (Exception e) {
-				responseHTML(response, "<script>alert('登陆失败，服务器异常!');history.back(-1)</script>");
+				responseHTML(response, "<script>alert('Login error!');history.back(-1)</script>");
 			}
 
 			return;
@@ -86,14 +86,15 @@ public class SQLInjectionController {
 
 		responseHTML(response, "<html>\n" +
 				"<head>\n" +
+				"    <meta charset='UTF-8'/>" +
 				"    <title>Login Test</title>\n" +
 				"</head>\n" +
 				"<body>\n" +
 				"<div style=\"margin: 30px;\">\n" +
 				"    <form action=\"#\" method=\"POST\">\n" +
 				"        Username:<input type=\"text\" name=\"username\" value=\"admin\"/><br/>\n" +
-				"        Password:<input type=\"text\" name=\"password\" value=\"'=0#\"/><br/>\n" +
-				"        <input type=\"submit\" value=\"登陆\"/>\n" +
+				"        Password:<input type=\"text\" name=\"password\" value=\"' or '1'='1\"/><br/>\n" +
+				"        <input type=\"submit\" value=\"Login\"/>\n" +
 				"    </form>\n" +
 				"</div>\n" +
 				"</body>\n" +
