@@ -2,6 +2,9 @@ package org.javaweb.vuls.advice;
 
 import com.alibaba.fastjson.JSON;
 import com.github.freva.asciitable.AsciiTable;
+import eu.bitwalker.useragentutils.Browser;
+import eu.bitwalker.useragentutils.OperatingSystem;
+import eu.bitwalker.useragentutils.UserAgent;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -15,8 +18,12 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static org.javaweb.utils.HttpServletRequestUtils.getCurrentHttpServletRequest;
+import static org.javaweb.utils.HttpServletRequestUtils.getRemoteAddr;
 
 @Aspect
 @Order(0)
@@ -56,18 +63,19 @@ public class AuditLogAdvice {
 		Object resultObject = pjp.proceed();
 
 		String[] headers = {
-				"Method", "URL", "ClassName", "Method", "Result", "Method Args", "Parameter", "Header"
+				"Method", "URL", "ClassName", "Method", "Result", "Method Args", "Parameter", "Header", "Client IP", "User-Agent"
 		};
 
 		String result = "\n" + AsciiTable.getTable(
 				headers, new Object[][]{{
 						request.getMethod(), getURL(request), target.getClass().getName(),
 						method.getName(), getResultStr(resultObject), Arrays.toString(args),
-						getParameter(request), getHeaderMap(request).toString()
+						getParameter(request), getHeaderMap(request).toString(),
+						getRemoteAddr(request), getUserAgent(request)
 				}}
 		);
 
-		LOG.info(result);
+		System.out.println(result);
 
 		return resultObject;
 	}
@@ -113,6 +121,28 @@ public class AuditLogAdvice {
 		}
 
 		return headerMap;
+	}
+
+	private String getUserAgent(HttpServletRequest request) {
+		String userAgent = request.getHeader("User-Agent");
+
+		if (userAgent == null) return "UNKNOWN";
+
+		UserAgent       ua      = UserAgent.parseUserAgentString(userAgent);
+		OperatingSystem system  = ua.getOperatingSystem();
+		Browser         browser = ua.getBrowser();
+		StringBuilder sb = new StringBuilder()
+				.append("Browser: ").append(browser.getName()).append("\n")
+				.append("Browser version: ").append(browser.getVersion(userAgent)).append("\n")
+				.append("OperatingSystem: ").append(system.getName()).append("\n");
+
+		String  regexp  = "(Baiduspider|Googlebot|Yahoo! Slurp|Sogou|YodaoBot|msnbot)";
+		Matcher matcher = Pattern.compile(regexp, CASE_INSENSITIVE).matcher(userAgent);
+
+		if (matcher.find())
+			sb.append("Spider: ").append(matcher.group(0)).append("\n");
+
+		return sb.toString();
 	}
 
 }

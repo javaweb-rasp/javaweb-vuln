@@ -50,6 +50,7 @@
         <commons-codec.version>1.11</commons-codec.version>
         <commons-jelly.version>1.0.1</commons-jelly.version>
         <aspectjweaver.version>1.9.7</aspectjweaver.version>
+        <UserAgentUtils.version>1.21</UserAgentUtils.version>
         <activemq-pool.version>5.15.12</activemq-pool.version>
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <spring-data.version>1.9.1.RELEASE</spring-data.version>
