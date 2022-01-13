@@ -7,13 +7,10 @@ import eu.bitwalker.useragentutils.OperatingSystem;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
@@ -25,9 +22,9 @@ import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static org.javaweb.utils.HttpServletRequestUtils.getCurrentHttpServletRequest;
 import static org.javaweb.utils.HttpServletRequestUtils.getRemoteAddr;
 
-@Aspect
-@Order(0)
-@Component
+//@Aspect
+//@Order(0)
+//@Component
 public class AuditLogAdvice {
 
 	private static final Logger LOG = LoggerFactory.getLogger(AuditLogAdvice.class);
@@ -63,7 +60,8 @@ public class AuditLogAdvice {
 		Object resultObject = pjp.proceed();
 
 		String[] headers = {
-				"Method", "URL", "ClassName", "Method", "Result", "Method Args", "Parameter", "Header", "Client IP", "User-Agent"
+				"Method", "URL", "ClassName", "Method", "Result", "Method Args",
+				"Parameter", "Header", "Client IP", "User-Agent"
 		};
 
 		String result = "\n" + AsciiTable.getTable(
@@ -101,6 +99,7 @@ public class AuditLogAdvice {
 
 	private String getParameter(HttpServletRequest request) {
 		Map<String, String[]> parameterMap = request.getParameterMap();
+
 		return parameterMap != null && parameterMap.size() > 0 ? JSON.toJSONString(parameterMap) : "";
 	}
 
@@ -131,6 +130,7 @@ public class AuditLogAdvice {
 		UserAgent       ua      = UserAgent.parseUserAgentString(userAgent);
 		OperatingSystem system  = ua.getOperatingSystem();
 		Browser         browser = ua.getBrowser();
+
 		StringBuilder sb = new StringBuilder()
 				.append("Browser: ").append(browser.getName()).append("\n")
 				.append("Browser version: ").append(browser.getVersion(userAgent)).append("\n")

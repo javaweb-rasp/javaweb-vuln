@@ -1,14 +1,13 @@
 package org.javaweb.vuls.controller;
 
+import org.javaweb.utils.FileUtils;
+import org.javaweb.utils.StringUtils;
 import org.javaweb.vuls.commons.ResultInfo;
 import org.javaweb.vuls.dao.SysArticleDAO;
 import org.javaweb.vuls.dao.SysUserDAO;
 import org.javaweb.vuls.entity.SysArticle;
 import org.javaweb.vuls.entity.SysComments;
 import org.javaweb.vuls.entity.SysUser;
-import org.javaweb.utils.FileUtils;
-import org.javaweb.utils.HttpServletResponseUtils;
-import org.javaweb.utils.StringUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,9 +24,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static org.javaweb.vuls.commons.Constants.SESSION_USER;
 import static org.javaweb.utils.HttpServletRequestUtils.getDocumentRoot;
+import static org.javaweb.utils.HttpServletResponseUtils.download;
+import static org.javaweb.utils.StringUtils.isNotEmpty;
+import static org.javaweb.vuls.commons.Constants.SESSION_USER;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
  * 演示环境首页漏洞
@@ -54,7 +56,7 @@ public class IndexController {
 	}
 
 	@RequestMapping("/SpELVul.php")
-	public String spELVul(int id, HttpServletRequest request, HttpServletResponse response) {
+	public String spELVul(int id, HttpServletRequest request) {
 		request.setAttribute("id", id);
 
 		return "/spel.html";
@@ -158,7 +160,7 @@ public class IndexController {
 		ResultInfo<SysUser> result = new ResultInfo<SysUser>();
 		SysUser             u      = sysUserDAO.getSysUserByUsername(user.getUsername());
 
-		if (StringUtils.isNotEmpty(user.getUsername()) && StringUtils.isNotEmpty(user.getPassword())) {
+		if (isNotEmpty(user.getUsername()) && isNotEmpty(user.getPassword())) {
 			if (u == null) {
 				if (sysUserDAO.register(user) > 0) {
 					result.setValid(true);
@@ -196,7 +198,7 @@ public class IndexController {
 	@ResponseBody
 	@RequestMapping("/addArticle.do")
 	public ResultInfo<?> addArticle(SysArticle article, HttpSession session) {
-		ResultInfo<?> resultInfo  = new ResultInfo();
+		ResultInfo<?> resultInfo  = new ResultInfo<Object>();
 		Object        sessionUser = session.getAttribute(SESSION_USER);
 
 		if (sessionUser != null) {
@@ -219,9 +221,9 @@ public class IndexController {
 	@ResponseBody
 	@RequestMapping("/addComments.do")
 	public ResultInfo<?> addComments(SysComments comment, HttpSession session) {
-		ResultInfo<?> resultInfo = new ResultInfo();
+		ResultInfo<?> resultInfo = new ResultInfo<Object>();
 
-		if (StringUtils.isNotEmpty(comment.getCommentContent())) {
+		if (isNotEmpty(comment.getCommentContent())) {
 			Object sessionUser = session.getAttribute(SESSION_USER);
 
 			if (sessionUser != null) {
@@ -244,7 +246,7 @@ public class IndexController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/upload.php", method = RequestMethod.POST)
+	@RequestMapping(value = "/upload.php", method = POST)
 	public Map<String, Object> upload(@RequestParam("file") MultipartFile file,
 	                                  HttpServletRequest request) throws Exception {
 
@@ -266,13 +268,13 @@ public class IndexController {
 	}
 
 	@RequestMapping("/download.php")
-	public void download(String fileName, HttpServletRequest request,
-	                     HttpServletResponse response) throws IOException {
+	public void downloadFile(String fileName, HttpServletRequest request,
+	                         HttpServletResponse response) throws IOException {
 
 		File uploadDir    = new File(getDocumentRoot(request), "UploadImages");
 		File downloadFile = new File(uploadDir, fileName);
 
-		HttpServletResponseUtils.download(response, downloadFile);
+		download(response, downloadFile);
 	}
 
 }
