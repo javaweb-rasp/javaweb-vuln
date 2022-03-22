@@ -71,7 +71,7 @@ CREATE TABLE `sys_config` (
 --  Records of `sys_config`
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_config` VALUES ('1', 'sys_website_name', 'TongASDP 漏洞测试平台'), ('2', 'sys_base_url', 'http://localhost:8000/'), ('3', 'sys_index_page', 'index.php'), ('4', 'sys_aliases_name', 'XXX'), ('6', 'sys_website_description', 'TongASDP 漏洞测试平台'), ('7', 'sys_version', 'JavaBBS 1.0'), ('8', 'sys_admin_email', 'admin@javaweb.org'), ('9', 'sys_icp_num', '京B2-20090059-1'), ('10', 'sys_website_keywords', 'Java漏洞测试靶场');
+INSERT INTO `sys_config` VALUES ('1', 'sys_website_name', 'RASP 漏洞测试平台'), ('2', 'sys_base_url', 'http://localhost:8000/'), ('3', 'sys_index_page', 'index.php'), ('4', 'sys_aliases_name', 'XXX'), ('6', 'sys_website_description', 'RASP 漏洞测试平台'), ('7', 'sys_version', 'javaweb-vuln 1.0.0'), ('8', 'sys_admin_email', 'admin@javaweb.org'), ('9', 'sys_icp_num', '京B2-XXXX-1'), ('10', 'sys_website_keywords', 'Java漏洞测试靶场');
 COMMIT;
 
 -- ----------------------------

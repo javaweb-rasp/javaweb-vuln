@@ -15,7 +15,7 @@
 
 <img src="images/image-20210803164543721.png" alt="image-20210803164543721" style="zoom:50%;" />
 
-项目内置了用于性能测试的两个接口`org.javaweb.vuls.controller.IndexController.getUserByName/getSysUserByName`一个采用了传统的GET/POST传参，另一个采用了JSON方式传参：
+项目内置了用于性能测试的两个接口`IndexController.getUserByName/getSysUserByName`一个采用了传统的GET/POST传参，另一个采用了JSON方式传参：
 
 <img src="images/image-20210803165139192.png" alt="image-20210803165139192" style="zoom:50%;" />
 
@@ -82,4 +82,4 @@ curl -i http://localhost:8000/rasp.action -d "redirect:%24%7b%23w%3d%23context.g
 
 ## 5. 其他测试用例
 
-`rasp-test-core`项目中的`org.javaweb.vuls.controller`包下面包含了非常多的其他测试用例。
+`rasp-test-core`项目中的`org.javaweb.vuln.controller`包下面包含了非常多的其他测试用例。

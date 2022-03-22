@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.javaweb.vuls</groupId>
-    <artifactId>javaweb-vuls</artifactId>
+    <groupId>org.javaweb.vuln</groupId>
+    <artifactId>javaweb-vuln</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
@@ -52,13 +52,13 @@
         <aspectjweaver.version>1.9.7</aspectjweaver.version>
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
         <activemq-pool.version>5.15.12</activemq-pool.version>
-        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <spring-data.version>1.9.1.RELEASE</spring-data.version>
+        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
         <mssql-jdbc.version>6.3.6.jre7-preview</mssql-jdbc.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
-        <springframework.version>5.2.15.RELEASE</springframework.version>
+        <springframework.version>4.3.30.RELEASE</springframework.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mysql-connector-java.version>5.1.45</mysql-connector-java.version>
@@ -69,12 +69,9 @@
     </properties>
 
     <modules>
-        <module>rasp-test-core</module>
-        <module>rasp-test-springboot</module>
-        <module>rasp-test-struts2</module>
-        <module>rasp-test-servlet</module>
-        <module>rasp-test-jakarta-servlet</module>
-        <module>rasp-test-shiro</module>
+        <module>vuln-core</module>
+        <module>vuln-struts2</module>
+        <module>vuln-springboot2</module>
     </modules>
 
 </project>
