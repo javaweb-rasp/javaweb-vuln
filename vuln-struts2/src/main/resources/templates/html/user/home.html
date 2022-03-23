@@ -3,7 +3,7 @@
 <#include "../header.html"/>
 <#if Session["SESSION_USER"]??>
     <div class="fly-home fly-panel">
-        <img src="${Session['SESSION_USER'].userAvatar!!}" alt="${Session['SESSION_USER'].username!!}"
+        <img src="${request.contextPath}/${Session['SESSION_USER'].userAvatar!!}" alt="${Session['SESSION_USER'].username!!}"
              onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
         <h1>
             ${Session['SESSION_USER'].username!!}

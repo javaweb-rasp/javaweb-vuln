@@ -2,19 +2,19 @@
 <#assign title="用户中心 - ${sys_website_name!!}">
 <#include "../header.html"/>
 <#if Session["SESSION_USER"]??>
-<div class="fly-home fly-panel">
-    <img src="${Session['SESSION_USER'].userAvatar!!}" alt="${Session['SESSION_USER'].username!!}"
-         onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
-    <h1>
-        ${Session['SESSION_USER'].username!!}
-        <i class="iconfont icon-nan"></i>
-        <a href="javascript:logout();"><i class="layui-badge fly-badge-vip">退出</i></a>
-    </h1>
+    <div class="fly-home fly-panel">
+        <img src="${request.contextPath}/${Session['SESSION_USER'].userAvatar!!}" alt="${Session['SESSION_USER'].username!!}"
+             onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
+        <h1>
+            ${Session['SESSION_USER'].username!!}
+            <i class="iconfont icon-nan"></i>
+            <a href="javascript:logout();"><i class="layui-badge fly-badge-vip">退出</i></a>
+        </h1>
 
-    <p class="fly-home-info">
-        <i class="iconfont icon-shijian"></i><span>${Session['SESSION_USER'].registerTime!!} 加入</span>
-    </p>
-</div>
+        <p class="fly-home-info">
+            <i class="iconfont icon-shijian"></i><span>${Session['SESSION_USER'].registerTime!!} 加入</span>
+        </p>
+    </div>
 </#if>
 <#include "../footer.html"/>
 </@sys_config>

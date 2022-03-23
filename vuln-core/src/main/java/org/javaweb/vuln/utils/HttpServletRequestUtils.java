@@ -8,18 +8,36 @@ import static org.springframework.util.ReflectionUtils.findMethod;
 import static org.springframework.util.ReflectionUtils.invokeMethod;
 import static org.springframework.web.context.request.RequestContextHolder.currentRequestAttributes;
 
-public class HttpServletRequestUtils extends org.javaweb.utils.HttpServletRequestUtils {
+public class HttpServletRequestUtils {
+
+	private static Method getRequestMethod = null;
+
+	private static Method getResponseMethod = null;
 
 	private static Method getSessionMethod = null;
 
 	private static Method setAttributeMethod = null;
 
 	public static Object getHttpServletRequest() {
-		return ((ServletRequestAttributes) currentRequestAttributes()).getRequest();
+		ServletRequestAttributes attributes      = (ServletRequestAttributes) currentRequestAttributes();
+		Class<?>                 attributesClass = attributes.getClass();
+
+		if (getRequestMethod == null) {
+			getRequestMethod = findMethod(attributesClass, "getRequest");
+		}
+
+		return invokeMethod(getRequestMethod, attributes);
 	}
 
 	public static Object getHttpServletResponse() {
-		return ((ServletRequestAttributes) currentRequestAttributes()).getResponse();
+		ServletRequestAttributes attributes      = (ServletRequestAttributes) currentRequestAttributes();
+		Class<?>                 attributesClass = attributes.getClass();
+
+		if (getResponseMethod == null) {
+			getResponseMethod = findMethod(attributesClass, "getResponse");
+		}
+
+		return invokeMethod(getResponseMethod, attributes);
 	}
 
 	public static Object getHttpSession() {
@@ -48,5 +66,7 @@ public class HttpServletRequestUtils extends org.javaweb.utils.HttpServletReques
 
 		invokeMethod(setAttributeMethod, session, name, value);
 	}
+
+
 
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by yz on 2016/12/17.
  */
-public class SysComments implements Serializable {
+public class SysComment implements Serializable {
 
 	/**
 	 * 评论Id
@@ -36,6 +36,10 @@ public class SysComments implements Serializable {
 	 * 评论发布时间
 	 */
 	private String commentDate;
+
+	private SysUser sysUser;
+
+	private SysArticle sysArticle;
 
 	public Long getCommentId() {
 		return commentId;
@@ -83,6 +87,22 @@ public class SysComments implements Serializable {
 
 	public void setCommentDate(String commentDate) {
 		this.commentDate = commentDate;
+	}
+
+	public SysUser getSysUser() {
+		return sysUser;
+	}
+
+	public void setSysUser(SysUser sysUser) {
+		this.sysUser = sysUser;
+	}
+
+	public SysArticle getSysArticle() {
+		return sysArticle;
+	}
+
+	public void setSysArticle(SysArticle sysArticle) {
+		this.sysArticle = sysArticle;
 	}
 
 }

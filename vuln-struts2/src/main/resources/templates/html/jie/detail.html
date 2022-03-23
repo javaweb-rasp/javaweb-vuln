@@ -10,31 +10,28 @@
             <div class="fly-panel detail-box">
                 <h1>${article.title!!}</h1>
                 <div class="fly-detail-info">
-                    <!-- <span class="layui-badge">审核中</span> -->
-                    <span class="layui-badge layui-bg-green fly-detail-column">动态</span>
-                    <span class="layui-badge" style="background-color: #999;">未结</span>
-                    <!-- <span class="layui-badge" style="background-color: #5FB878;">已结</span> -->
-                    <span class="layui-badge layui-bg-black">置顶</span>
-                    <span class="layui-badge layui-bg-red">精帖</span>
+                    <span class="layui-badge layui-bg-green fly-detail-column">新闻</span>
                     <span class="fly-list-nums">
-                            <i class="iconfont" title="人气">&#xe60b;</i> ${article.clickCount!!}
-                        </span>
+                        <i class="iconfont" title="人气">&#xe60b;</i> ${article.clickCount!!}
+                        <i class="iconfont icon-pinglun1" title="评论数"></i> ${article.commentCount!!}
+                    </span>
                 </div>
                 <div class="detail-about">
-                    <a class="fly-avatar" href="../user/home.html">
-                        <img src="${request.contextPath}/res/images/avatar/default.png">
+                    <a class="fly-avatar" href="${request.contextPath}/getUserById.do?id=${article.userId?c}">
+                        <img src="${request.contextPath}/${article.sysUser.userAvatar!!}"
+                             onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
                     </a>
                     <div class="fly-detail-user">
                         <a href="${request.contextPath}/getUserById.do?id=${article.userId!!}" class="fly-link">
                             <cite>${article.author!!}</cite>
-                            <i class="layui-badge fly-badge-vip">VIP3</i>
                         </a>
                         <span>${article.publishDate!!}</span>
                     </div>
-
-                    <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
-                        <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="add.html">编辑此贴</a></span>
-                    </div>
+                    <#if Session["SESSION_USER"]??>
+                        <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
+                            <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="add.html">编辑此贴</a></span>
+                        </div>
+                    </#if>
                 </div>
                 <div class="detail-body photos">
                     ${article.content!!}
@@ -46,18 +43,17 @@
                 </fieldset>
 
                 <ul class="jieda" id="jieda">
-                    <#if article.sysComments??>
-                    <#list article.sysComments as c>
+                    <#if article.sysComment??>
+                    <#list article.sysComment as c>
                     <li data-id="111" class="jieda-daan">
-                        <a name="item-1111111111"></a>
                         <div class="detail-about detail-about-reply">
                             <a class="fly-avatar" href="">
-                                <img src="${request.contextPath}/res/images/avatar/default.png">
+                                <img src="${request.contextPath}/${c.sysUser.userAvatar!!}"
+                                     onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
                             </a>
                             <div class="fly-detail-user">
                                 <a href="" class="fly-link">
                                     <cite>${c.commentAuthor!!}</cite>
-                                    <i class="layui-badge fly-badge-vip">VIP10</i>
                                 </a>
 
                                 <span>${c.commentAuthor!!}</span>
@@ -71,13 +67,9 @@
                             ${c.commentContent!!}
                         </div>
                         <div class="jieda-reply">
-                                        <span type="reply">
-                                            <i class="iconfont icon-svgmoban53"></i>回复
-                                        </span>
-                            <div class="jieda-admin">
-                                <span type="edit">编辑</span>
-                                <span type="del">删除</span>
-                            </div>
+                            <span type="reply">
+                                <i class="iconfont icon-svgmoban53"></i>回复
+                            </span>
                         </div>
                     </li>
                 </#list>
@@ -107,25 +99,11 @@
     </#if>
 </div>
 <div class="layui-col-md4">
-    <dl class="fly-panel fly-list-one">
-        <dt class="fly-panel-title">本周热议</dt>
-        <!--                <dd>-->
-        <!--                    <a href="">Title</a>-->
-        <!--                    <span><i class="iconfont icon-pinglun1"></i> 16</span>-->
-        <!--                </dd>-->
-
-        <!-- 无数据时 -->
-        <div class="fly-none">没有相关数据</div>
-    </dl>
-
-    <div class="fly-panel" style="padding: 20px 0; text-align: center;">
-        <img src="${request.contextPath}/res/images/1588655983383.jpg" style="width: 330px; height: 250px">
-    </div>
+    <#include "../right.html"/>
 </div>
 </div>
 </div>
 <script>
-    // ${request.contextPath}/addComments.do
     layui.use(['jquery', 'layer'], function () {
         var $ = layui.$
 

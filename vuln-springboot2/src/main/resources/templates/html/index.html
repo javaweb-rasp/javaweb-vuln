@@ -7,29 +7,24 @@
             <div class="fly-panel" style="margin-bottom: 0;">
                 <div class="fly-panel-title fly-filter">
                     <a href="" class="layui-this">综合</a>
-                    <span class="fly-mid"></span>
-                    <a href="">未结</a>
-                    <span class="fly-mid"></span>
-                    <a href="">已结</a>
-                    <span class="fly-mid"></span>
-                    <a href="">精华</a>
                     <span class="fly-filter-right layui-hide-xs">
-                    <a href="" class="layui-this">按最新</a>
-                    <span class="fly-mid"></span><a href="">按热议</a></span>
+                        <a href="" class="layui-this">最新</a>
+                    </span>
                 </div>
 
                 <ul class="fly-list">
                     <#list articleList ! as a>
                         <li>
-                            <a href="user/home.html" class="fly-avatar">
-                                <img src="${request.contextPath}/res/images/avatar/default.png">
+                            <a href="${request.contextPath}/getUserById.do?id=${a.userId?c}" class="fly-avatar">
+                                <img src="${request.contextPath}/${a.sysUser.userAvatar!!}"
+                                     onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
                             </a>
                             <h2>
                                 <a href="${request.contextPath}/getArticle.do?articleId=${a.id?c}">${a.title!!}</a>
                             </h2>
                             <div class="fly-list-info">
-                                <a href="#" link>
-                                    <cite>yzmm</cite>
+                                <a href="${request.contextPath}/getUserById.do?id=${a.userId!!}" link>
+                                    <cite>${a.author!!}</cite>
                                     <!--
                                     <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
                                     <i class="layui-badge fly-badge-vip">VIP3</i>
@@ -37,7 +32,7 @@
                                 </a>
                                 <span>${a.publishDate!!}</span>
                                 <span class="fly-list-nums">
-                                    <i class="iconfont icon-liulanyanjing" title="点击数"></i> ${a.clickCount!!}
+                                    <i class="iconfont icon-pinglun1" title="评论数"></i> ${a.commentCount!!}
                                 </span>
                             </div>
                             <div class="fly-list-badge">
@@ -46,59 +41,23 @@
                         </li>
                     </#list>
                 </ul>
-                <div style="text-align: center">
-                    <div class="laypage-main">
-                        <a href="jie/index.html" class="laypage-next">更多求解</a>
-                    </div>
-                </div>
-
             </div>
         </div>
         <div class="layui-col-md4">
             <#if Session["SESSION_USER"]??>
                 <div class="fly-panel fly-signin">
                     <div class="fly-panel-title">
-                        签到
+                        用户名：${Session['SESSION_USER'].username!!}
                         <i class="fly-mid"></i>
-                        <a href="javascript:;" class="fly-link" id="LAY_signinHelp">说明</a>
-                        <i class="fly-mid"></i>
-                        <a href="javascript:;" class="fly-link" id="LAY_signinTop">活跃榜<span class="layui-badge-dot"></span></a>
-                        <span class="fly-signin-days">已连续签到<cite>999</cite>天</span>
                     </div>
                     <div class="fly-panel-main fly-signin-main">
 <!--                        <button class="layui-btn layui-btn-danger" id="LAY_signin">今日签到</button>-->
-                        <button class="layui-btn layui-btn-disabled">今日已签到</button>
+                        <a class="layui-btn" href="${request.contextPath}/user/index.do">用户中心</a>
                     </div>
                 </div>
             </#if>
 
-            <dl class="fly-panel fly-list-one">
-                <dt class="fly-panel-title">本周热议</dt>
-<!--                <dd>-->
-<!--                    <a href="jie/detail.html">Ttile</a>-->
-<!--                    <span><i class="iconfont icon-pinglun1"></i> 16</span>-->
-<!--                </dd>-->
-
-                <!-- 无数据时 -->
-                <div class="fly-none">没有相关数据</div>
-            </dl>
-
-            <div class="fly-panel">
-                <div class="fly-panel-title">
-                    保家卫国，爱国爱党！
-                </div>
-                <div class="fly-panel-main">
-                    <img src="${request.contextPath}/res/images/1588655983383.jpg"/>
-                </div>
-            </div>
-
-            <div class="fly-panel fly-link">
-                <h3 class="fly-panel-title">友情链接</h3>
-                <dl class="fly-panel-main">
-                    <dd><a href="http://www.javaweb.org/" target="_blank">javaweb</a><dd>
-                </dl>
-            </div>
-
+            <#include "right.html"/>
         </div>
     </div>
 </div>

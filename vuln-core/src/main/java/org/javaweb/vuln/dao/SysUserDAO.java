@@ -1,14 +1,13 @@
 package org.javaweb.vuln.dao;
 
-import org.javaweb.utils.StringUtils;
 import org.javaweb.vuln.entity.SysUser;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+import static org.javaweb.utils.StringUtils.getCurrentTime;
 import static org.springframework.jdbc.core.BeanPropertyRowMapper.newInstance;
 
 /**
@@ -31,7 +30,7 @@ public class SysUserDAO {
 		}
 	}
 
-	public SysUser getSysUserByID(String id) {
+	public SysUser getSysUserById(String id) {
 		try {
 			String sql = "select * from sys_user where id = '" + id + "'";
 
@@ -53,11 +52,10 @@ public class SysUserDAO {
 
 	public int register(SysUser u) {
 		String defaultAvatar = "/res/images/avatar/default.png";
-		String registerTime  = StringUtils.getCurrentTime();
 
-		String sql = "insert into sys_user (username, password, user_avatar, register_time) values" +
-				" ('" + u.getUsername() + "', '" + u.getPassword() + "', '" +
-				defaultAvatar + "', '" + registerTime + "')";
+		String sql = "insert into sys_user (username, password, email, user_avatar, register_time) values" +
+				" ('" + u.getUsername() + "', '" + u.getPassword() + "', '" + u.getEmail() + "', '" +
+				defaultAvatar + "', '" + getCurrentTime() + "')";
 
 		return jdbcTemplate.update(sql);
 	}

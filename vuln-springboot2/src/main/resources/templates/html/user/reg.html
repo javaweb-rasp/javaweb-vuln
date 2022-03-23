@@ -27,6 +27,14 @@
                                 <div class="layui-form-mid layui-word-aux">6到16个字符</div>
                             </div>
                             <div class="layui-form-item">
+                                <label for="L_password" class="layui-form-label">邮箱</label>
+                                <div class="layui-input-inline">
+                                    <input type="password" id="L_email" name="email" required lay-verify="required"
+                                           autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux"></div>
+                            </div>
+                            <div class="layui-form-item">
                                 <button class="layui-btn" id="L_register">立即注册</button>
                             </div>
                         </form>
@@ -45,6 +53,7 @@
                 var data = {};
                 data["username"] = $('#L_username').val();
                 data["password"] = $('#L_password').val();
+                data["email"] = $('#L_email').val();
 
                 if (data["username"] === '') {
                     layer.msg("用户名不能为空!");
@@ -61,11 +70,10 @@
                     url: "${request.contextPath}/register.do",
                     data: data,
                     success: function (resp) {
+                        alert(resp.msg);
+
                         if (resp.valid) {
-                            layer.msg(resp.msg);
                             location.href = '${request.contextPath}/login.php';
-                        }else {
-                            layer.msg(resp.msg);
                         }
                     },
                     error: function (err) {

@@ -19,29 +19,29 @@
         </a>
         <ul class="layui-nav fly-nav-user">
             <#if Session["SESSION_USER"]??>
-            <!-- 登入后的状态 -->
-            <li class="layui-nav-item">
-                <a class="fly-nav-avatar" href="javascript:;">
-                    <cite class="layui-hide-xs">${Session['SESSION_USER'].username!!}</cite>
-                    <img src="${Session['SESSION_USER'].userAvatar!!}"
-                         onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
-                </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="javascript:logout();" id="logout" style="text-align: center;">退出</a></dd>
-                </dl>
-            </li>
-            <#else>
-            <!-- 未登入的状态 -->
-            <li class="layui-nav-item">
-                <a class="iconfont icon-touxiang layui-hide-xs" href="${request.contextPath}/login.php"></a>
-            </li>
-            <li class="layui-nav-item">
-                <a href="${request.contextPath}/login.php">登入</a>
-            </li>
-            <li class="layui-nav-item">
-                <a href="${request.contextPath}/reg.php">注册</a>
-            </li>
-        </#if>
+                <!-- 登入后的状态 -->
+                <li class="layui-nav-item">
+                    <a class="fly-nav-avatar" href="javascript:;">
+                        <cite class="layui-hide-xs">${Session['SESSION_USER'].username!!}</cite>
+                        <img src="${request.contextPath}/${Session['SESSION_USER'].userAvatar!!}" alt="${Session['SESSION_USER'].username!!}"
+                             onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:logout();" id="logout" style="text-align: center;">退出</a></dd>
+                    </dl>
+                </li>
+                <#else>
+                <!-- 未登入的状态 -->
+                <li class="layui-nav-item">
+                    <a class="iconfont icon-touxiang layui-hide-xs" href="${request.contextPath}/login.php"></a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="${request.contextPath}/login.php">登入</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="${request.contextPath}/reg.php">注册</a>
+                </li>
+            </#if>
         </ul>
     </div>
 </div>
@@ -50,22 +50,16 @@
     <div class="layui-container">
         <ul class="layui-clear">
             <li class="layui-hide-xs layui-this"><a href="${request.contextPath}/index.do">首页</a></li>
-            <li><a href="#">提问</a></li>
-            <li><a href="#">分享<span class="layui-badge-dot"></span></a></li>
-            <li><a href="#">讨论</a></li>
-            <li><a href="#">建议</a></li>
-            <li><a href="#">公告</a></li>
-            <li><a href="#">动态</a></li>
             <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
         </ul>
 
         <div class="fly-column-right layui-hide-xs">
             <span class="fly-search"><i class="layui-icon"></i></span>
             <#if Session["SESSION_USER"]??>
-            <a href="${request.contextPath}/addArticle.php" class="layui-btn">发表新帖</a>
-        </#if>
+                <a href="${request.contextPath}/addArticle.php" class="layui-btn">发表新帖</a>
+            </#if>
+        </div>
     </div>
-</div>
 </div>
 
 <script>

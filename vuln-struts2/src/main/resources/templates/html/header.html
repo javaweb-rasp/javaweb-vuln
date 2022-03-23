@@ -23,7 +23,7 @@
                 <li class="layui-nav-item">
                     <a class="fly-nav-avatar" href="javascript:;">
                         <cite class="layui-hide-xs">${Session['SESSION_USER'].username!!}</cite>
-                        <img src="${Session['SESSION_USER'].userAvatar!!}"
+                        <img src="${request.contextPath}/${Session['SESSION_USER'].userAvatar!!}" alt="${Session['SESSION_USER'].username!!}"
                              onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
                     </a>
                     <dl class="layui-nav-child">
@@ -50,12 +50,6 @@
     <div class="layui-container">
         <ul class="layui-clear">
             <li class="layui-hide-xs layui-this"><a href="${request.contextPath}/index.do">首页</a></li>
-            <li><a href="#">提问</a></li>
-            <li><a href="#">分享<span class="layui-badge-dot"></span></a></li>
-            <li><a href="#">讨论</a></li>
-            <li><a href="#">建议</a></li>
-            <li><a href="#">公告</a></li>
-            <li><a href="#">动态</a></li>
             <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
         </ul>
 

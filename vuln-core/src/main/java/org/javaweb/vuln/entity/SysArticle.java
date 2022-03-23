@@ -20,11 +20,13 @@ public class SysArticle {
 
 	private String publishDate;
 
-	private Long ClickCount;
+	private Long clickCount;
 
 	private SysUser sysUser;
 
-	private List<SysComments> sysComments;
+	private Integer commentCount = 0;
+
+	private List<SysComment> sysComment;
 
 	public Long getId() {
 		return id;
@@ -75,11 +77,19 @@ public class SysArticle {
 	}
 
 	public Long getClickCount() {
-		return ClickCount;
+		return clickCount;
 	}
 
 	public void setClickCount(Long clickCount) {
-		ClickCount = clickCount;
+		this.clickCount = clickCount;
+	}
+
+	public Integer getCommentCount() {
+		return commentCount;
+	}
+
+	public void setCommentCount(Integer commentCount) {
+		this.commentCount = commentCount;
 	}
 
 	public SysUser getSysUser() {
@@ -90,12 +100,12 @@ public class SysArticle {
 		this.sysUser = sysUser;
 	}
 
-	public List<SysComments> getSysComments() {
-		return sysComments;
+	public List<SysComment> getSysComment() {
+		return sysComment;
 	}
 
-	public void setSysComments(List<SysComments> sysComments) {
-		this.sysComments = sysComments;
+	public void setSysComment(List<SysComment> sysComment) {
+		this.sysComment = sysComment;
 	}
 
 }

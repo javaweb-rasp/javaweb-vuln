@@ -3,12 +3,12 @@
 <#assign title="${userInfo.username!!} - ${sys_website_name!!}">
 <#include "../header.html"/>
     <div class="fly-home fly-panel">
-        <img src="${userInfo.userAvatar!!}" alt="${userInfo.username!!}"
+        <img src="${request.contextPath}/${userInfo.userAvatar!!}" alt="${userInfo.username!!}"
              onerror="javascript:this.src='${request.contextPath}/res/images/avatar/default.png'">
         <h1>
-            ${userInfo.username!!}
+            <span style="font-size: 12px;">用户名：<i class="layui-badge fly-badge-vip">${userInfo.username!!}</i></span>
             <i class="iconfont icon-nan"></i>
-            <i class="layui-badge fly-badge-vip">VIP10</i>
+            <span style="font-size: 12px;">Email: <i class="layui-badge fly-badge-vip">${userInfo.email!!}</i></span>
         </h1>
 
         <p class="fly-home-info">

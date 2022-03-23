@@ -3,9 +3,10 @@ package org.javaweb.vuln.controller;
 import org.javaweb.utils.StringUtils;
 import org.javaweb.vuln.commons.ResultInfo;
 import org.javaweb.vuln.dao.SysArticleDAO;
+import org.javaweb.vuln.dao.SysCommentDAO;
 import org.javaweb.vuln.dao.SysUserDAO;
 import org.javaweb.vuln.entity.SysArticle;
-import org.javaweb.vuln.entity.SysComments;
+import org.javaweb.vuln.entity.SysComment;
 import org.javaweb.vuln.entity.SysUser;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -47,6 +48,9 @@ public class IndexController {
 	private SysArticleDAO sysArticleDAO;
 
 	@Resource
+	private SysCommentDAO sysCommentDAO;
+
+	@Resource
 	private JdbcTemplate jdbcTemplate;
 
 	@RequestMapping(value = {"/", "/index.php"})
@@ -84,8 +88,8 @@ public class IndexController {
 	}
 
 	@RequestMapping("/getUserById.do")
-	public ModelAndView getUserById(int id, ModelAndView mv) {
-		mv.addObject("userInfo", sysUserDAO.getSysUserByID(String.valueOf(id)));
+	public ModelAndView getUserById(String id, ModelAndView mv) {
+		mv.addObject("userInfo", sysUserDAO.getSysUserById(id));
 		mv.setViewName("/html/user/user.html");
 
 		return mv;
@@ -174,6 +178,7 @@ public class IndexController {
 	@RequestMapping("/index.do")
 	public ModelAndView index(ModelAndView mv) {
 		mv.addObject("articleList", sysArticleDAO.getSysArticleList());
+		mv.addObject("articleTopList", sysArticleDAO.getSysArticleTopList(10));
 		mv.setViewName("/html/index.html");
 
 		return mv;
@@ -182,6 +187,7 @@ public class IndexController {
 	@RequestMapping("/getArticle.do")
 	public ModelAndView getArticle(String articleId, ModelAndView mv) {
 		mv.addObject("article", sysArticleDAO.getSysArticle(articleId));
+		mv.addObject("articleTopList", sysArticleDAO.getSysArticleTopList(10));
 		mv.setViewName("/html/jie/detail.html");
 
 		return mv;
@@ -211,7 +217,9 @@ public class IndexController {
 
 	@ResponseBody
 	@RequestMapping("/addComments.do")
-	public ResultInfo<?> addComments(SysComments comment, @SessionAttribute(SESSION_USER) Object sessionUser) {
+	public ResultInfo<?> addComments(SysComment comment,
+	                                 @SessionAttribute(value = SESSION_USER, required = false) Object sessionUser) {
+
 		ResultInfo<?> resultInfo = new ResultInfo<Object>();
 
 		if (isNotEmpty(comment.getCommentContent())) {
@@ -220,11 +228,11 @@ public class IndexController {
 				comment.setCommentUserId(u.getId());
 				comment.setCommentAuthor(u.getUsername());
 			} else {
-				comment.setCommentUserId(1L);
-				comment.setCommentAuthor("游客");
+				comment.setCommentUserId(0L);
+				comment.setCommentAuthor("guest");
 			}
 
-			if (sysArticleDAO.addSysComments(comment)) {
+			if (sysCommentDAO.addSysComments(comment)) {
 				resultInfo.setValid(true);
 			}
 		} else {
