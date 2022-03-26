@@ -2,6 +2,7 @@ package org.javaweb.vuln.dao;
 
 import org.javaweb.vuln.entity.SysArticle;
 import org.javaweb.vuln.entity.SysComment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,10 +16,10 @@ import static org.javaweb.utils.StringUtils.getCurrentTime;
 @Component
 public class SysCommentDAO {
 
-	@Resource
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	@Resource
+	@Autowired
 	private SysUserDAO sysUserDAO;
 
 	public List<SysComment> getSysCommentList(String articleId) {

@@ -1,11 +1,10 @@
 package org.javaweb.vuln.dao;
 
 import org.javaweb.vuln.entity.SysUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 import static org.javaweb.utils.StringUtils.getCurrentTime;
 import static org.springframework.jdbc.core.BeanPropertyRowMapper.newInstance;
@@ -17,7 +16,7 @@ import static org.springframework.jdbc.core.BeanPropertyRowMapper.newInstance;
 @Component
 public class SysUserDAO {
 
-	@Resource
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	public SysUser getSysUserByUsername(String username) {

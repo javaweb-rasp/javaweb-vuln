@@ -1,12 +1,12 @@
 package org.javaweb.vuln.dao;
 
 import org.javaweb.vuln.entity.SysArticle;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 import static org.apache.commons.lang.math.NumberUtils.isNumber;
@@ -16,21 +16,20 @@ import static org.springframework.jdbc.core.BeanPropertyRowMapper.newInstance;
 @Component
 public class SysArticleDAO {
 
-	@Resource
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	@Resource
+	@Autowired
 	private SysUserDAO sysUserDAO;
 
-	@Resource
+	@Autowired
 	private SysCommentDAO sysCommentDAO;
 
 	public List<SysArticle> getSysArticleList() {
-		List<SysArticle> sysArticleList = jdbcTemplate.query(
-				"select * from sys_article order by publish_date desc ", newInstance(SysArticle.class)
-		);
+		String           sql      = "select * from sys_article order by publish_date desc ";
+		List<SysArticle> articles = jdbcTemplate.query(sql, newInstance(SysArticle.class));
 
-		for (SysArticle article : sysArticleList) {
+		for (SysArticle article : articles) {
 			String articleID = String.valueOf(article.getId());
 			String userID    = String.valueOf(article.getUserId());
 
@@ -39,7 +38,7 @@ public class SysArticleDAO {
 			article.setSysUser(sysUserDAO.getSysUserById(userID));
 		}
 
-		return sysArticleList;
+		return articles;
 	}
 
 	public void updateClickCount(String id) {

@@ -4,10 +4,12 @@ import org.javaweb.utils.StringUtils;
 import org.javaweb.vuln.commons.ResultInfo;
 import org.javaweb.vuln.dao.SysArticleDAO;
 import org.javaweb.vuln.dao.SysCommentDAO;
+import org.javaweb.vuln.dao.SysConfigDAO;
 import org.javaweb.vuln.dao.SysUserDAO;
 import org.javaweb.vuln.entity.SysArticle;
 import org.javaweb.vuln.entity.SysComment;
 import org.javaweb.vuln.entity.SysUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,7 +19,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -41,16 +42,19 @@ import static org.springframework.web.context.request.RequestAttributes.SCOPE_SE
 @Controller
 public class IndexController {
 
-	@Resource
+	@Autowired
 	private SysUserDAO sysUserDAO;
 
-	@Resource
+	@Autowired
 	private SysArticleDAO sysArticleDAO;
 
-	@Resource
+	@Autowired
 	private SysCommentDAO sysCommentDAO;
 
-	@Resource
+	@Autowired
+	private SysConfigDAO sysConfigDAO;
+
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	@RequestMapping(value = {"/", "/index.php"})
@@ -179,6 +183,7 @@ public class IndexController {
 	public ModelAndView index(ModelAndView mv) {
 		mv.addObject("articleList", sysArticleDAO.getSysArticleList());
 		mv.addObject("articleTopList", sysArticleDAO.getSysArticleTopList(10));
+		mv.addObject("sysConfig", sysConfigDAO.getSysConfig());
 		mv.setViewName("/html/index.html");
 
 		return mv;
@@ -188,6 +193,7 @@ public class IndexController {
 	public ModelAndView getArticle(String articleId, ModelAndView mv) {
 		mv.addObject("article", sysArticleDAO.getSysArticle(articleId));
 		mv.addObject("articleTopList", sysArticleDAO.getSysArticleTopList(10));
+		mv.addObject("sysConfig", sysConfigDAO.getSysConfig());
 		mv.setViewName("/html/jie/detail.html");
 
 		return mv;

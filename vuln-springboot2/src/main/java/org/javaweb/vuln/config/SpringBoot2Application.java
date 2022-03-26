@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("org.javaweb.vuln.*")
-public class RASPTestSpringBootApplication {
+public class SpringBoot2Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RASPTestSpringBootApplication.class, args);
+		SpringApplication.run(SpringBoot2Application.class, args);
 	}
 
 }
