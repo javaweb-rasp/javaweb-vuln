@@ -1,15 +1,20 @@
 package org.javaweb.vuln.entity;
 
-import org.springframework.stereotype.Component;
-
 /**
  * Creator: yz
  * Date: 2020-05-05
  */
-@Component
+@javax.persistence.Entity
+@jakarta.persistence.Entity
+@javax.persistence.Table(name = "sys_user")
+@jakarta.persistence.Table(name = "sys_user")
 public class SysUser {
 
-	private Long id;
+	@javax.persistence.Id
+	@jakarta.persistence.Id
+	@javax.persistence.Column(name = "user_id")
+	@jakarta.persistence.Column(name = "user_id")
+	private Long userId;
 
 	private String username;
 
@@ -17,16 +22,20 @@ public class SysUser {
 
 	private String email;
 
+	@javax.persistence.Column(name = "user_avatar")
+	@jakarta.persistence.Column(name = "user_avatar")
 	private String userAvatar;
 
+	@javax.persistence.Column(name = "register_time")
+	@jakarta.persistence.Column(name = "register_time")
 	private String registerTime;
 
-	public Long getId() {
-		return id;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {

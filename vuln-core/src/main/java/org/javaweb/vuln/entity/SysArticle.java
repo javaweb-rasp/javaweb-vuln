@@ -1,16 +1,24 @@
 package org.javaweb.vuln.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 /**
  * Creator: yz
  * Date: 2020-05-04
  */
+@javax.persistence.Entity
+@jakarta.persistence.Entity
+@javax.persistence.Table(name = "sys_article")
+@jakarta.persistence.Table(name = "sys_article")
 public class SysArticle {
 
-	private Long id;
-
-	private Long userId;
+	@javax.persistence.Id
+	@jakarta.persistence.Id
+	@javax.persistence.Column(name = "article_id")
+	@jakarta.persistence.Column(name = "article_id")
+	private Long articleId;
 
 	private String title;
 
@@ -18,30 +26,33 @@ public class SysArticle {
 
 	private String content;
 
+	@javax.persistence.Column(name = "publish_date")
+	@jakarta.persistence.Column(name = "publish_date")
 	private String publishDate;
 
+	@javax.persistence.Column(name = "click_count")
+	@jakarta.persistence.Column(name = "click_count")
 	private Long clickCount;
 
+	@javax.persistence.ManyToOne
+	@jakarta.persistence.ManyToOne
+	@javax.persistence.JoinColumn(name = "user_id")
+	@jakarta.persistence.JoinColumn(name = "user_id")
 	private SysUser sysUser;
 
-	private Integer commentCount = 0;
-
+	@JsonManagedReference
+	@javax.persistence.OneToMany(fetch = javax.persistence.FetchType.EAGER)
+	@javax.persistence.JoinColumn(name = "article_id")
+	@jakarta.persistence.OneToMany(fetch = jakarta.persistence.FetchType.EAGER)
+	@jakarta.persistence.JoinColumn(name = "article_id")
 	private List<SysComment> sysComment;
 
-	public Long getId() {
-		return id;
+	public Long getArticleId() {
+		return articleId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setArticleId(Long articleId) {
+		this.articleId = articleId;
 	}
 
 	public String getTitle() {
@@ -82,14 +93,6 @@ public class SysArticle {
 
 	public void setClickCount(Long clickCount) {
 		this.clickCount = clickCount;
-	}
-
-	public Integer getCommentCount() {
-		return commentCount;
-	}
-
-	public void setCommentCount(Integer commentCount) {
-		this.commentCount = commentCount;
 	}
 
 	public SysUser getSysUser() {

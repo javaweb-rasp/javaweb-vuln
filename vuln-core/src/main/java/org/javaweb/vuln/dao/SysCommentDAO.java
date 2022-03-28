@@ -1,6 +1,5 @@
 package org.javaweb.vuln.dao;
 
-import org.javaweb.vuln.entity.SysArticle;
 import org.javaweb.vuln.entity.SysComment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -8,7 +7,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 import static org.javaweb.utils.StringUtils.getCurrentTime;
@@ -30,9 +28,9 @@ public class SysCommentDAO {
 				sql, new BeanPropertyRowMapper<SysComment>(SysComment.class)
 		);
 
-		for (SysComment comment : commentList) {
-			comment.setSysUser(sysUserDAO.getSysUserById(String.valueOf(comment.getCommentUserId())));
-		}
+//		for (SysComment comment : commentList) {
+//			comment.setSysUser(sysUserDAO.getSysUserById(String.valueOf(comment.getCommentUserId())));
+//		}
 
 		return commentList;
 	}
@@ -40,8 +38,8 @@ public class SysCommentDAO {
 	public boolean addSysComments(SysComment comments) {
 		try {
 			String sql = "insert into sys_comment (comment_article_id,comment_user_id,comment_author," +
-					"comment_content, comment_date) values('" + comments.getCommentArticleId() +
-					"','" + comments.getCommentUserId() + "','" + comments.getCommentAuthor() +
+					"comment_content, comment_date) values('" + comments.getSysArticle().getArticleId() +
+					"','" + comments.getSysUser().getUserId() + "','" + comments.getCommentAuthor() +
 					"','" + comments.getCommentContent() + "','" + getCurrentTime() + "')";
 
 			return jdbcTemplate.update(sql) == 1;
