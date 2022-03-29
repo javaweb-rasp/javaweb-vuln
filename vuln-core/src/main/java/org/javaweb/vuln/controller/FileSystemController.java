@@ -1,16 +1,20 @@
 package org.javaweb.vuln.controller;
 
-import org.javaweb.utils.FileUtils;
-import org.springframework.http.HttpStatus;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.WebRequest;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.lang.reflect.Array;
 import java.lang.reflect.Method;
+import java.net.URI;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import static org.springframework.http.HttpStatus.OK;
 
 /**
  * 文件系统漏洞测试
@@ -22,80 +26,175 @@ import java.lang.reflect.Method;
 public class FileSystemController {
 
 	@ResponseBody
-	@RequestMapping("/ReadFile.php")
-	public ResponseEntity<byte[]> readFile(String file) throws IOException {
-		byte[] content = FileUtils.readFileToByteArray(new File(file));
+	@RequestMapping("/fileInputStreamReadFile.do")
+	public ResponseEntity<byte[]> fileInputStreamReadFile(String file) throws IOException {
+		FileInputStream fis     = new FileInputStream(file);
+		byte[]          content = IOUtils.toByteArray(fis);
 
-		return new ResponseEntity<byte[]>(content, HttpStatus.OK);
-	}
-
-//	@ResponseBody
-//	@RequestMapping("/ReadFileNIO.php")
-//	public String readFileNIO(String file) throws IOException {
-//		byte[] bytes = Files.readAllBytes(Paths.get(getDocumentRoot(request) + file));
-//
-//		return "<pre>" + new String(bytes) + "</pre>";
-//	}
-
-	@ResponseBody
-	@RequestMapping("/WriteFile.php")
-	public String writeFile(String f, String c) throws IOException {
-		File file = new File(f);
-		FileUtils.writeStringToFile(file, c);
-
-		return file.getAbsoluteFile() + "\t" + file.exists();
+		return new ResponseEntity<byte[]>(content, OK);
 	}
 
 	@ResponseBody
-	@RequestMapping("/DeleteFile.php")
-	public String deleteFile(String file) {
-		File deleteFile = new File(file);
+	@RequestMapping("/randomAccessFileReadFile.do")
+	public ResponseEntity<byte[]> randomAccessFileReadFile(String file) throws IOException {
+		int                   a     = -1;
+		byte[]                bytes = new byte[1024];
+		ByteArrayOutputStream baos  = new ByteArrayOutputStream();
+		RandomAccessFile      raf   = new RandomAccessFile(file, "r");
 
-		return "文件" + deleteFile + "删除:" + (deleteFile.delete() ? "成功!" : "失败!");
-	}
-
-	@ResponseBody
-	@RequestMapping("/DeleteFileByFileSystem.php")
-	public String deleteFileByFileSystem(String file) throws Exception {
-		File deleteFile = new File(file);
-
-		Method m = Class.forName("java.io.DefaultFileSystem").getMethod("getFileSystem");
-		m.setAccessible(true);
-		Object fs = m.invoke(null);
-		Method m2 = fs.getClass().getMethod("delete", File.class);
-		m2.setAccessible(true);
-
-		return "文件" + deleteFile + "删除:" + (((Boolean) m2.invoke(fs, deleteFile)) ? "成功!" : "失败!");
-	}
-
-//	@ResponseBody
-//	@RequestMapping("/CopyFileNIO.php")
-//	public String copyFile(String source, String dest) throws IOException {
-//		Path path = Files.copy(Paths.get(source), Paths.get(dest));
-//
-//		return "文件:" + path + "复制成功!";
-//	}
-
-	@ResponseBody
-	@RequestMapping("/RenameFile.php")
-	public String renameFile(String s, String d) {
-		File f        = new File(s);
-		File destFile = new File(d);
-
-		return "文件重命名" + (f.renameTo(destFile) ? "成功!" : "失败!");
-	}
-
-	@ResponseBody
-	@RequestMapping("/ListFile.php")
-	public String listFile(String dir) {
-		String[]      files = new File(dir).list();
-		StringBuilder sb    = new StringBuilder("<pre>");
-
-		for (String file : files) {
-			sb.append(file + "\r\n");
+		while ((a = raf.read(bytes)) != -1) {
+			baos.write(bytes, 0, a);
 		}
 
-		return sb.append("</pre>").toString();
+		return new ResponseEntity<byte[]>(baos.toByteArray(), OK);
+	}
+
+	@ResponseBody
+	@RequestMapping("/filesReadAllBytes.do")
+	public ResponseEntity<byte[]> filesReadAllBytes(String file) throws Exception {
+		Class<?> pathsClass = Class.forName("java.nio.file.Paths");
+		Class<?> pathClass  = Class.forName("java.nio.file.Path");
+		Class<?> filesClass = Class.forName("java.nio.file.Files");
+
+		File   filePath = new File(file);
+		Object path     = pathsClass.getMethod("get", URI.class).invoke(null, filePath.toURI());
+		byte[] bytes    = (byte[]) filesClass.getMethod("readAllBytes", pathClass).invoke(null, path);
+
+		return new ResponseEntity<byte[]>(bytes, OK);
+	}
+
+	@ResponseBody
+	@RequestMapping("/fileOutStreamWriteFile.do")
+	public Map<String, String> fileOutStreamWriteFile(String file, String content) throws IOException {
+		File                filePath = new File(file);
+		Map<String, String> data     = new LinkedHashMap<String, String>();
+		data.put("path", filePath.getAbsolutePath());
+
+		FileOutputStream fos = new FileOutputStream(file);
+		fos.write(content.getBytes("UTF-8"));
+		fos.flush();
+		fos.close();
+
+		return data;
+	}
+
+	@ResponseBody
+	@RequestMapping("/randomAccessFileWriteFile.do")
+	public Map<String, String> randomAccessFileWriteFile(String file, String content) throws IOException {
+		File                filePath = new File(file);
+		Map<String, String> data     = new LinkedHashMap<String, String>();
+		data.put("path", filePath.getAbsolutePath());
+
+		RandomAccessFile raf = new RandomAccessFile(filePath, "rw");
+		raf.write(content.getBytes("UTF-8"));
+		raf.close();
+
+		return data;
+	}
+
+	@ResponseBody
+	@RequestMapping("/filesWrite.do")
+	public Map<String, String> filesWrite(String file, String content) throws Exception {
+		Class<?> pathsClass           = Class.forName("java.nio.file.Paths");
+		Class<?> pathClass            = Class.forName("java.nio.file.Path");
+		Class<?> filesClass           = Class.forName("java.nio.file.Files");
+		Class<?> openOptionClass      = Class.forName("[Ljava.nio.file.OpenOption;");
+		Class<?> openOptionArrayClass = Class.forName("java.nio.file.OpenOption");
+		Object   openOptionArray      = Array.newInstance(openOptionArrayClass, 0);
+
+		File                filePath = new File(file);
+		Map<String, String> data     = new LinkedHashMap<String, String>();
+		data.put("path", filePath.getAbsolutePath());
+
+		byte[] bytes       = content.getBytes("UTF-8");
+		Object path        = pathsClass.getMethod("get", URI.class).invoke(null, filePath.toURI());
+		Method writeMethod = filesClass.getMethod("write", pathClass, byte[].class, openOptionClass);
+		writeMethod.invoke(null, path, bytes, openOptionArray);
+
+		return data;
+	}
+
+	@ResponseBody
+	@RequestMapping("/deleteFile.do")
+	public Map<String, String> deleteFile(String file) throws IOException {
+		File filePath = new File(file);
+
+		if (!filePath.exists()) {
+			filePath.createNewFile();
+		}
+
+		boolean delete = filePath.delete();
+
+		Map<String, String> data = new LinkedHashMap<String, String>();
+		data.put("path", filePath.getAbsolutePath());
+		data.put("msg", "删除" + (delete ? "成功！" : "失败！"));
+
+		return data;
+	}
+
+	@ResponseBody
+	@RequestMapping("/renameTo.do")
+	public Map<String, String> renameTo(String file, String dest) throws IOException {
+		File filePath = new File(file);
+		File destFile = new File(dest);
+
+		if (!filePath.exists()) {
+			filePath.createNewFile();
+		}
+
+		boolean renamed = filePath.renameTo(destFile);
+
+		Map<String, String> data = new LinkedHashMap<String, String>();
+		data.put("path", filePath.getAbsolutePath());
+		data.put("destPath", destFile.getAbsolutePath());
+		data.put("msg", "文件重命名" + (renamed ? "成功！" : "失败！"));
+
+		return data;
+	}
+
+	@ResponseBody
+	@RequestMapping("/filesCopy.do")
+	public Map<String, String> filesCopy(String file, String dest) throws Exception {
+		Class<?> pathsClass           = Class.forName("java.nio.file.Paths");
+		Class<?> pathClass            = Class.forName("java.nio.file.Path");
+		Class<?> filesClass           = Class.forName("java.nio.file.Files");
+		Class<?> copyOptionClass      = Class.forName("[Ljava.nio.file.CopyOption;");
+		Class<?> copyOptionArrayClass = Class.forName("java.nio.file.CopyOption");
+		Object   copyOptionArray      = Array.newInstance(copyOptionArrayClass, 0);
+
+		File filePath = new File(file);
+		File destFile = new File(dest);
+
+		if (!filePath.exists()) {
+			filePath.createNewFile();
+		}
+
+		if (destFile.exists()) {
+			destFile.delete();
+		}
+
+		Object sourcePath = pathsClass.getMethod("get", URI.class).invoke(null, filePath.toURI());
+		Object destPath   = pathsClass.getMethod("get", URI.class).invoke(null, destFile.toURI());
+		Method copyMethod = filesClass.getMethod("copy", pathClass, pathClass, copyOptionClass);
+		Object path       = copyMethod.invoke(null, sourcePath, destPath, copyOptionArray);
+
+		Map<String, String> data = new LinkedHashMap<String, String>();
+		data.put("path", filePath.getAbsolutePath());
+		data.put("destPath", destFile.getAbsolutePath());
+		data.put("msg", "文件复制成功！");
+
+		return data;
+	}
+
+	@ResponseBody
+	@RequestMapping("/listFile.do")
+	public Map<String, String[]> listFile(String dir) {
+		String[] files = new File(dir).list();
+
+		Map<String, String[]> data = new LinkedHashMap<String, String[]>();
+		data.put("files", files);
+
+		return data;
 	}
 
 }
