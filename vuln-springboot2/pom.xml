@@ -34,6 +34,11 @@
                     <artifactId>logback-classic</artifactId>
                     <groupId>ch.qos.logback</groupId>
                 </exclusion>
+
+                <exclusion>
+                    <artifactId>snakeyaml</artifactId>
+                    <groupId>org.yaml</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -66,6 +71,12 @@
             <groupId>org.javaweb.vuln</groupId>
             <artifactId>vuln-core</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${snakeyaml.version}</version>
         </dependency>
     </dependencies>
 

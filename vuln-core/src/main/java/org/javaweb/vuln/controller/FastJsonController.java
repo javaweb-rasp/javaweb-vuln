@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FastJsonController {
 
 	@RequestMapping(value = "/fastJsonParseObject.do")
-	public JSONObject fastJsonParser(String json) {
+	public JSONObject fastJsonParseObject(String json) {
 		return JSON.parseObject(json);
 	}
 

@@ -108,9 +108,16 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.freva</groupId>
-            <artifactId>ascii-table</artifactId>
-            <version>${ascii-table.version}</version>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${snakeyaml.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>${xstream.version}</version>
         </dependency>
 
         <dependency>

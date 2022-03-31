@@ -36,7 +36,8 @@
         <HikariCP.version>3.4.1</HikariCP.version>
         <mvel2.version>2.4.0.Final</mvel2.version>
         <httpcore.version>4.4.13</httpcore.version>
-        <fastjson.version>1.2.47</fastjson.version>
+        <fastjson.version>1.2.23</fastjson.version>
+        <snakeyaml.version>1.30</snakeyaml.version>
         <coherence.version>1.0.0</coherence.version>
         <commons-io.version>2.4</commons-io.version>
         <freemarker.version>2.3.23</freemarker.version>
