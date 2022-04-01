@@ -54,9 +54,9 @@ public class DeserializationController {
 		ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
 		ObjectInputStream    bis  = new ObjectInputStream(bais);
 
-		bis.readObject();
+		Object obj = bis.readObject();
 
-		data.put("data", bis);
+		data.put("data", obj);
 		return data;
 	}
 
