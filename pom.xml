@@ -13,6 +13,7 @@
         <junit>4.12</junit>
         <asm.version>9.1</asm.version>
         <java.version>1.7</java.version>
+        <h2.version>1.4.199</h2.version>
         <jstl.version>1.2</jstl.version>
         <junit.version>4.12</junit.version>
         <dom4j.version>1.6.1</dom4j.version>
@@ -27,11 +28,11 @@
         <sqlite.version>3.34.0</sqlite.version>
         <tomcat.version>8.5.31</tomcat.version>
         <okhttp3.version>4.4.1</okhttp3.version>
-        <logback.version>1.2.3</logback.version>
         <taglibs.version>1.1.2</taglibs.version>
         <json-lib.version>2.4</json-lib.version>
-        <jackson.version>2.9.0</jackson.version>
+        <jackson.version>2.8.0</jackson.version>
         <javaweb.version>2.0.3</javaweb.version>
+        <logback.version>1.2.3</logback.version>
         <xstream.version>1.4.10</xstream.version>
         <HikariCP.version>3.4.1</HikariCP.version>
         <mvel2.version>2.4.0.Final</mvel2.version>

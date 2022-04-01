@@ -1,4 +1,4 @@
-package org.javaweb.vuln.cmd;
+package org.javaweb.rasp.cmd;
 
 /**
  * Creator: yz
