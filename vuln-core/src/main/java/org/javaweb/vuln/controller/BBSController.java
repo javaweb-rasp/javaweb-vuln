@@ -217,6 +217,11 @@ public class BBSController {
 		return sysArticleDAO.getSysArticleList(PageRequestProxy.of(map));
 	}
 
+	@APIMapping(value = "/getArticle.do")
+	public SysArticle getArticle(@RequestBody Map<String, Object> map) {
+		return sysArticleDAO.getSysArticle((String) map.get("id"));
+	}
+
 	@APIMapping(value = "/getSysArticleTops.do")
 	public List<SysArticle> getSysArticleTops(@RequestBody Map<String, Object> map) {
 		return sysArticleDAO.getSysArticleTops(10);

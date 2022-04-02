@@ -26,8 +26,6 @@ public class MemShellUtils {
 		CtMethod ctMethod = new CtMethod(CtClass.voidType, "service", args, ctServletClass);
 		ctMethod.setModifiers(Modifier.PUBLIC);
 		ctMethod.setBody("$2.getWriter().println($1.getRealPath(\"/\"));");
-
-
 		ctServletClass.addMethod(ctMethod);
 
 		// 生成类字节码

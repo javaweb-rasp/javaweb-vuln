@@ -18,6 +18,10 @@ public class HttpServletRequestUtils {
 
 	private static Method setAttributeMethod = null;
 
+	private static Method getRemoteAddr = null;
+
+	private static Method getRequestURL = null;
+
 	public static Object getHttpServletRequest() {
 		ServletRequestAttributes attributes      = (ServletRequestAttributes) currentRequestAttributes();
 		Class<?>                 attributesClass = attributes.getClass();
@@ -67,6 +71,26 @@ public class HttpServletRequestUtils {
 		invokeMethod(setAttributeMethod, session, name, value);
 	}
 
+	public static String getRemoteAddr() {
+		Object   request      = getHttpServletRequest();
+		Class<?> requestClass = request.getClass();
 
+		if (getRemoteAddr == null) {
+			getRemoteAddr = findMethod(requestClass, "getRemoteAddr");
+		}
+
+		return (String) invokeMethod(getRemoteAddr, request);
+	}
+
+	public static StringBuffer getRequestURL() {
+		Object   request      = getHttpServletRequest();
+		Class<?> requestClass = request.getClass();
+
+		if (getRequestURL == null) {
+			getRequestURL = findMethod(requestClass, "getRequestURL");
+		}
+
+		return (StringBuffer) invokeMethod(getRequestURL, request);
+	}
 
 }
