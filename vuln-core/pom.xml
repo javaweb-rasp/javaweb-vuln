@@ -197,6 +197,25 @@
             <artifactId>okhttp</artifactId>
             <version>${okhttp3.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.javaweb</groupId>
+            <artifactId>javaweb-javassist</artifactId>
+            <version>${javassist.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+           <version>${log4j-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
