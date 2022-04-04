@@ -21,25 +21,24 @@ public class SysCommentDAO {
 	private SysUserDAO sysUserDAO;
 
 	public List<SysComment> getSysCommentList(String articleId) {
-		String sql = "select * from sys_comment where comment_article_id='" +
-				articleId + "' order by comment_date desc ";
+		String sql = "select * from sys_comment where article_id='" + articleId + "' order by comment_date desc ";
 
 		List<SysComment> commentList = jdbcTemplate.query(
 				sql, new BeanPropertyRowMapper<SysComment>(SysComment.class)
 		);
 
-//		for (SysComment comment : commentList) {
-//			comment.setSysUser(sysUserDAO.getSysUserById(String.valueOf(comment.getCommentUserId())));
-//		}
+		for (SysComment comment : commentList) {
+			comment.setSysUser(sysUserDAO.getSysUserById(String.valueOf(comment.getUserId())));
+		}
 
 		return commentList;
 	}
 
 	public boolean addSysComments(SysComment comments) {
 		try {
-			String sql = "insert into sys_comment (comment_article_id,comment_user_id,comment_author," +
-					"comment_content, comment_date) values('" + comments.getSysArticle().getArticleId() +
-					"','" + comments.getSysUser().getUserId() + "','" + comments.getCommentAuthor() +
+			String sql = "insert into sys_comment (article_id, user_id, comment_author," +
+					"comment_content, comment_date) values('" + comments.getArticleId() +
+					"','" + comments.getUserId() + "','" + comments.getCommentAuthor() +
 					"','" + comments.getCommentContent() + "','" + getCurrentTime() + "')";
 
 			return jdbcTemplate.update(sql) == 1;

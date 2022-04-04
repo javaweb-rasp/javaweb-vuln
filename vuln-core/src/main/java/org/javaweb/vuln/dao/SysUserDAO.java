@@ -31,7 +31,7 @@ public class SysUserDAO {
 
 	public SysUser getSysUserById(String id) {
 		try {
-			String sql = "select * from sys_user where id = '" + id + "'";
+			String sql = "select * from sys_user where user_id = '" + id + "'";
 
 			return jdbcTemplate.queryForObject(sql, newInstance(SysUser.class));
 		} catch (DataAccessException e) {

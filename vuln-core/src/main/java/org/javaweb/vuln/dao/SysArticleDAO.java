@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -38,16 +39,17 @@ public class SysArticleDAO {
 		return sysArticleRepository.findAllByOrderByPublishDateDesc(pageable);
 	}
 
+	@Transactional
 	public SysArticle getSysArticle(String id) {
 		try {
 			// 更新文章点击数
-			sysArticleRepository.updateSysArticleClickCount(id);
+			sysArticleRepository.updateSysArticleClickCount(Long.parseLong(id));
 
 			SysArticle article = jdbcTemplate.queryForObject(
-					"select * from sys_article where id = " + id, newInstance(SysArticle.class)
+					"select * from sys_article where article_id = " + id, newInstance(SysArticle.class)
 			);
 
-			String userId = String.valueOf(article.getSysUser().getUserId());
+			String userId = String.valueOf(article.getUserId());
 
 			article.setSysComment(sysCommentDAO.getSysCommentList(id));
 			article.setSysUser(sysUserDAO.getSysUserById(userId));

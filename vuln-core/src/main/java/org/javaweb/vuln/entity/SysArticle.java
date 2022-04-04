@@ -34,6 +34,8 @@ public class SysArticle {
 	@jakarta.persistence.Column(name = "click_count")
 	private Long clickCount;
 
+	private transient Long userId;
+
 	@javax.persistence.ManyToOne
 	@jakarta.persistence.ManyToOne
 	@javax.persistence.JoinColumn(name = "user_id")
@@ -101,6 +103,14 @@ public class SysArticle {
 
 	public void setSysUser(SysUser sysUser) {
 		this.sysUser = sysUser;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public List<SysComment> getSysComment() {

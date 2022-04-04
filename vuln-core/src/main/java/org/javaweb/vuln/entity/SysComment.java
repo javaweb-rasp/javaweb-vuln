@@ -50,6 +50,10 @@ public class SysComment implements Serializable {
 	@jakarta.persistence.JoinColumn(name = "user_id")
 	private SysUser sysUser;
 
+	private transient Long userId;
+
+	private transient Long articleId;
+
 	@JsonBackReference
 	@javax.persistence.ManyToOne
 	@jakarta.persistence.ManyToOne
@@ -95,6 +99,22 @@ public class SysComment implements Serializable {
 
 	public void setSysUser(SysUser sysUser) {
 		this.sysUser = sysUser;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Long getArticleId() {
+		return articleId;
+	}
+
+	public void setArticleId(Long articleId) {
+		this.articleId = articleId;
 	}
 
 	public SysArticle getSysArticle() {

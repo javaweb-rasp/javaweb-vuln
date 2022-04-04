@@ -20,7 +20,7 @@ public interface SysArticleRepository extends JpaRepository<SysArticle, Long>, J
 
 	@Modifying
 	@Query("update SysArticle set clickCount = clickCount+1 where articleId = ?1")
-	void updateSysArticleClickCount(String articleId);
+	void updateSysArticleClickCount(Long articleId);
 
 	@Query(value = "select * from (select *," +
 			"(select count(1) from sys_comment as c where c.article_id = a.article_id ) as commentCount" +

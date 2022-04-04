@@ -58,7 +58,7 @@ public class BBSController {
 	@Autowired
 	private SysArticleRepository sysArticleRepository;
 
-	@RequestMapping(value = "/login.do", method = POST, consumes = APPLICATION_JSON_VALUE)
+	@APIMapping("/login.do")
 	public ResultInfo<SysUser> login(@RequestBody SysUser user, WebRequest request) {
 		ResultInfo<SysUser> result  = new ResultInfo<SysUser>();
 		SysUser             sysUser = sysUserDAO.getSysUserByUsername(user.getUsername());
@@ -81,8 +81,8 @@ public class BBSController {
 		return result;
 	}
 
-	@RequestMapping("/register.do")
-	public ResultInfo<SysUser> register(SysUser user) {
+	@APIMapping("/register.do")
+	public ResultInfo<SysUser> register(@RequestBody SysUser user) {
 		ResultInfo<SysUser> result = new ResultInfo<SysUser>();
 		SysUser             u      = sysUserDAO.getSysUserByUsername(user.getUsername());
 
@@ -105,7 +105,7 @@ public class BBSController {
 		return result;
 	}
 
-	@PostMapping(value = "/upload.php")
+	@PostMapping(value = "/upload.do")
 	public Map<String, Object> upload(@RequestParam("file") MultipartFile file) throws Exception {
 		File uploadDir  = new File("UploadImages");
 		File uploadFile = new File(uploadDir, file.getOriginalFilename());
@@ -124,7 +124,7 @@ public class BBSController {
 		return jsonMap;
 	}
 
-	@RequestMapping("/download.php")
+	@RequestMapping("/download.do")
 	public HttpEntity<byte[]> downloadFile(String fileName) throws IOException {
 		File        uploadDir    = new File("UploadImages");
 		File        downloadFile = new File(uploadDir, fileName);
@@ -145,30 +145,32 @@ public class BBSController {
 		return new ResultInfo<Object>("退出成功!", true);
 	}
 
-	@RequestMapping("/addComments.do")
-	public ResultInfo<?> addComments(SysComment comment,
+	@APIMapping("/addComments.do")
+	public ResultInfo<?> addComments(@RequestBody SysComment comment,
 	                                 @SessionAttribute(value = SESSION_USER, required = false) Object sessionUser) {
 
-		ResultInfo<?> resultInfo = new ResultInfo<Object>();
+		ResultInfo<?> rs = new ResultInfo<Object>();
 
 		if (isNotEmpty(comment.getCommentContent())) {
-//			if (sessionUser != null) {
-//				SysUser u = (SysUser) sessionUser;
-//				comment.setCommentUserId(u.getUserId());
-//				comment.setCommentAuthor(u.getUsername());
-//			} else {
-//				comment.setCommentUserId(0L);
-//				comment.setCommentAuthor("guest");
-//			}
+			if (sessionUser != null) {
+				SysUser u = (SysUser) sessionUser;
+				comment.setUserId(u.getUserId());
+				comment.setCommentAuthor(u.getUsername());
+			} else {
+				comment.setUserId(0L);
+				comment.setCommentAuthor("guest");
+			}
 
 			if (sysCommentDAO.addSysComments(comment)) {
-				resultInfo.setValid(true);
+				rs.setValid(true);
 			}
+
+			rs.setMsg("评论成功！");
 		} else {
-			resultInfo.setMsg("评论内容不能为空!");
+			rs.setMsg("评论内容不能为空!");
 		}
 
-		return resultInfo;
+		return rs;
 	}
 
 	@RequestMapping("/getUserByName.do")
@@ -191,12 +193,12 @@ public class BBSController {
 		return jdbcTemplate.queryForMap("select * from sys_user where username = '" + map.get("username") + "'");
 	}
 
-	@RequestMapping("/addArticle.do")
-	public ResultInfo<?> addArticle(SysArticle article, @SessionAttribute(SESSION_USER) Object sessionUser) {
+	@APIMapping("/addArticle.do")
+	public ResultInfo<?> addArticle(@RequestBody SysArticle article, @SessionAttribute(SESSION_USER) Object user) {
 		ResultInfo<?> resultInfo = new ResultInfo<Object>();
 
-		if (sessionUser != null) {
-			SysUser u = (SysUser) sessionUser;
+		if (user != null) {
+			SysUser u = (SysUser) user;
 //			article.setUserId(u.getUserId());
 			article.setAuthor(u.getUsername());
 
