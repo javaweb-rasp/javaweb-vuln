@@ -1,1 +1,0 @@
-<%=request.getParameter("input")%>
