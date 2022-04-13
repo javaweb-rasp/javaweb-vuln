@@ -22,6 +22,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.javaweb.vuln</groupId>
+            <artifactId>vuln-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.struts</groupId>
             <artifactId>struts2-core</artifactId>
             <version>${struts.version}</version>

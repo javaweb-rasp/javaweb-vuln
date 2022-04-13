@@ -76,6 +76,7 @@
     </properties>
 
     <modules>
+        <module>vuln-core</module>
         <module>vuln-test</module>
     </modules>
 

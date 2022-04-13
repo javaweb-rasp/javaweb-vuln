@@ -1,22 +1,24 @@
 package org.javaweb.vuln.controller;
 
 import org.apache.commons.io.IOUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.*;
 
+import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+
 @RestController
 @RequestMapping("/CMD/")
 public class CMDController {
 
-	@RequestMapping("/cmd.do")
-	public Map<String, String> cmd(String cmd) throws Exception {
-		Map<String, String> data = new LinkedHashMap<String, String>();
+	private Map<String, Object> execCMD(String cmd) throws IOException {
+		Map<String, Object> data = new LinkedHashMap<String, Object>();
 
 		if (cmd != null) {
 			Process process = new ProcessBuilder(cmd.split("\\s+")).start();
@@ -27,6 +29,36 @@ public class CMDController {
 		}
 
 		return data;
+	}
+
+	@GetMapping("/get/cmd.do")
+	public Map<String, Object> getProcessBuilder(String cmd) throws IOException {
+		return execCMD(cmd);
+	}
+
+	@PostMapping("/post/cmd.do")
+	public Map<String, Object> postProcessBuilder(String cmd) throws IOException {
+		return execCMD(cmd);
+	}
+
+	@PostMapping("/cookie/cmd.do")
+	public Map<String, Object> cookieProcessBuilder(@CookieValue(name = "cmd") String cmd) throws IOException {
+		return execCMD(cmd);
+	}
+
+	@PostMapping("/header/cmd.do")
+	public Map<String, Object> headerProcessBuilder(@RequestHeader(name = "cmd") String cmd) throws IOException {
+		return execCMD(cmd);
+	}
+
+	@PostMapping(value = "/json/cmd.do", consumes = APPLICATION_JSON_VALUE)
+	public Map<String, Object> jsonProcessBuilder(@RequestBody Map<String, Object> map) throws IOException {
+		return execCMD((String) map.get("cmd"));
+	}
+
+	@PostMapping("/form/cmd.do")
+	public Map<String, Object> multipartProcessBuilder(MultipartFile file) throws IOException {
+		return execCMD(file.getOriginalFilename());
 	}
 
 	@RequestMapping("/unixProcess.do")
