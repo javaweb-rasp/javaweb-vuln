@@ -53,7 +53,6 @@
         <xbean-reflect.version>4.16</xbean-reflect.version>
         <commons-codec.version>1.11</commons-codec.version>
         <commons-jelly.version>1.0.1</commons-jelly.version>
-        <aspectjweaver.version>1.9.7</aspectjweaver.version>
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
         <activemq-pool.version>5.15.12</activemq-pool.version>
         <spring-data.version>1.9.1.RELEASE</spring-data.version>
@@ -77,6 +76,8 @@
 
     <modules>
         <module>vuln-core</module>
+        <module>vuln-springboot2</module>
+        <module>vuln-springboot3</module>
         <module>vuln-test</module>
     </modules>
 
