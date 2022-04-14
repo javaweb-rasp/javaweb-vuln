@@ -3,7 +3,6 @@ package org.javaweb.vuln.controller;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,7 +21,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
  * Creator: yz
  * Date: 2020-05-03
  */
-@Controller
+@RestController
 @RequestMapping("/FileSystem/")
 public class FileSystemController {
 
@@ -202,7 +201,6 @@ public class FileSystemController {
 		return fileInputStreamReadFile(file);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/fileInputStreamReadFile.do", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<byte[]> jsonFileInputStreamReadFile(@RequestBody Map<String, Object> map) throws IOException {
 		return fileInputStreamReadFile((String) map.get("file"));
@@ -237,7 +235,6 @@ public class FileSystemController {
 		return randomAccessFileReadFile(file);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/randomAccessFileReadFile.do", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<byte[]> jsonRandomAccessFileReadFile(
 			@RequestBody Map<String, Object> map) throws IOException {
@@ -270,7 +267,6 @@ public class FileSystemController {
 		return filesReadAllBytes(file);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/filesReadAllBytes.do", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<byte[]> jsonFilesReadAllBytes(@RequestBody Map<String, Object> map) throws Exception {
 		return filesReadAllBytes((String) map.get("file"));
@@ -281,19 +277,16 @@ public class FileSystemController {
 		return filesReadAllBytes(file.getOriginalFilename());
 	}
 
-	@ResponseBody
 	@GetMapping("/get/fileOutStreamWriteFile.do")
 	public Map<String, String> getFileOutStreamWriteFile(String file, String content) throws Exception {
 		return fileOutStreamWriteFile(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/post/fileOutStreamWriteFile.do")
 	public Map<String, String> postFileOutStreamWriteFile(String file, String content) throws Exception {
 		return fileOutStreamWriteFile(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/cookie/fileOutStreamWriteFile.do")
 	public Map<String, String> cookieFileOutStreamWriteFile(
 			@CookieValue(name = "file") String file,
@@ -302,7 +295,6 @@ public class FileSystemController {
 		return fileOutStreamWriteFile(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/header/fileOutStreamWriteFile.do")
 	public Map<String, String> headerFileOutStreamWriteFile(
 			@RequestHeader(name = "file") String file,
@@ -311,31 +303,26 @@ public class FileSystemController {
 		return fileOutStreamWriteFile(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/fileOutStreamWriteFile.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonFileOutStreamWriteFile(@RequestBody Map<String, Object> map) throws Exception {
 		return fileOutStreamWriteFile((String) map.get("file"), (String) map.get("content"));
 	}
 
-	@ResponseBody
 	@PostMapping("/form/fileOutStreamWriteFile.do")
 	public Map<String, String> multipartFileOutStreamWriteFile(MultipartFile file) throws Exception {
 		return fileOutStreamWriteFile(file.getOriginalFilename(), new String(file.getBytes()));
 	}
 
-	@ResponseBody
 	@GetMapping("/get/randomAccessFileWriteFile.do")
 	public Map<String, String> getRandomAccessFileWriteFile(String file, String content) throws Exception {
 		return randomAccessFileWriteFile(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/post/randomAccessFileWriteFile.do")
 	public Map<String, String> postRandomAccessFileWriteFile(String file, String content) throws Exception {
 		return randomAccessFileWriteFile(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/cookie/randomAccessFileWriteFile.do")
 	public Map<String, String> cookieRandomAccessFileWriteFile(
 			@CookieValue(name = "file") String file,
@@ -344,7 +331,6 @@ public class FileSystemController {
 		return randomAccessFileWriteFile(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/header/randomAccessFileWriteFile.do")
 	public Map<String, String> headerRandomAccessFileWriteFile(
 			@RequestHeader(name = "file") String file,
@@ -353,31 +339,26 @@ public class FileSystemController {
 		return randomAccessFileWriteFile(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/randomAccessFileWriteFile.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonRandomAccessFileWriteFile(@RequestBody Map<String, Object> map) throws Exception {
 		return randomAccessFileWriteFile((String) map.get("file"), (String) map.get("content"));
 	}
 
-	@ResponseBody
 	@PostMapping("/form/randomAccessFileWriteFile.do")
 	public Map<String, String> multipartRandomAccessFileWriteFile(MultipartFile file) throws Exception {
 		return randomAccessFileWriteFile(file.getOriginalFilename(), new String(file.getBytes()));
 	}
 
-	@ResponseBody
 	@GetMapping("/get/filesWrite.do")
 	public Map<String, String> getfilesWrite(String file, String content) throws Exception {
 		return filesWrite(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/post/filesWrite.do")
 	public Map<String, String> postfilesWrite(String file, String content) throws Exception {
 		return filesWrite(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/cookie/filesWrite.do")
 	public Map<String, String> cookiefilesWrite(
 			@CookieValue(name = "file") String file,
@@ -386,7 +367,6 @@ public class FileSystemController {
 		return filesWrite(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping("/header/filesWrite.do")
 	public Map<String, String> headerfilesWrite(
 			@RequestHeader(name = "file") String file,
@@ -395,67 +375,56 @@ public class FileSystemController {
 		return filesWrite(file, content);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/filesWrite.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonfilesWrite(@RequestBody Map<String, Object> map) throws Exception {
 		return filesWrite((String) map.get("file"), (String) map.get("content"));
 	}
 
-	@ResponseBody
 	@PostMapping("/form/filesWrite.do")
 	public Map<String, String> multipartfilesWrite(MultipartFile file) throws Exception {
 		return filesWrite(file.getOriginalFilename(), new String(file.getBytes()));
 	}
 
-	@ResponseBody
 	@GetMapping("/get/deleteFile.do")
 	public Map<String, String> getDeleteFile(String file) throws IOException {
 		return fileDelete(file);
 	}
 
-	@ResponseBody
 	@PostMapping("/post/deleteFile.do")
 	public Map<String, String> postDeleteFile(String file) throws IOException {
 		return fileDelete(file);
 	}
 
-	@ResponseBody
 	@PostMapping("/cookie/deleteFile.do")
 	public Map<String, String> cookieDeleteFile(@CookieValue(name = "file") String file) throws IOException {
 		return fileDelete(file);
 	}
 
-	@ResponseBody
 	@PostMapping("/header/deleteFile.do")
 	public Map<String, String> headerDeleteFile(@RequestHeader(name = "file") String file) throws IOException {
 		return fileDelete(file);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/deleteFile.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonDeleteFile(@RequestBody Map<String, Object> map) throws IOException {
 		return fileDelete((String) map.get("file"));
 	}
 
-	@ResponseBody
 	@PostMapping("/form/deleteFile.do")
 	public Map<String, String> multipartDeleteFile(MultipartFile file) throws IOException {
 		return fileDelete(file.getOriginalFilename());
 	}
 
-	@ResponseBody
 	@GetMapping("/get/renameTo.do")
 	public Map<String, String> getRenameTo(String file, String dest) throws Exception {
 		return renameTo(file, dest);
 	}
 
-	@ResponseBody
 	@PostMapping("/post/renameTo.do")
 	public Map<String, String> postRenameTo(String file, String dest) throws Exception {
 		return renameTo(file, dest);
 	}
 
-	@ResponseBody
 	@PostMapping("/cookie/renameTo.do")
 	public Map<String, String> cookieRenameTo(
 			@CookieValue(name = "file") String file,
@@ -464,7 +433,6 @@ public class FileSystemController {
 		return renameTo(file, dest);
 	}
 
-	@ResponseBody
 	@PostMapping("/header/renameTo.do")
 	public Map<String, String> headerRenameTo(
 			@RequestHeader(name = "file") String file,
@@ -473,31 +441,26 @@ public class FileSystemController {
 		return renameTo(file, dest);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/renameTo.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonRenameTo(@RequestBody Map<String, Object> map) throws Exception {
 		return renameTo((String) map.get("file"), (String) map.get("dest"));
 	}
 
-	@ResponseBody
 	@PostMapping("/form/renameTo.do")
 	public Map<String, String> multipartRenameTo(MultipartFile file) throws Exception {
 		return renameTo(file.getOriginalFilename(), new String(file.getBytes()));
 	}
 
-	@ResponseBody
 	@GetMapping("/get/filesCopy.do")
 	public Map<String, String> getFilesCopy(String file, String dest) throws Exception {
 		return filesCopy(file, dest);
 	}
 
-	@ResponseBody
 	@PostMapping("/post/filesCopy.do")
 	public Map<String, String> postFilesCopy(String file, String dest) throws Exception {
 		return filesCopy(file, dest);
 	}
 
-	@ResponseBody
 	@PostMapping("/cookie/filesCopy.do")
 	public Map<String, String> cookieFilesCopy(
 			@CookieValue(name = "file") String file,
@@ -506,7 +469,6 @@ public class FileSystemController {
 		return filesCopy(file, dest);
 	}
 
-	@ResponseBody
 	@PostMapping("/header/filesCopy.do")
 	public Map<String, String> headerFilesCopy(
 			@RequestHeader(name = "file") String file,
@@ -515,49 +477,41 @@ public class FileSystemController {
 		return filesCopy(file, dest);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/filesCopy.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonFilesCopy(@RequestBody Map<String, Object> map) throws Exception {
 		return filesCopy((String) map.get("file"), (String) map.get("dest"));
 	}
 
-	@ResponseBody
 	@PostMapping("/form/filesCopy.do")
 	public Map<String, String> multipartFilesCopy(MultipartFile file) throws Exception {
 		return filesCopy(file.getOriginalFilename(), new String(file.getBytes()));
 	}
 
-	@ResponseBody
 	@GetMapping("/get/listFile.do")
 	public Map<String, String[]> getListFile(String dir) {
 		return listFile(dir);
 	}
 
-	@ResponseBody
 	@PostMapping("/post/listFile.do")
 	public Map<String, String[]> postListFile(String dir) {
 		return listFile(dir);
 	}
 
-	@ResponseBody
 	@PostMapping("/cookie/listFile.do")
 	public Map<String, String[]> cookieListFile(@CookieValue(name = "dir") String dir) {
 		return listFile(dir);
 	}
 
-	@ResponseBody
 	@PostMapping("/header/listFile.do")
 	public Map<String, String[]> headerListFile(@RequestHeader(name = "dir") String dir) {
 		return listFile(dir);
 	}
 
-	@ResponseBody
 	@PostMapping(value = "/json/listFile.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String[]> jsonListFile(@RequestBody Map<String, Object> map) {
 		return listFile((String) map.get("dir"));
 	}
 
-	@ResponseBody
 	@PostMapping("/form/listFile.do")
 	public Map<String, String[]> multipartListFile(MultipartFile file) {
 		return listFile(file.getOriginalFilename());

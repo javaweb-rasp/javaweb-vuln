@@ -200,7 +200,7 @@
 
         <dependency>
             <groupId>xerces</groupId>
-            <artifactId>xerces</artifactId>
+            <artifactId>xercesImpl</artifactId>
             <version>${xerces.version}</version>
         </dependency>
 

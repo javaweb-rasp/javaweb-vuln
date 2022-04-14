@@ -31,7 +31,7 @@ public class DeserializationController {
 	public Map<String, Object> readObject() throws Exception {
 		Map<String, Object> data = new LinkedHashMap<String, Object>();
 
-		String command = "open -a Calculator.app";
+		String command = "curl localhost:8888/ok";
 		String osName  = System.getProperty("os.name");
 
 		// 替换的命令必须保持长度和默认命令一样，否则会导致无法反序列化

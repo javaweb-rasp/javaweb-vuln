@@ -24,7 +24,7 @@
         <druid.version>1.1.24</druid.version>
         <struts.version>2.1.8</struts.version>
         <groovy.version>2.3.9</groovy.version>
-        <xerces.version>2.4.0</xerces.version>
+        <xerces.version>2.9.1</xerces.version>
         <okhttp.version>2.7.5</okhttp.version>
         <jsp-api.version>2.2</jsp-api.version>
         <sqlite.version>3.34.0</sqlite.version>

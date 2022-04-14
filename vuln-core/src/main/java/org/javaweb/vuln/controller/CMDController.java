@@ -4,7 +4,6 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -17,7 +16,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RequestMapping("/CMD/")
 public class CMDController {
 
-	private Map<String, Object> execCMD(String cmd) throws IOException {
+	private Map<String, Object> execCMD(String cmd) throws Exception {
 		Map<String, Object> data = new LinkedHashMap<String, Object>();
 
 		if (cmd != null) {
@@ -31,39 +30,8 @@ public class CMDController {
 		return data;
 	}
 
-	@GetMapping("/get/cmd.do")
-	public Map<String, Object> getProcessBuilder(String cmd) throws IOException {
-		return execCMD(cmd);
-	}
-
-	@PostMapping("/post/cmd.do")
-	public Map<String, Object> postProcessBuilder(String cmd) throws IOException {
-		return execCMD(cmd);
-	}
-
-	@PostMapping("/cookie/cmd.do")
-	public Map<String, Object> cookieProcessBuilder(@CookieValue(name = "cmd") String cmd) throws IOException {
-		return execCMD(cmd);
-	}
-
-	@PostMapping("/header/cmd.do")
-	public Map<String, Object> headerProcessBuilder(@RequestHeader(name = "cmd") String cmd) throws IOException {
-		return execCMD(cmd);
-	}
-
-	@PostMapping(value = "/json/cmd.do", consumes = APPLICATION_JSON_VALUE)
-	public Map<String, Object> jsonProcessBuilder(@RequestBody Map<String, Object> map) throws IOException {
-		return execCMD((String) map.get("cmd"));
-	}
-
-	@PostMapping("/form/cmd.do")
-	public Map<String, Object> multipartProcessBuilder(MultipartFile file) throws IOException {
-		return execCMD(file.getOriginalFilename());
-	}
-
-	@RequestMapping("/unixProcess.do")
-	public Map<String, String> unixProcess(String cmd) throws Exception {
-		Map<String, String> data = new LinkedHashMap<String, String>();
+	public Map<String, Object> unixProcess(String cmd) throws Exception {
+		Map<String, Object> data = new HashMap<String, Object>();
 
 		if (cmd != null) {
 			String[] commands = cmd.split("\\s+");
@@ -122,6 +90,66 @@ public class CMDController {
 		}
 
 		return data;
+	}
+
+	@GetMapping("/get/cmd.do")
+	public Map<String, Object> getProcessBuilder(String cmd) throws Exception {
+		return execCMD(cmd);
+	}
+
+	@PostMapping("/post/cmd.do")
+	public Map<String, Object> postProcessBuilder(String cmd) throws Exception {
+		return execCMD(cmd);
+	}
+
+	@PostMapping("/cookie/cmd.do")
+	public Map<String, Object> cookieProcessBuilder(@CookieValue(name = "cmd") String cmd) throws Exception {
+		return execCMD(cmd);
+	}
+
+	@PostMapping("/header/cmd.do")
+	public Map<String, Object> headerProcessBuilder(@RequestHeader(name = "cmd") String cmd) throws Exception {
+		return execCMD(cmd);
+	}
+
+	@PostMapping(value = "/json/cmd.do", consumes = APPLICATION_JSON_VALUE)
+	public Map<String, Object> jsonProcessBuilder(@RequestBody Map<String, Object> map) throws Exception {
+		return execCMD((String) map.get("cmd"));
+	}
+
+	@PostMapping("/form/cmd.do")
+	public Map<String, Object> multipartProcessBuilder(MultipartFile file) throws Exception {
+		return execCMD(file.getOriginalFilename());
+	}
+
+	@GetMapping("/get/unixProcess.do")
+	public Map<String, Object> getUnixProcess(String cmd) throws Exception {
+		return unixProcess(cmd);
+	}
+
+	@PostMapping("/post/unixProcess.do")
+	public Map<String, Object> postUnixProcess(String cmd) throws Exception {
+		return unixProcess(cmd);
+	}
+
+	@PostMapping("/cookie/unixProcess.do")
+	public Map<String, Object> cookieUnixProcess(@CookieValue(name = "cmd") String cmd) throws Exception {
+		return unixProcess(cmd);
+	}
+
+	@PostMapping("/header/unixProcess.do")
+	public Map<String, Object> headerUnixProcess(@RequestHeader(name = "cmd") String cmd) throws Exception {
+		return unixProcess(cmd);
+	}
+
+	@PostMapping(value = "/json/unixProcess.do", consumes = APPLICATION_JSON_VALUE)
+	public Map<String, Object> jsonUnixProcess(@RequestBody Map<String, Object> map) throws Exception {
+		return unixProcess((String) map.get("cmd"));
+	}
+
+	@PostMapping("/form/unixProcess.do")
+	public Map<String, Object> multipartUnixProcess(MultipartFile file) throws Exception {
+		return unixProcess(file.getOriginalFilename());
 	}
 
 }
