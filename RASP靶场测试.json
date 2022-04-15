@@ -2217,7 +2217,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/XXE/cookie/xerces.do"
+								"url": "http://localhost:8000/XXE/cookie/dom4j.do"
 							},
 							"response": []
 						},

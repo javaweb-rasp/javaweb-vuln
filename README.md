@@ -42,3 +42,60 @@ mvn clean install
 测试文件上传时需要选择一个jsp/jspx文件并修改上传的目录，否则会报错，如下图：
 
 <img src="images/image-20220414154457785.png" alt="image-20220414154457785" style="zoom:50%;" />
+
+
+
+## 压力测试
+
+> Java应用程序在预热阶段时候测试的性能会特别差，不适合计入压测结果，测试时需要忽略第一次压测结果。如果测试时发现连续两次压测结果相差很大，建议重新测试。
+
+
+
+压测靶场可选择：[vuln-test](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-test)、 [vuln-springboot2](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-springboot2)、[vuln-springboot3](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-springboot3)
+
+压测工具推荐使用：[wrk](https://github.com/wg/wrk)、[Apache JMeter](https://jmeter.apache.org/)
+
+测试接口：`http://localhost:8000/SQL/json/sql.do`
+
+接口描述：API使用JSON方式传参：`{"username": "admin"}`，然后使用`Spring JdbcTemplate`查询用户名为`admin`的用户数据。
+
+**示例 - JSON查询用户信息接口代码：**
+
+```java
+@RestController
+@RequestMapping("/SQL/")
+public class SQLInjectionController {
+	@PostMapping(value = "/json/sql.do", consumes = APPLICATION_JSON_VALUE)
+	public Map<String, Object> jsonSQL(@RequestBody Map<String, Object> map) {
+		String sql = "select * from sys_user where username = '" + map.get("username") + "'";
+
+		return jdbcTemplate.queryForMap(sql);
+	}
+}
+```
+
+完整代码请参考：[org.javaweb.vuln.controller.SQLInjectionController#jsonSQL](https://github.com/javaweb-rasp/javaweb-vuln/blob/master/vuln-core/src/main/java/org/javaweb/vuln/controller/SQLInjectionController.java#L46)
+
+<img src="./images/image-20220415121848006.png" alt="image-20220415121848006" style="zoom:50%;" />
+
+**RASP性能测试流程：**
+
+1. 添加RASP启动参数后启动Web服务；
+2. 启动VisualVM监控容器进程；（可省略）；
+3. 使用wrk连续5次压测某个接口并记录每一次的压测数值；
+4. 停止Web服务；
+5. 去掉RASP启动参数并按照步骤1-3重新测试未安装RASP时性能数据；
+6. 计算安装RASP和未安装RASP的压测结果；
+
+
+
+测试参数：`wrk -t200 -c500 -d30s --script=/Users/yz/user.lua --latency "http://localhost:8000/SQL/json/sql.do"`，200个线程，500个连接数，持续时间为30秒。
+
+**user.lua:**
+
+```lua
+wrk.method = 'POST'
+wrk.headers['Content-Type'] = 'application/json'
+wrk.body = '{"username": "admin"}'
+```
+
