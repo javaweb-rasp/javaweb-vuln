@@ -102,3 +102,22 @@ wrk.headers['Content-Type'] = 'application/json'
 wrk.body = '{"username": "admin"}'
 ```
 
+
+
+## Docker镜像
+
+获取方式：`docker pull javasec/javaweb-vuln:latest`
+
+该镜像会同时启动[javaweb-vuln](https://github.com/javaweb-rasp/javaweb-vuln)中的三个靶场，启动方式容器时需要同时映射8001、8002、8003端口，如下：
+
+```
+docker run -d -it -p 8001-8003:8001-8003 --name javaweb-vuln javasec/javaweb-vuln
+```
+
+
+
+## 端口和JDK版本
+
+1. [vuln-test](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-test) -> `8001`端口，`OpenJDK 1.8.0_322`
+2. [vuln-springboot2](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-springboot2) -> `8002`端口，`OpenJDK 1.8.0_322`
+3. [vuln-springboot3](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-springboot3) -> `8003`端口，`OpenJDK 17.0.2`
