@@ -65,12 +65,12 @@ mvn clean install
 @RestController
 @RequestMapping("/SQL/")
 public class SQLInjectionController {
-	@PostMapping(value = "/json/sql.do", consumes = APPLICATION_JSON_VALUE)
-	public Map<String, Object> jsonSQL(@RequestBody Map<String, Object> map) {
-		String sql = "select * from sys_user where username = '" + map.get("username") + "'";
+    @PostMapping(value = "/json/sql.do", consumes = APPLICATION_JSON_VALUE)
+    public Map<String, Object> jsonSQL(@RequestBody Map<String, Object> map) {
+        String sql = "select * from sys_user where username = '" + map.get("username") + "'";
 
-		return jdbcTemplate.queryForMap(sql);
-	}
+        return jdbcTemplate.queryForMap(sql);
+    }
 }
 ```
 
@@ -87,7 +87,10 @@ public class SQLInjectionController {
 5. 去掉RASP启动参数并按照步骤1-3重新测试未安装RASP时性能数据；
 6. 计算安装RASP和未安装RASP的压测结果；
 
-
+curl测试：
+```bash
+curl -i "http://localhost:8000/SQL/json/sql.do" -H "Content-Type: application/json" -d '{"username": "admin"}'
+```
 
 测试参数：`wrk -t200 -c500 -d30s --script=/Users/yz/user.lua --latency "http://localhost:8000/SQL/json/sql.do"`，200个线程，500个连接数，持续时间为30秒。
 
