@@ -25,9 +25,9 @@ mvn clean install
 5. 漏洞示例程序在`vuln-core`中有源码，Postman的payload仅供参考，可随意修改为其他攻击参数；
 6. 所有和命令执行相关的点都执行的是`curl localhost:8888`，比如Java反序列化，因此为了便于观测，建议测试时执行：`nc -vv -l 8888`；
 7. 部分示例程序发送攻击payload时会返回500错误，是正常情况不影响测试，如有疑问请参考`vuln-core`的示例代码；
-7. 部分示例仅使用于`Linux/OSX`，如：本地命令执行中的`UnixProcess`示例；
-7. 测试文件上传时需要选择一个jsp/jspx文件并修改上传的目录，否则会报错；
-7. `URL黑名单`、`URL白名单`、`IP黑名单`、`虚拟补丁`需要在RASP云端编辑测试规则才能测试，`扫描器`测试目前只配置了：`sqlmap,nmap,masscan`，可在云端修改规则；
+8. 部分示例仅使用于`Linux/OSX`，如：本地命令执行中的`UnixProcess`示例；
+9. 测试文件上传时需要选择一个jsp/jspx文件并修改上传的目录，否则会报错；
+10. `URL黑名单`、`URL白名单`、`IP黑名单`、`虚拟补丁`需要在RASP云端编辑测试规则才能测试，`扫描器`测试目前只配置了：`sqlmap,nmap,masscan`，可在云端修改规则；
 
 
 
@@ -47,9 +47,7 @@ mvn clean install
 
 ## 压力测试
 
-> Java应用程序在预热阶段时候测试的性能会特别差，不适合计入压测结果，测试时需要忽略第一次压测结果。如果测试时发现连续两次压测结果相差很大，建议重新测试。
-
-
+> Java应用程序在预热阶段时候测试的性能会特别差，不适合计入压测结果，测试时需要忽略第一次压测结果。如果测试时发现连续两次压测结果相差很大，建议重新测试。尽可能的在独立服务器上测试，压力测试期间尽量不要做其他操作以免导致结果不准确。
 
 压测靶场可选择：[vuln-test](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-test)、 [vuln-springboot2](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-springboot2)、[vuln-springboot3](https://github.com/javaweb-rasp/javaweb-vuln/tree/master/vuln-springboot3)
 
@@ -106,7 +104,10 @@ wrk.body = '{"username": "admin"}'
 
 ## Docker镜像
 
-获取方式：`docker pull javasec/javaweb-vuln:latest`
+获取方式：
+
+1. X86_64：`docker pull javasec/javaweb-vuln:latest`；
+2. ARM架构(Macbook M1或aarch64)：`docker pull javasec/javaweb-vuln-arm:latest`；
 
 该镜像会同时启动[javaweb-vuln](https://github.com/javaweb-rasp/javaweb-vuln)中的三个靶场，启动方式容器时需要同时映射8001、8002、8003端口，如下：
 
