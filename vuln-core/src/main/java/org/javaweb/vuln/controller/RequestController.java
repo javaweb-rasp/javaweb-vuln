@@ -22,12 +22,12 @@ public class RequestController {
 	@ResponseBody
 	@PostMapping(value = "/proxy.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, Object> xerces(@RequestBody Map<String, Object> map) {
-		Map<String, Object> data   = new LinkedHashMap<String, Object>();
-		String              req    = (String) map.get("req");
-		boolean             isHttp = "http".equals(map.get("protocol"));
+		Map<String, Object> data  = new LinkedHashMap<String, Object>();
+		String              req   = (String) map.get("req");
+		boolean             isSSL = "https".equals(map.get("protocol"));
 
 		try {
-			proxyRequest(req, isHttp, data);
+			proxyRequest(req, isSSL, data);
 		} catch (IOException e) {
 			data.put("msg", exceptionToString(e));
 		}

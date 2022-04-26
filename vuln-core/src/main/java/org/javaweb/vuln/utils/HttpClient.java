@@ -16,8 +16,8 @@ public class HttpClient {
 	 */
 	private static final int MAX_HEADER_LENGTH = 1024 * 1000 * 4;
 
-	private static String[] parseHost(String host, boolean isHttp) {
-		String port = isHttp ? "80" : "443";
+	private static String[] parseHost(String host, boolean isSSL) {
+		String port = isSSL ? "443" : "80";
 
 		String[] hostArray = host.split(":");
 
@@ -77,12 +77,12 @@ public class HttpClient {
 	/**
 	 * 代理请求
 	 *
-	 * @param req    协议包
-	 * @param isHttp 是否是HTTP协议
-	 * @param data   响应Map
+	 * @param req   协议包
+	 * @param isSSL 是否是HTTP协议
+	 * @param data  响应Map
 	 * @throws IOException IO异常
 	 */
-	public static void proxyRequest(String req, boolean isHttp, Map<String, Object> data) throws IOException {
+	public static void proxyRequest(String req, boolean isSSL, Map<String, Object> data) throws IOException {
 		byte[]          bytes = req.getBytes();
 		DataInputStream dis   = new DataInputStream(new ByteArrayInputStream(bytes));
 		String          line  = dis.readLine();
@@ -90,7 +90,7 @@ public class HttpClient {
 		if (line != null) {
 			Map<String, String> header = parseHeader(dis);
 			byte[]              body   = parseBody(dis);
-			String[]            hosts  = parseHost(header.get("Host"), isHttp);
+			String[]            hosts  = parseHost(header.get("Host"), isSSL);
 
 			String contentLen = header.get("Content-Length");
 
@@ -101,11 +101,11 @@ public class HttpClient {
 
 			Socket socket;
 
-			if (isHttp) {
-				socket = new Socket(hosts[0], Integer.parseInt(hosts[1]));
-			} else {
+			if (isSSL) {
 				SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 				socket = factory.createSocket(hosts[0], Integer.parseInt(hosts[1]));
+			} else {
+				socket = new Socket(hosts[0], Integer.parseInt(hosts[1]));
 			}
 
 			OutputStream out = socket.getOutputStream();
@@ -128,7 +128,7 @@ public class HttpClient {
 
 			out.flush();
 
-//			if (isHttp) {
+//			if (!isSSL) {
 //				socket.shutdownOutput();
 //			}
 

@@ -41,6 +41,10 @@ mvn clean install
 
 <img src="images/image-20220414154311860.png" alt="image-20220414154311860" style="zoom:50%;" />
 
+**请求URL地址设置：**
+
+![image-20220426194355585](./images/image-20220426194355585.png)
+
 测试文件上传时需要选择一个jsp/jspx文件并修改上传的目录，否则会报错，如下图：
 
 <img src="images/image-20220414154457785.png" alt="image-20220414154457785" style="zoom:50%;" />

