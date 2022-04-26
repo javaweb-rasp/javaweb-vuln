@@ -22,6 +22,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.javaweb.vuln</groupId>
             <artifactId>vuln-core</artifactId>
             <version>${project.version}</version>

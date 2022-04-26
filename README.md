@@ -18,16 +18,18 @@ mvn clean install
 
 ## 使用说明
 
-1. JavaEE、Jakarta EE、SpringBoot2、SpringBoot3；
-2. 默认使用数据库是Sqlite，不需要安装或配置数据库；
-3. 导入[RASP靶场测试.json](./RASP靶场测试.json)到[Postman](https://www.postman.com/)中即可测试。
-4. 内存马和JNI功能需要在vuln-test模块中才能测试；
-5. 漏洞示例程序在`vuln-core`中有源码，Postman的payload仅供参考，可随意修改为其他攻击参数；
-6. 所有和命令执行相关的点都执行的是`curl localhost:8888`，比如Java反序列化，因此为了便于观测，建议测试时执行：`nc -vv -l 8888`；
-7. 部分示例程序发送攻击payload时会返回500错误，是正常情况不影响测试，如有疑问请参考`vuln-core`的示例代码；
-8. 部分示例仅使用于`Linux/OSX`，如：本地命令执行中的`UnixProcess`示例；
-9. 测试文件上传时需要选择一个jsp/jspx文件并修改上传的目录，否则会报错；
-10. `URL黑名单`、`URL白名单`、`IP黑名单`、`虚拟补丁`需要在RASP云端编辑测试规则才能测试，`扫描器`测试目前只配置了：`sqlmap,nmap,masscan`，可在云端修改规则；
+1. `vuln-test`和`vuln-springBoot2`使用的是JavaEE、`vuln-springBoot3`是`Jakarta EE`；
+2. 只有`vuln-test`支持jsp/jspx，因此`WebShell`、`内存马`只能在`vuln-test`靶场测试；
+3. 默认使用数据库是Sqlite，不需要安装或配置数据库；
+4. 导入[RASP靶场测试.json](./RASP靶场测试.json)到[Postman](https://www.postman.com/)中即可测试。
+5. 内存马和JNI功能需要在vuln-test模块中才能测试；
+6. 漏洞示例程序在`vuln-core`中有源码，Postman的payload仅供参考，可随意修改为其他攻击参数；
+7. 所有和命令执行相关的点都执行的是`curl localhost:8888`，比如Java反序列化，因此为了便于观测，建议测试时执行：`nc -vv -l 8888`；
+8. 部分示例程序发送攻击payload时会返回500错误，是正常情况不影响测试，如有疑问请参考`vuln-core`的示例代码；
+9. 部分示例仅使用于`Linux/OSX`，如：本地命令执行中的`UnixProcess`示例；
+10. 测试文件上传时需要选择一个jsp/jspx文件并修改上传的目录，否则会报错；
+11. `URL黑名单`、`URL白名单`、`IP黑名单`、`虚拟补丁`需要在RASP云端编辑测试规则才能测试，`扫描器`测试目前只配置了：`sqlmap,nmap,masscan`，可在云端修改规则；
+
 
 
 
@@ -53,7 +55,7 @@ mvn clean install
 
 压测工具推荐使用：[wrk](https://github.com/wg/wrk)、[Apache JMeter](https://jmeter.apache.org/)
 
-测试接口：`http://localhost:8000/SQL/json/sql.do`
+测试接口：`http://localhost:8001/SQL/json/sql.do`
 
 接口描述：API使用JSON方式传参：`{"username": "admin"}`，然后使用`Spring JdbcTemplate`查询用户名为`admin`的用户数据。
 
@@ -87,10 +89,10 @@ public class SQLInjectionController {
 
 curl测试：
 ```bash
-curl -i "http://localhost:8000/SQL/json/sql.do" -H "Content-Type: application/json" -d '{"username": "admin"}'
+curl -i "http://localhost:8001/SQL/json/sql.do" -H "Content-Type: application/json" -d '{"username": "admin"}'
 ```
 
-测试参数：`wrk -t200 -c500 -d30s --script=/Users/yz/user.lua --latency "http://localhost:8000/SQL/json/sql.do"`，200个线程，500个连接数，持续时间为30秒。
+测试参数：`wrk -t200 -c500 -d30s --script=/Users/yz/user.lua --latency "http://localhost:8001/SQL/json/sql.do"`，200个线程，500个连接数，持续时间为30秒。
 
 **user.lua:**
 
@@ -115,6 +117,7 @@ wrk.body = '{"username": "admin"}'
 docker run -d -it -p 8001-8003:8001-8003 --name javaweb-vuln javasec/javaweb-vuln
 ```
 
+[Dockerfile](./Dockerfile)使用的JDK是：[Eclipse Temurin™  OpenJDK](https://adoptium.net/temurin/releases)，[Tomcat 9](https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.59/bin/)；
 
 
 ## 端口和JDK版本
