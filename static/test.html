@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue-2.6.14.min.js"></script>
+    <script src="../js/element-ui-2.15.6.js"></script>
+    <link rel="stylesheet" href="../css/element-ui-2.15.6.css">
+    <link href="https://cdn.bootcss.com/codemirror/5.32.0/codemirror.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/codemirror/5.32.0/theme/blackboard.css">
+    <script src="https://cdn.bootcss.com/codemirror/5.32.0/codemirror.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.32.0/mode/xml/xml.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.32.0/mode/javascript/javascript.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="panel">
+        <div class="panel-header clearfix">
+            <el-button
+                    class="pull-left"
+                    style="margin-top: 8px;margin-right: 120px"
+                    type="primary"
+                    size="small"
+            ><i class="el-icon-s-promotion"></i> Request</el-button>
+            <div class="pull-left">
+                是否开启SSL: <el-switch
+                    v-model="isSSL"
+                    active-color="#13ce66"
+                    inactive-color="#ff4949">
+                </el-switch>
+            </div>
+        </div>
+        <div class="panel-body clearfix">
+            <div class="req pull-left">
+                <div class="editor-box">
+                    <textarea name="code" id="editor"></textarea>
+                </div>
+            </div>
+
+            <div class="resp pull-right">
+                <div class="editor-box">
+                    <textarea class="respEditor" name="code" id="response"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                isSSL: true,
+                editor: null,
+                responseEditor: null
+            }
+        },
+        mounted () {
+            this.initEditor()
+        },
+        methods: {
+            initEditor () {
+                const options = {
+                    // theme: "blackboard",
+                    lineNumbers: true,
+                    lineWrapping: true,
+                    styleActiveLine: true,
+                    autoCloseBrackets: true,
+                    foldGutter: true,
+                    mode: 'text/xml',
+                    indentUnit: 2,
+                    lint: true,
+                    indentWithTabs: true
+                }
+                this.editor = CodeMirror.fromTextArea(document.getElementById("editor"), options);
+                this.responseEditor = CodeMirror.fromTextArea(document.getElementById('response'), options)
+            },
+            changeRawType (type) {
+                this.rawType = type
+            }
+        }
+    })
+</script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .panel {
+        color: rgba(0,0,0,.85);
+        border-radius: 4px;
+    }
+    .panel-header {
+        vertical-align: middle;
+        height: 48px;
+        line-height: 48px;
+        margin-bottom: -1px;
+        padding: 0 24px;
+        color: rgba(0,0,0,.85);
+        font-weight: 500;
+        font-size: 15px;
+        background: transparent;
+        border-bottom: 1px solid #f0f0f0;
+        border-radius: 4px 4px 0 0;
+    }
+    .ml120 {
+        margin-left: 120px;
+    }
+    .panel-body {
+        padding: 20px;
+        height: calc(100vh - 90px);
+        background: transparent;
+    }
+    .req, .resp {
+        height: 100%;
+        width: 50%;
+        box-sizing: border-box;
+    }
+    .pull-left {
+        float: left;
+    }
+    .pull-right {
+        float: right;
+    }
+    .clearfix:after {
+        content: '';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+    .editor-box {
+        height: 100%;
+    }
+    .CodeMirror {
+        height: 100%;
+        /*border-top: 1px solid #f0f0f0;*/
+        /*border-bottom: 1px solid #f0f0f0;*/
+    }
+    .CodeMirror-scroll {
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+</style>
+</html>
