@@ -16,7 +16,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RequestMapping("/CMD/")
 public class CMDController {
 
-	private Map<String, Object> execCMD(String cmd) throws Exception {
+	public static Map<String, Object> execCMD(String cmd) throws Exception {
 		Map<String, Object> data = new LinkedHashMap<String, Object>();
 
 		if (cmd != null) {
@@ -30,7 +30,7 @@ public class CMDController {
 		return data;
 	}
 
-	public Map<String, Object> unixProcess(String cmd) throws Exception {
+	public static Map<String, Object> unixProcess(String cmd) throws Exception {
 		Map<String, Object> data = new HashMap<String, Object>();
 
 		if (cmd != null) {

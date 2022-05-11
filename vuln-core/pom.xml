@@ -220,7 +220,6 @@
             <groupId>org.javaweb</groupId>
             <artifactId>javaweb-javassist</artifactId>
             <version>${javassist.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -235,6 +234,25 @@
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>${hessian.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>hessian-lite</artifactId>
+            <version>${hessian-lite.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

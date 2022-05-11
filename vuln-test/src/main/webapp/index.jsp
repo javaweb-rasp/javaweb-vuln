@@ -3,6 +3,15 @@
 <%@page session="false" %>
 
 <pre>
+<%="ContextPath:" + request.getContextPath()%>
+<%="RequestURL:" + request.getRequestURL()%>
+<%="RequestURI:" + request.getRequestURI()%>
+<%="ServletPath:" + request.getServletPath()%>
+<%="PathInfo:" + request.getPathInfo()%>
+<%="PathTranslated:" + request.getPathTranslated()%>
+</pre>
+
+<pre>
 <%
     out.println(request.getParameter("id"));
     out.println("-------------------------------------------------");

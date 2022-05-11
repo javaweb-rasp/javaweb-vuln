@@ -36,6 +36,7 @@
         <jackson.version>2.8.0</jackson.version>
         <javaweb.version>2.0.3</javaweb.version>
         <logback.version>1.2.3</logback.version>
+        <hessian.version>4.0.66</hessian.version>
         <xstream.version>1.4.13</xstream.version>
         <HikariCP.version>3.4.1</HikariCP.version>
         <mvel2.version>2.4.0.Final</mvel2.version>
@@ -53,7 +54,9 @@
         <commons-proxy.version>1.0</commons-proxy.version>
         <xbean-reflect.version>4.16</xbean-reflect.version>
         <commons-codec.version>1.11</commons-codec.version>
+        <hessian-lite.version>3.2.12</hessian-lite.version>
         <commons-jelly.version>1.0.1</commons-jelly.version>
+        <aspectjweaver.version>1.8.8</aspectjweaver.version>
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
         <activemq-pool.version>5.15.12</activemq-pool.version>
         <spring-data.version>1.9.1.RELEASE</spring-data.version>
