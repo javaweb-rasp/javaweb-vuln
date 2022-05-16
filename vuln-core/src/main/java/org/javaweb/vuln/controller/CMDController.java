@@ -11,6 +11,7 @@ import java.lang.reflect.Type;
 import java.util.*;
 
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+import static org.springframework.util.MimeTypeUtils.APPLICATION_XML_VALUE;
 
 @RestController
 @RequestMapping("/CMD/")
@@ -112,6 +113,11 @@ public class CMDController {
 		return execCMD(cmd);
 	}
 
+	@PostMapping(value = "/xml/cmd.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, Object> xmlProcessBuilder(@RequestBody Map<String, Object> map) throws Exception {
+		return execCMD((String) map.get("cmd"));
+	}
+
 	@PostMapping(value = "/json/cmd.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, Object> jsonProcessBuilder(@RequestBody Map<String, Object> map) throws Exception {
 		return execCMD((String) map.get("cmd"));
@@ -140,6 +146,11 @@ public class CMDController {
 	@PostMapping("/header/unixProcess.do")
 	public Map<String, Object> headerUnixProcess(@RequestHeader(name = "cmd") String cmd) throws Exception {
 		return unixProcess(cmd);
+	}
+
+	@PostMapping(value = "/xml/unixProcess.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, Object> xmlUnixProcess(@RequestBody Map<String, Object> map) throws Exception {
+		return unixProcess((String) map.get("cmd"));
 	}
 
 	@PostMapping(value = "/json/unixProcess.do", consumes = APPLICATION_JSON_VALUE)

@@ -17,6 +17,7 @@ import java.util.Map;
 
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.util.MimeTypeUtils.APPLICATION_XML_VALUE;
 
 @RestController
 @RequestMapping("/SSRF/")
@@ -65,6 +66,11 @@ public class SSRFController {
 		return httpConnection(url);
 	}
 
+	@PostMapping(value = "/xml/httpConnection.do", consumes = APPLICATION_XML_VALUE)
+	public ResponseEntity<byte[]> xmlHttpConnection(@RequestBody Map<String, Object> map) throws Exception {
+		return httpConnection((String) ((Map) map.get("root")).get("url"));
+	}
+
 	@PostMapping(value = "/json/httpConnection.do", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<byte[]> jsonHttpConnection(@RequestBody Map<String, Object> map) throws Exception {
 		return httpConnection((String) ((Map) map.get("root")).get("url"));
@@ -95,6 +101,11 @@ public class SSRFController {
 		return okHttp3(url);
 	}
 
+	@PostMapping(value = "/xml/okHttp3.do", consumes = APPLICATION_XML_VALUE)
+	public ResponseEntity<byte[]> xmlOkHttp3(@RequestBody Map<String, Object> map) throws Exception {
+		return okHttp3((String) ((Map) map.get("root")).get("url"));
+	}
+
 	@PostMapping(value = "/json/okHttp3.do", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<byte[]> jsonOkHttp3(@RequestBody Map<String, Object> map) throws Exception {
 		return okHttp3((String) ((Map) map.get("root")).get("url"));
@@ -123,6 +134,11 @@ public class SSRFController {
 	@PostMapping("/header/httpClient.do")
 	public ResponseEntity<byte[]> headerHttpClient(@RequestHeader(name = "url") String url) throws Exception {
 		return httpClient(url);
+	}
+
+	@PostMapping(value = "/xml/httpClient.do", consumes = APPLICATION_XML_VALUE)
+	public ResponseEntity<byte[]> xmlHttpClient(@RequestBody Map<String, Object> map) throws Exception {
+		return httpClient((String) ((Map) map.get("root")).get("url"));
 	}
 
 	@PostMapping(value = "/json/httpClient.do", consumes = APPLICATION_JSON_VALUE)

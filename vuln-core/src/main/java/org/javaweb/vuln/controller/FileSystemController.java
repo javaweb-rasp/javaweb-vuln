@@ -15,6 +15,7 @@ import java.util.Map;
 
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+import static org.springframework.util.MimeTypeUtils.APPLICATION_XML_VALUE;
 
 /**
  * 文件系统漏洞测试
@@ -201,6 +202,11 @@ public class FileSystemController {
 		return fileInputStreamReadFile(file);
 	}
 
+	@PostMapping(value = "/xml/fileInputStreamReadFile.do", consumes = APPLICATION_XML_VALUE)
+	public ResponseEntity<byte[]> xmlFileInputStreamReadFile(@RequestBody Map<String, Object> map) throws IOException {
+		return fileInputStreamReadFile((String) map.get("file"));
+	}
+
 	@PostMapping(value = "/json/fileInputStreamReadFile.do", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<byte[]> jsonFileInputStreamReadFile(@RequestBody Map<String, Object> map) throws IOException {
 		return fileInputStreamReadFile((String) map.get("file"));
@@ -235,6 +241,13 @@ public class FileSystemController {
 		return randomAccessFileReadFile(file);
 	}
 
+	@PostMapping(value = "/xml/randomAccessFileReadFile.do", consumes = APPLICATION_XML_VALUE)
+	public ResponseEntity<byte[]> xmlRandomAccessFileReadFile(
+			@RequestBody Map<String, Object> map) throws IOException {
+
+		return randomAccessFileReadFile((String) map.get("file"));
+	}
+
 	@PostMapping(value = "/json/randomAccessFileReadFile.do", consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<byte[]> jsonRandomAccessFileReadFile(
 			@RequestBody Map<String, Object> map) throws IOException {
@@ -265,6 +278,11 @@ public class FileSystemController {
 	@PostMapping("/header/filesReadAllBytes.do")
 	public ResponseEntity<byte[]> headerFilesReadAllBytes(@RequestHeader(name = "file") String file) throws Exception {
 		return filesReadAllBytes(file);
+	}
+
+	@PostMapping(value = "/xml/filesReadAllBytes.do", consumes = APPLICATION_XML_VALUE)
+	public ResponseEntity<byte[]> xmlFilesReadAllBytes(@RequestBody Map<String, Object> map) throws Exception {
+		return filesReadAllBytes((String) map.get("file"));
 	}
 
 	@PostMapping(value = "/json/filesReadAllBytes.do", consumes = APPLICATION_JSON_VALUE)
@@ -303,6 +321,11 @@ public class FileSystemController {
 		return fileOutStreamWriteFile(file, content);
 	}
 
+	@PostMapping(value = "/xml/fileOutStreamWriteFile.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, String> xmlFileOutStreamWriteFile(@RequestBody Map<String, Object> map) throws Exception {
+		return fileOutStreamWriteFile((String) map.get("file"), (String) map.get("content"));
+	}
+
 	@PostMapping(value = "/json/fileOutStreamWriteFile.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonFileOutStreamWriteFile(@RequestBody Map<String, Object> map) throws Exception {
 		return fileOutStreamWriteFile((String) map.get("file"), (String) map.get("content"));
@@ -337,6 +360,11 @@ public class FileSystemController {
 			@RequestHeader(name = "content") String content) throws Exception {
 
 		return randomAccessFileWriteFile(file, content);
+	}
+
+	@PostMapping(value = "/xml/randomAccessFileWriteFile.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, String> xmlRandomAccessFileWriteFile(@RequestBody Map<String, Object> map) throws Exception {
+		return randomAccessFileWriteFile((String) map.get("file"), (String) map.get("content"));
 	}
 
 	@PostMapping(value = "/json/randomAccessFileWriteFile.do", consumes = APPLICATION_JSON_VALUE)
@@ -375,8 +403,13 @@ public class FileSystemController {
 		return filesWrite(file, content);
 	}
 
+	@PostMapping(value = "/xml/filesWrite.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, String> xmlFilesWrite(@RequestBody Map<String, Object> map) throws Exception {
+		return filesWrite((String) map.get("file"), (String) map.get("content"));
+	}
+
 	@PostMapping(value = "/json/filesWrite.do", consumes = APPLICATION_JSON_VALUE)
-	public Map<String, String> jsonfilesWrite(@RequestBody Map<String, Object> map) throws Exception {
+	public Map<String, String> jsonFilesWrite(@RequestBody Map<String, Object> map) throws Exception {
 		return filesWrite((String) map.get("file"), (String) map.get("content"));
 	}
 
@@ -403,6 +436,11 @@ public class FileSystemController {
 	@PostMapping("/header/deleteFile.do")
 	public Map<String, String> headerDeleteFile(@RequestHeader(name = "file") String file) throws IOException {
 		return fileDelete(file);
+	}
+
+	@PostMapping(value = "/xml/deleteFile.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, String> xmlDeleteFile(@RequestBody Map<String, Object> map) throws IOException {
+		return fileDelete((String) map.get("file"));
 	}
 
 	@PostMapping(value = "/json/deleteFile.do", consumes = APPLICATION_JSON_VALUE)
@@ -441,6 +479,11 @@ public class FileSystemController {
 		return renameTo(file, dest);
 	}
 
+	@PostMapping(value = "/xml/renameTo.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, String> xmlRenameTo(@RequestBody Map<String, Object> map) throws Exception {
+		return renameTo((String) map.get("file"), (String) map.get("dest"));
+	}
+
 	@PostMapping(value = "/json/renameTo.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonRenameTo(@RequestBody Map<String, Object> map) throws Exception {
 		return renameTo((String) map.get("file"), (String) map.get("dest"));
@@ -477,6 +520,11 @@ public class FileSystemController {
 		return filesCopy(file, dest);
 	}
 
+	@PostMapping(value = "/xml/filesCopy.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, String> xmlFilesCopy(@RequestBody Map<String, Object> map) throws Exception {
+		return filesCopy((String) map.get("file"), (String) map.get("dest"));
+	}
+
 	@PostMapping(value = "/json/filesCopy.do", consumes = APPLICATION_JSON_VALUE)
 	public Map<String, String> jsonFilesCopy(@RequestBody Map<String, Object> map) throws Exception {
 		return filesCopy((String) map.get("file"), (String) map.get("dest"));
@@ -505,6 +553,11 @@ public class FileSystemController {
 	@PostMapping("/header/listFile.do")
 	public Map<String, String[]> headerListFile(@RequestHeader(name = "dir") String dir) {
 		return listFile(dir);
+	}
+
+	@PostMapping(value = "/xml/listFile.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, String[]> xmlListFile(@RequestBody Map<String, Object> map) {
+		return listFile((String) map.get("dir"));
 	}
 
 	@PostMapping(value = "/json/listFile.do", consumes = APPLICATION_JSON_VALUE)

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1304085b-b957-4178-8dd9-763d7f6c0433",
+		"_postman_id": "2ddcec43-c1ba-46d7-89ef-a81da5457a1e",
 		"name": "RASP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -104,6 +104,24 @@
 											}
 										},
 										"url": "http://{{base_url}}/FileSystem/json/fileInputStreamReadFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "XML请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "<root><file>/usr/share/locale/locale.alias</file></root>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": "http://{{base_url}}/FileSystem/xml/fileInputStreamReadFile.do"
 									},
 									"response": []
 								},
@@ -225,6 +243,24 @@
 									"response": []
 								},
 								{
+									"name": "XML请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "<root><file>/usr/share/locale/locale.alias</file></root>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": "http://{{base_url}}/FileSystem/xml/randomAccessFileReadFile.do"
+									},
+									"response": []
+								},
+								{
 									"name": "Form请求",
 									"request": {
 										"method": "POST",
@@ -338,6 +374,24 @@
 											}
 										},
 										"url": "http://{{base_url}}/FileSystem/json/filesReadAllBytes.do"
+									},
+									"response": []
+								},
+								{
+									"name": "XML请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "<root><file>/usr/share/locale/locale.alias</file></root>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": "http://{{base_url}}/FileSystem/xml/filesReadAllBytes.do"
 									},
 									"response": []
 								},
@@ -478,6 +532,24 @@
 									"response": []
 								},
 								{
+									"name": "XML请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "<root><file>test.jsp</file><content>test</content></root>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": "http://{{base_url}}/FileSystem/xml/fileOutStreamWriteFile.do"
+									},
+									"response": []
+								},
+								{
 									"name": "Form请求",
 									"request": {
 										"method": "POST",
@@ -610,6 +682,24 @@
 											}
 										},
 										"url": "http://{{base_url}}/FileSystem/json/randomAccessFileWriteFile.do"
+									},
+									"response": []
+								},
+								{
+									"name": "XML请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "<root><file>test.jsp</file><content>test</content></root>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": "http://{{base_url}}/FileSystem/xml/randomAccessFileWriteFile.do"
 									},
 									"response": []
 								},
@@ -750,6 +840,24 @@
 									"response": []
 								},
 								{
+									"name": "XML请求",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "<root><file>test.jsp</file><content>test</content></root>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": "http://{{base_url}}/FileSystem/xml/filesWrite.do"
+									},
+									"response": []
+								},
+								{
 									"name": "Form请求",
 									"request": {
 										"method": "POST",
@@ -870,6 +978,24 @@
 									}
 								},
 								"url": "http://{{base_url}}/FileSystem/json/deleteFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root><file>./1.txt</file></root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/FileSystem/xml/deleteFile.do"
 							},
 							"response": []
 						},
@@ -1001,6 +1127,24 @@
 									}
 								},
 								"url": "http://{{base_url}}/FileSystem/json/renameTo.do"
+							},
+							"response": []
+						},
+						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root><file>1.txt</file><dest>1.jsp</dest></root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/FileSystem/xml/renameTo.do"
 							},
 							"response": []
 						},
@@ -1141,6 +1285,24 @@
 							"response": []
 						},
 						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root><file>1.txt</file><dest>1.jsp</dest></root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/FileSystem/xml/filesCopy.do"
+							},
+							"response": []
+						},
+						{
 							"name": "Form请求",
 							"request": {
 								"method": "POST",
@@ -1259,6 +1421,24 @@
 									}
 								},
 								"url": "http://{{base_url}}/FileSystem/json/listFile.do"
+							},
+							"response": []
+						},
+						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root><dir>/usr</dir></root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/FileSystem/xml/listFile.do"
 							},
 							"response": []
 						},
@@ -1385,6 +1565,24 @@
 							"response": []
 						},
 						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root><cmd>whoami</cmd></root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/CMD/xml/cmd.do"
+							},
+							"response": []
+						},
+						{
 							"name": "Form请求",
 							"request": {
 								"method": "POST",
@@ -1498,6 +1696,24 @@
 									}
 								},
 								"url": "http://{{base_url}}/CMD/json/unixProcess.do"
+							},
+							"response": []
+						},
+						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root><cmd>whoami</cmd></root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/CMD/xml/unixProcess.do"
 							},
 							"response": []
 						},
@@ -1621,6 +1837,24 @@
 					"response": []
 				},
 				{
+					"name": "XML请求",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<root><username>'/**/or/**/username='root</username></root>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": "http://{{base_url}}/SQL/xml/sql.do"
+					},
+					"response": []
+				},
+				{
 					"name": "Form请求",
 					"request": {
 						"method": "POST",
@@ -1738,6 +1972,24 @@
 					"response": []
 				},
 				{
+					"name": "XML请求",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<root><config><id>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</id></config></root>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": "http://{{base_url}}/XSS/xml/xss.do"
+					},
+					"response": []
+				},
+				{
 					"name": "Form请求",
 					"request": {
 						"method": "POST",
@@ -1821,7 +2073,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{base_url}}/rasp.action?redirect:https://www.baidu.com/",
+							"raw": "http://{{base_url}}/rasp.action?redirect:https://www.baidu.com/=",
 							"protocol": "http",
 							"host": [
 								"{{base_url}}"
@@ -2359,6 +2611,24 @@
 							"response": []
 						},
 						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<document><root><url>https://www.baidu.com</url></root></document>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/SSRF/xml/httpConnection.do"
+							},
+							"response": []
+						},
+						{
 							"name": "Form请求",
 							"request": {
 								"method": "POST",
@@ -2476,6 +2746,24 @@
 							"response": []
 						},
 						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<document><root><url>https://www.baidu.com</url></root></document>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/SSRF/xml/okHttp3.do"
+							},
+							"response": []
+						},
+						{
 							"name": "Form请求",
 							"request": {
 								"method": "POST",
@@ -2589,6 +2877,24 @@
 									}
 								},
 								"url": "http://{{base_url}}/SSRF/json/httpClient.do"
+							},
+							"response": []
+						},
+						{
+							"name": "XML请求",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<document><root><url>https://www.baidu.com</url></root></document>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://{{base_url}}/SSRF/xml/httpClient.do"
 							},
 							"response": []
 						},

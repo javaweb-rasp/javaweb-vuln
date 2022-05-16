@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+import static org.springframework.util.MimeTypeUtils.APPLICATION_XML_VALUE;
 
 @RestController
 @RequestMapping("/SQL/")
@@ -40,6 +41,11 @@ public class SQLInjectionController {
 	@PostMapping("/header/sql.do")
 	public Map<String, Object> headerSQL(@RequestHeader(name = "username") String username) {
 		return getSysUserByUsername(username);
+	}
+
+	@PostMapping(value = "/xml/sql.do", consumes = APPLICATION_XML_VALUE)
+	public Map<String, Object> xmlSQL(@RequestBody Map<String, Object> map) {
+		return getSysUserByUsername((String) map.get("username"));
 	}
 
 	@PostMapping(value = "/json/sql.do", consumes = APPLICATION_JSON_VALUE)
