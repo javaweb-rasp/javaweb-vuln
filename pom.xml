@@ -36,6 +36,7 @@
         <jackson.version>2.8.0</jackson.version>
         <javaweb.version>2.0.3</javaweb.version>
         <logback.version>1.2.3</logback.version>
+        <velocity.version>1.7</velocity.version>
         <hessian.version>4.0.66</hessian.version>
         <xstream.version>1.4.13</xstream.version>
         <HikariCP.version>3.4.1</HikariCP.version>
