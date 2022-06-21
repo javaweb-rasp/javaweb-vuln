@@ -1,9 +1,0 @@
-POST http://localhost:8000/modules/json/json.jsp
-Content-Type: application/json
-User-Agent: java
-
-{
-  "id": "1",
-  "username": "root",
-  "password": "123456"
-}
