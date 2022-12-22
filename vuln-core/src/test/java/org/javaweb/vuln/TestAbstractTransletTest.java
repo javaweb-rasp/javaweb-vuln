@@ -3,7 +3,7 @@ package org.javaweb.vuln;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.ParserConfig;
-import com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl;
+import org.apache.xalan.xsltc.trax.TemplatesImpl;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;

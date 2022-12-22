@@ -1,10 +1,10 @@
 package org.javaweb.vuln;
 
-import com.sun.org.apache.xalan.internal.xsltc.DOM;
-import com.sun.org.apache.xalan.internal.xsltc.TransletException;
-import com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet;
-import com.sun.org.apache.xml.internal.dtm.DTMAxisIterator;
-import com.sun.org.apache.xml.internal.serializer.SerializationHandler;
+import org.apache.xalan.xsltc.DOM;
+import org.apache.xalan.xsltc.TransletException;
+import org.apache.xalan.xsltc.runtime.AbstractTranslet;
+import org.apache.xml.dtm.DTMAxisIterator;
+import org.apache.xml.serializer.SerializationHandler;
 
 public class TestAbstractTranslet extends AbstractTranslet implements Runnable {
 

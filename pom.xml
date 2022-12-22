@@ -73,6 +73,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mysql-connector-java.version>5.1.49</mysql-connector-java.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
         <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
         <jakarta.persistence-api.version>3.0.0</jakarta.persistence-api.version>
